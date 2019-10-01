@@ -1,0 +1,111 @@
+name: MiraclePvP
+version: 0.2.1-SNAPSHOT
+main: me.sahustei.miraclepvp.Main
+author: Sahustei
+website: www.sahustei.nl
+description: An Advanced KitPvP System
+commands:
+  unbreakable:
+    aliases: [unbk]
+    description: Unbreakable command
+  cosmotokens:
+    aliases: [cosmo,tokens,ct]
+    description: CosmoTokens command
+  rename:
+    description: Rename a item
+  trail:
+    description: Trail command
+  cosmetics:
+    description: Cosmetics Command
+    aliases: [cosmetic,cosmo]
+  suffix:
+    description: Suffix Command
+  freeze:
+    description: Freeze players
+  chatcolor:
+    description: ChatColor command
+  namecolor:
+    description: NameColor command
+  stats:
+    description: Stats command
+    aliases: [status,information,info]
+  kitpvp:
+    description: KitPvP command
+    aliases: [kp]
+  prefix:
+    description: Prefix command
+  kit:
+    description: Kit command
+permissions:
+  miraclepvp.*:
+    description: Get all permissions
+    default: OP
+    children:
+      miraclepvp.stats.*: true
+      miraclepvp.cosmetic.*: true
+      miraclepvp.rename: true
+      miraclepvp.unbreakable: true
+      miraclepvp.kitpvp.*: true
+      miraclepvp.prefix: true
+      miraclepvp.kit: true
+  miraclepvp.stats.*:
+    description: Get all permissions for the stats command
+    default: OP
+    children:
+      miraclepvp.stats: true
+      miraclepvp.stats.others: true
+  miraclepvp.cosmetic.*:
+    description: Get all permissions for the cosmetics system
+    default: OP
+    children:
+      miraclepvp.cosmetic.chatcolor: true
+      miraclepvp.cosmetic.namecolor: true
+      miraclepvp.cosmetic.cosmotokens: true
+      miraclepvp.cosmetic.suffix: true
+      miraclepvp.cosmetic.trail: true
+      miraclepvp.cosmetic.rename: true
+  miraclepvp.kitpvp.*:
+    description: Get all permissions to manage the kitpvp
+    default: OP
+    children:
+      miraclepvp.kitpvp.setlobby: true
+      miraclepvp.kitpvp.lobby: true
+  miraclepvp.stats:
+    description: Get permissions for the stats command
+    default: OP
+  miraclepvp.stats.others:
+    description: Get permissions to watch other players stats
+    default: OP
+  miraclepvp.cosmetic.chatcolor:
+    description: Get the permission for the chatcolor command
+    default: OP
+  miraclepvp.cosmetic.namecolor:
+    description: Get the permission for the namecolor command
+    default: OP
+  miraclepvp.cosmetic.cosmotokens:
+    description: Get the permission to manage players cosmotokens
+    default: OP
+  miraclepvp.cosmetic.suffix:
+    description: Get the permission for the suffix command
+    default: OP
+  miraclepvp.cosmetic.trail:
+    description: Get the permission for the trail command
+    default: OP
+  miraclepvp.rename:
+    description: Get the permission to rename items
+    default: OP
+  miraclepvp.unbreakable:
+    description: Get the permission to make items unbreakable
+    default: OP
+  miraclepvp.prefix:
+    description: Get the permission to manage prefixes
+    default: OP
+  miraclepvp.kit:
+    description: Get the permission to manage kits
+    default: OP
+  miraclepvp.kitpvp.setlobby:
+    description: Get the permission to set the lobby location
+    default: OP
+  miraclepvp.kitpvp.lobby:
+    description: Get the permission to execute the lobby command
+    default: OP

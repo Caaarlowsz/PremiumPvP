@@ -1,0 +1,11 @@
+lobby:
+  location: new;0.0;0.0;0.0;0.0;0.0;
+sign:
+  reloaddelay: 300
+broadcast:
+  servername: KitPvP
+  delay: 900
+  messages:
+    - 'Set endless messages <3 in the config'
+    - '&c&m-----------------------------------------------------<br>&f%server_name%<br> <br>&7Test message<br>&c&m-----------------------------------------------------'
+

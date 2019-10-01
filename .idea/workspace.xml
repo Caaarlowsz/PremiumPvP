@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MiraclePvP:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="sanchyro@live.nl" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="AntiCombatLog" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1PggapoZmbl1gmSy34sIhlqJOoK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="anticombatlog" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/master/SahusteiCore" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.sahustei.miraclepvp.inventories.listeners" />
+      <recent name="me.sahustei.miraclepvp.commands.subcommands.kit" />
+      <recent name="me.sahustei.miraclepvp.commands.subcommands.prefix" />
+      <recent name="me.sahustei.miraclepvp.data.suffix" />
+      <recent name="me.sahustei.miraclepvp.utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="" />
+      <created>1566301219104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566301219104</updated>
+      <workItem from="1568535861573" duration="39000" />
+      <workItem from="1568535913330" duration="7388000" />
+      <workItem from="1568545478484" duration="18931000" />
+      <workItem from="1568651187648" duration="10574000" />
+      <workItem from="1568734742292" duration="19540000" />
+      <workItem from="1568803366332" duration="4435000" />
+      <workItem from="1568870122090" duration="7592000" />
+      <workItem from="1568902442407" duration="5553000" />
+      <workItem from="1568910166303" duration="2114000" />
+      <workItem from="1568924635918" duration="6370000" />
+      <workItem from="1568982114697" duration="2999000" />
+      <workItem from="1568990533907" duration="10012000" />
+      <workItem from="1569006414834" duration="6640000" />
+      <workItem from="1569056396716" duration="11284000" />
+      <workItem from="1569073939179" duration="79000" />
+      <workItem from="1569091531161" duration="681000" />
+      <workItem from="1569137857640" duration="915000" />
+      <workItem from="1569170610137" duration="757000" />
+      <workItem from="1569328895520" duration="3327000" />
+      <workItem from="1569422263464" duration="655000" />
+      <workItem from="1569426476341" duration="11796000" />
+      <workItem from="1569610045676" duration="3778000" />
+      <workItem from="1569658390507" duration="6397000" />
+      <workItem from="1569676935992" duration="2215000" />
+      <workItem from="1569694293276" duration="5946000" />
+      <workItem from="1569769505773" duration="17678000" />
+      <workItem from="1569817169513" duration="6687000" />
+      <workItem from="1569848042679" duration="3286000" />
+      <workItem from="1569905626373" duration="2448000" />
+      <workItem from="1569931107303" duration="6197000" />
+      <workItem from="1569943323875" duration="684000" />
+      <workItem from="1569944023940" duration="80000" />
+      <workItem from="1569944118587" duration="1709000" />
+      <workItem from="1569947915859" duration="148000" />
+      <workItem from="1569949378483" duration="183000" />
+      <workItem from="1569949576787" duration="202000" />
+      <workItem from="1569949793575" duration="662000" />
+      <workItem from="1569950483258" duration="125000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
