@@ -1,16 +1,22 @@
 package me.sahustei.miraclepvp.listeners.player;
 
 import me.sahustei.miraclepvp.data.Data;
+import me.sahustei.miraclepvp.data.kit.Kit;
 import me.sahustei.miraclepvp.data.user.User;
 import me.sahustei.miraclepvp.inventories.CosmeticsGUI;
 import me.sahustei.miraclepvp.inventories.KitGUI;
 import me.sahustei.miraclepvp.objects.CosmeticType;
+import me.sahustei.miraclepvp.objects.hasKit;
+import me.sahustei.miraclepvp.utils.TeleportUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+
+import static me.sahustei.miraclepvp.bukkit.Text.color;
 
 public class playerInventory implements Listener {
 
@@ -22,6 +28,20 @@ public class playerInventory implements Listener {
         if(user == null) return;
         switch(event.getItem().getType()){
             case COMPASS:
+                if(user.isQuickSelect() && (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK))){
+                    if (user.getPreviousKit() == null) {
+                        player.sendMessage(color("&cWe failed to get your previous kit, please select a kit."));
+                        break;
+                    }
+                    Kit kit = Data.getKit(user.getPreviousKit());
+                    player.sendMessage(color("&aYou've selected the " + kit.getName() + " kit."));
+                    if(user.isAutoDeploy()) {
+                        TeleportUtil.getTeleport(player);
+                        kit.giveKit(player);
+                        player.setMetadata("kit", new hasKit());
+                    }
+                    break;
+                }
                 player.openInventory(KitGUI.getInventory(player, false, 1));
                 break;
             case CHEST:

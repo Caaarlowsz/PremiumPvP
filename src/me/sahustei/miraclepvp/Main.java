@@ -1,7 +1,5 @@
 package me.sahustei.miraclepvp;
 
-import me.sahustei.miraclepvp.bukkit.ItemstackFactory;
-import me.sahustei.miraclepvp.bukkit.SkullBuilder;
 import me.sahustei.miraclepvp.commands.*;
 import me.sahustei.miraclepvp.data.Config;
 import me.sahustei.miraclepvp.data.Data;
@@ -16,13 +14,6 @@ import me.sahustei.miraclepvp.objects.CosmeticType;
 import me.sahustei.miraclepvp.objects.Item;
 import me.sahustei.miraclepvp.utils.*;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.SkullType;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.Sign;
-import org.bukkit.block.Skull;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -70,8 +61,8 @@ public final class Main extends JavaPlugin {
                 new playerStatusChange(),
                 new SignListener(),
                 new playerBlockChange(),
-                new KitListener()
-                //new playerInventory();
+                new KitListener(),
+                new playerInventory()
         );
         getLogger().info("There are " + eventSize + " events loaded!");
 

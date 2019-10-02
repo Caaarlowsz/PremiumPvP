@@ -38,9 +38,9 @@ public class KitGUI implements Listener {
             inv.setItem(i, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 7).setDisplayName(" "));
         ItemStack selected = new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 5).setDisplayName(" ");
         ItemStack notSelected = new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 14).setDisplayName(" ");
-        inv.setItem(9, selected);
+        inv.setItem(9, user.isAutoDeploy() ? selected : notSelected);
         inv.setItem(10, new ItemstackFactory(Material.GOLDEN_APPLE).setDisplayName("&5Auto Deployment").addLoreLine("&7Automatic Deployment spawns you in the game directly after selecting a kit."));
-        inv.setItem(18, notSelected);
+        inv.setItem(18, user.isQuickSelect() ? selected : notSelected);
         inv.setItem(19, new ItemstackFactory(Material.COMPASS).setDisplayName("&5Quick Select").addLoreLine("&7When you have Quick Select on and left click with the").addLoreLine("&7selector in your hand, you will select your last selected kit."));
         inv.setItem(53, new ItemstackFactory(Material.CHEST).setDisplayName("&5Editor").addLoreLine("&7Click here to edit a kit layout"));
 

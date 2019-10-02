@@ -1,7 +1,8 @@
 package me.sahustei.miraclepvp.data.kit;
 
-import gnu.trove.strategy.IdentityHashingStrategy;
+import me.sahustei.miraclepvp.data.Data;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.text.SimpleDateFormat;
@@ -108,5 +109,27 @@ public class Kit {
 
     public void setArmor(HashMap<ArmorSlot, KitItem> armor) {
         this.armor = armor;
+    }
+
+    public void giveKit(Player p) {
+        Kit kit = Data.getKit(uuid);
+        if (kit != null) {
+            p.getInventory().clear();
+            p.getInventory().setArmorContents(null);
+
+            ItemStack helmet = kit.armor.get(ArmorSlot.HELMET).getItemStack();
+            ItemStack chestplate = kit.armor.get(ArmorSlot.CHESTPLATE).getItemStack();
+            ItemStack leggings = kit.armor.get(ArmorSlot.LEGGING).getItemStack();
+            ItemStack boots = kit.armor.get(ArmorSlot.BOOTS).getItemStack();
+
+            for (int i = 0; i < kit.getItems().size(); i++) {
+                p.getInventory().setItem(i, kit.getItems().get(i).getItemStack());
+            }
+
+            if(helmet != null) p.getInventory().setHelmet(helmet);
+            if(chestplate != null) p.getInventory().setChestplate(chestplate);
+            if(leggings != null) p.getInventory().setLeggings(leggings);
+            if(boots != null) p.getInventory().setBoots(boots);
+        }
     }
 }

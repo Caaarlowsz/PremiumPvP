@@ -29,7 +29,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/hasKit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/TeleportUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/KitGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/KitGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/listeners/KitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/listeners/KitListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/kit/Kit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/kit/Kit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/KitGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/KitGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/listeners/KitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/listeners/KitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/Board.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,25 +75,39 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="S" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1PggapoZmbl1gmSy34sIhlqJOoK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="anticombatlog" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/master/SahusteiCore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spigot1.8.8.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="me.sahustei.miraclepvp.inventories.listeners" />
       <recent name="me.sahustei.miraclepvp.commands.subcommands.kit" />
@@ -79,9 +115,9 @@
       <recent name="me.sahustei.miraclepvp.data.suffix" />
       <recent name="me.sahustei.miraclepvp.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -144,6 +180,9 @@
       <workItem from="1569949576787" duration="202000" />
       <workItem from="1569949793575" duration="662000" />
       <workItem from="1569950483258" duration="125000" />
+      <workItem from="1569950703159" duration="1512000" />
+      <workItem from="1569958202545" duration="401000" />
+      <workItem from="1570013922311" duration="8888000" />
     </task>
     <servers />
   </component>

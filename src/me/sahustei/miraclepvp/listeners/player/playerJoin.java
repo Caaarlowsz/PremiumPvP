@@ -46,8 +46,9 @@ public class playerJoin implements Listener {
     public static void handleSpawn(Player player){
         Board.showScoreboard(player);
         if(player.hasMetadata("vanished")) return;
-            if(Config.getLobbyLoc().getY() > 0)
+        if(Config.getLobbyLoc().getY() > 0)
             player.teleport(Config.getLobbyLoc());
+        player.removeMetadata("kit", Main.getInstance());
         player.getInventory().clear();
         Item.types.forEach(item -> player.getInventory().setItem(item.getPosition(), item.getItem()));
     }

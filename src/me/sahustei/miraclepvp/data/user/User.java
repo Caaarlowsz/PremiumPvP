@@ -24,7 +24,8 @@ public class User {
             activeSuffix,
             activeTrail,
             activeChatcolor,
-            activeNamecolor;
+            activeNamecolor,
+            previousKit;
     public String lastVersion, firstJoin, lastJoin, lastCosmeticType;
     public Integer tokens, onlineTime, kills, deaths, coins, level, experience, killstreak, bestkillstreak;
     public List<UUID> trailsList,
@@ -32,7 +33,7 @@ public class User {
             chatcolorsList,
             namecolorsList,
             kitsList;
-    public Boolean cosmeticWasShop;
+    public Boolean cosmeticWasShop, autoDeploy, quickSelect;
 
     public User(UUID uuid){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -45,6 +46,7 @@ public class User {
         this.activeTrail = null;
         this.activeChatcolor = null;
         this.activeNamecolor = null;
+        this.previousKit = null;
         this.trailsList = new ArrayList<>();
         this.suffixesList = new ArrayList<>();
         this.chatcolorsList = new ArrayList<>();
@@ -61,6 +63,8 @@ public class User {
         this.killstreak = Integer.valueOf(0);
         this.bestkillstreak = Integer.valueOf(0);
         this.cosmeticWasShop = false;
+        this.quickSelect = true;
+        this.autoDeploy = false;
         this.lastCosmeticType = null;
     }
 
@@ -82,6 +86,30 @@ public class User {
 
     public Integer getTokens() {
         return tokens;
+    }
+
+    public UUID getPreviousKit() {
+        return previousKit;
+    }
+
+    public void setPreviousKit(UUID previousKit) {
+        this.previousKit = previousKit;
+    }
+
+    public Boolean isAutoDeploy() {
+        return autoDeploy;
+    }
+
+    public Boolean isQuickSelect() {
+        return quickSelect;
+    }
+
+    public void setQuickSelect(Boolean quickSelect) {
+        this.quickSelect = quickSelect;
+    }
+
+    public void setAutoDeploy(Boolean autoDeploy) {
+        this.autoDeploy = autoDeploy;
     }
 
     public Integer getOnlineTime() {
@@ -261,6 +289,7 @@ public class User {
     }
 
     public String getLastCosmeticType() {
+        if(lastCosmeticType == null) return "Suffix";
         return lastCosmeticType;
     }
 

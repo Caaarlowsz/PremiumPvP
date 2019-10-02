@@ -51,14 +51,14 @@ public class Board {
         o.getScore(name).setScore(score);
     }
 
-    //TODO Rank systeem prefix scoreboard
+    //TODO Sorteren, andere team naampies?
     public static void setTabPrefix(Player player) {
         Scoreboard board = player.getScoreboard();
         for (Player all : Bukkit.getOnlinePlayers()) {
             Integer weight = Data.getUser(all).getPrefix() == null ? 999 : Data.getPrefix(Data.getUser(all).getPrefix()).getWeight();
-            Team team = board.getTeam(weight + all.getName()) == null ? board.registerNewTeam(weight + all.getName()) : board.getTeam(weight + all.getName());
+            Team team = board.getTeam(all.getName()) == null ? board.registerNewTeam(all.getName()) : board.getTeam(all.getName());
 
-            String prefix = Data.getUser(all).getPrefix() == null ? "" : Data.getPrefix(Data.getUser(all).getPrefix()).getPrefix() + " ";
+            String prefix = Data.getUser(all).getPrefix() == null ? "&0" : weight + Data.getPrefix(Data.getUser(all).getPrefix()).getPrefix() + " ";
             String nameColor = Data.getUser(all).getActiveNamecolor() == null ? "&7" : Data.getNamecolor(Data.getUser(all).getActiveNamecolor()).getColor().toString();
             String suffix = Data.getUser(all).getActiveSuffix() == null ? "" : " " + Data.getSuffix(Data.getUser(all).getActiveSuffix());
 
@@ -70,15 +70,7 @@ public class Board {
     }
 
     public static void updateHP(Player player){
-//        for(Player all : Bukkit.getOnlinePlayers()) {
-//            Scoreboard score;
-//            score = all.getScoreboard();
-//            Objective objective = score.getObjective(player.getName()) == null ? score.registerNewObjective(player.getName(), "health") : score.getObjective(player.getName());
-//            objective.setDisplayName(color("&cH &f" + Math.round(player.getHealth())));
-//            if (objective.getDisplaySlot() != DisplaySlot.BELOW_NAME) {
-//                objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-//            }
-//        }
+        //TODO Show HP
     }
 
     public static void showScoreboard(Player p) {
