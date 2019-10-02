@@ -1,5 +1,7 @@
 lobby:
   location: new;0.0;0.0;0.0;0.0;0.0;
+game:
+  location: new;0.0;0.0;0.0;0.0;0.0;
 sign:
   reloaddelay: 300
 broadcast:
@@ -7,5 +9,5 @@ broadcast:
   delay: 900
   messages:
     - 'Set endless messages <3 in the config'
-    - '&c&m-----------------------------------------------------<br>&f%server_name%<br> <br>&7Test message<br>&c&m-----------------------------------------------------'
+    - '&d&m-----------------------------------------------------<br>&f%server_name%<br> <br>&7Test message<br>&d&m-----------------------------------------------------'
 
