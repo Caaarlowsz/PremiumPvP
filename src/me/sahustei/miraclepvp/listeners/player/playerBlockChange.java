@@ -9,13 +9,13 @@ public class playerBlockChange implements Listener {
 
     @EventHandler
     public void onBreak(BlockBreakEvent event){
-        if(event.getPlayer().hasMetadata("kit"))
+        if(!(event.getPlayer().hasMetadata("build")))
             event.setCancelled(true);
     }
 
     @EventHandler
     public void onBreak(BlockPlaceEvent event){
-        if(event.getPlayer().hasMetadata("kit"))
+        if(!(event.getPlayer().hasMetadata("build")))
             event.setCancelled(true);
     }
 }

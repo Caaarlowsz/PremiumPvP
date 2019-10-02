@@ -23,9 +23,11 @@ public class playerInventory implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
         if(event.getPlayer().hasMetadata("kit")) return;
+        if(event.getPlayer().hasMetadata("build")) return;
         Player player = event.getPlayer();
         User user = Data.getUser(player);
         if(user == null) return;
+        if(event.getItem() == null || event.getItem().getType() == null) return;
         switch(event.getItem().getType()){
             case COMPASS:
                 if(user.isQuickSelect() && (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK))){
@@ -58,14 +60,9 @@ public class playerInventory implements Listener {
 
     @EventHandler
     public void onMove(InventoryClickEvent event){
-        if(event.getWhoClicked().hasMetadata("kit")) return;
+        if(event.getWhoClicked().hasMetadata("kit") || event.getWhoClicked().hasMetadata("build")) return;
         if(!(event.getWhoClicked() instanceof Player)) return;
         if(!(event.getClickedInventory().equals(event.getWhoClicked().getInventory()))) return;
-        event.setCancelled(true);
-    }
-
-    @EventHandler
-    public void onDrop(PlayerDropItemEvent event){
         event.setCancelled(true);
     }
 }

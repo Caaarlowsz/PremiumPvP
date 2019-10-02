@@ -70,6 +70,8 @@ permissions:
     children:
       miraclepvp.kitpvp.setlobby: true
       miraclepvp.kitpvp.lobby: true
+      miraclepvp.kitpvp.setmap: true
+      miraclepvp.kitpvp.buildmode: true
   miraclepvp.stats:
     description: Get permissions for the stats command
     default: OP
@@ -108,4 +110,10 @@ permissions:
     default: OP
   miraclepvp.kitpvp.lobby:
     description: Get the permission to execute the lobby command
+    default: OP
+  miraclepvp.kitpvp.setmap:
+    description: Get the permission to set the map center location
+    default: OP
+  miraclepvp.kitpvp.buildmode:
+    description: Get the permission to toggle buildmode
     default: OP

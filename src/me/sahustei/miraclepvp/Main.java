@@ -28,7 +28,6 @@ public final class Main extends JavaPlugin {
 
     public String version = "0.2.1-SNAPSHOT";
 
-    public ArrayList<Player> buildMode = new ArrayList<>();
     public HashMap<Player, Integer> combatTimer = new HashMap<>();
     public HashMap<UUID, Trails> playerTrails = new HashMap<>();
 
@@ -86,6 +85,7 @@ public final class Main extends JavaPlugin {
         getLogger().info("Cosmetic Types have been loaded");
 
         Item.load();
+        //
         getLogger().info("Items have been loaded");
 
         Bukkit.getOnlinePlayers().stream().forEach(player -> {
@@ -93,7 +93,7 @@ public final class Main extends JavaPlugin {
                 User user = new User(player.getUniqueId());
                 Data.users.add(user);
             }
-            //playerJoin.handleJoin(player);
+            playerJoin.handleJoin(player);
         });
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> Bukkit.getOnlinePlayers().stream().forEach(player -> {
@@ -109,7 +109,7 @@ public final class Main extends JavaPlugin {
             for (int i = 0; i < timeLeft; i++) {
                 timer = timer + "&a|";
             }
-            for (int i = 0; i < timeRan; i++) {
+            for (int i = 1; i < timeRan; i++) {
                 timer = timer + "&7|";
             }
             timer = timer + "&8]";

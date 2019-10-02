@@ -19,6 +19,11 @@ public class playerDamage implements Listener {
             event.setCancelled(true);
             return;
         }
+        if(event.getDamager().hasMetadata("build")){
+            event.getDamager().sendMessage(color("&cYou are still in buildmode, turn buildmode off before getting into a battle!"));
+            event.setCancelled(true);
+            return;
+        }
         if(event.isCancelled()) return;
         if(event.getDamage() <= 0) return;
         Main.getInstance().combatTimer.put((Player)event.getDamager(), 10);

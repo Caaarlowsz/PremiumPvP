@@ -4,7 +4,7 @@ import me.sahustei.miraclepvp.Main;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
 
-public class hasKit implements MetadataValue {
+public class isBuild implements MetadataValue {
 
     @Override
     public Object value() {
@@ -48,7 +48,7 @@ public class hasKit implements MetadataValue {
 
     @Override
     public String asString() {
-        return "kit";
+        return "build";
     }
 
     @Override

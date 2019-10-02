@@ -12,7 +12,7 @@ public class Prefix {
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.prefix = prefix;
-        this.weight = 999;
+        this.weight = 0;
     }
 
     public UUID getUuid()

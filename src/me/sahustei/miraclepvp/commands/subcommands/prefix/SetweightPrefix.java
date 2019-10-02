@@ -26,8 +26,8 @@ public class SetweightPrefix implements CommandExecutor {
         }
         try{
             Integer value = Integer.parseInt(args[2]);
-            if(value < 0){
-                sender.sendMessage(color("&cThe given weight is not valid, make sure the amount is 0 or more."));
+            if(value < 0 || value.toString().length() > 1){
+                sender.sendMessage(color("&cThe given weight is not valid, make sure the amount is between 0 and 9."));
                 return true;
             }
             sender.sendMessage(color("&aYou've set the weight of " + Data.getPrefix(args[1]).getName() + " to " + value + "."));

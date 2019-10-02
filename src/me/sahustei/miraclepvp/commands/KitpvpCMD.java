@@ -1,10 +1,6 @@
 package me.sahustei.miraclepvp.commands;
 
-import jdk.nashorn.internal.objects.annotations.Setter;
-import me.sahustei.miraclepvp.commands.subcommands.kitpvp.HelpKitpvp;
-import me.sahustei.miraclepvp.commands.subcommands.kitpvp.InfoKitpvp;
-import me.sahustei.miraclepvp.commands.subcommands.kitpvp.LobbyKitpvp;
-import me.sahustei.miraclepvp.commands.subcommands.kitpvp.SetlobbyKitpvp;
+import me.sahustei.miraclepvp.commands.subcommands.kitpvp.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,6 +13,8 @@ public class KitpvpCMD implements CommandExecutor {
     private InfoKitpvp infoKitpvp = new InfoKitpvp();
     private SetlobbyKitpvp setlobbyKitpvp = new SetlobbyKitpvp();
     private LobbyKitpvp lobbyKitpvp = new LobbyKitpvp();
+    private SetmapKitpvp setmapKitpvp = new SetmapKitpvp();
+    private BuildmodeKitpvp buildmodeKitpvp = new BuildmodeKitpvp();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -36,6 +34,12 @@ public class KitpvpCMD implements CommandExecutor {
                 break;
             case "lobby":
                 lobbyKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "setmap":
+                setmapKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "buildmode":
+                buildmodeKitpvp.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(color("&cPlease use /kitpvp help for more information."));

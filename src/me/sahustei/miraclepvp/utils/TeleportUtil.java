@@ -4,73 +4,88 @@ import me.sahustei.miraclepvp.data.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import static me.sahustei.miraclepvp.bukkit.Text.color;
-
 public class TeleportUtil {
 
-    public static void getTeleport(Player player){
-        Location resultLoc = null;
+    private static ArrayList<Material> banned = new ArrayList<>();
 
-        //TODO Avoid void
-        for(int i = 0; i < 100; i++){
-            Location loc = getLocation();
-            if(loc.getWorld().getHighestBlockAt((int)loc.getX(), (int)loc.getZ()) == null || loc.getWorld().getHighestBlockAt((int)loc.getX(), (int)loc.getZ()).getType().equals(Material.AIR)) {
-                getLocation();
-            } else if(loc.getY() < 10) {
-                getLocation();
-            } else {
-                resultLoc = getLocation();
-                break;
-            }
+    public static void getTeleport(Player player){
+        Location location = getLocation();
+        while(!isLocationSafe(location)){
+            location = getLocation();
         }
-        if(resultLoc == null)
-            player.sendMessage(color("&cWe failed to get a location for you, please try again!"));
-        else
-            player.teleport(resultLoc);
+        player.teleport(new Location(location.getWorld(), location.getBlockX(), location.getBlockY()+1, location.getBlockZ()));
     }
 
     private static Location getLocation(){
         ArrayList<Player> avaiblePlayers = new ArrayList<>();
         Bukkit.getOnlinePlayers().forEach(players -> {
-            if(players.hasMetadata("kit"))
+            if(players.hasMetadata("kit") && !players.hasMetadata("vanished") && !players.hasMetadata("build"))
                 avaiblePlayers.add(players);
         });
         Random rand = new Random();
         Location loc;
         Integer x, z, topX, topY, topZ;
+        topY=65;
         if(avaiblePlayers.size() > 0) {
             Collections.shuffle(avaiblePlayers);
-            x = rand.nextInt(20);
-            z = rand.nextInt(20);
+            x = rand.nextInt((50 - 25)+1) +25;
+            z = rand.nextInt((50 - 25)+1) +25;
             loc = avaiblePlayers.get(0).getLocation();
-            if (x < 50)
-                topX = loc.getBlockX() - x;
+            if (x < 25)
+                topX = loc.getBlockX()-x;
             else
-                topX = loc.getBlockX() + x;
-            if (z < 50)
-                topZ = loc.getBlockZ() - z;
+                topX = loc.getBlockX()+x;
+            if (z < 25)
+                topZ = loc.getBlockZ()-z;
             else
-                topZ = loc.getBlockZ() + z;
+                topZ = loc.getBlockZ()+z;
         } else {
-            x = rand.nextInt(50);
-            z = rand.nextInt(50);
+            x = rand.nextInt(500);
+            z = rand.nextInt(500);
             loc = Config.getGameLoc();
-            if (x < 100)
+            if (x < 250)
                 topX = loc.getBlockX() - x;
             else
                 topX = loc.getBlockX() + x;
-            if (z < 100)
+            if (z < 250)
                 topZ = loc.getBlockZ() - z;
             else
                 topZ = loc.getBlockZ() + z;
         }
-        topY = loc.getWorld().getHighestBlockYAt(topX, topZ)+2;
+        Location location = new Location(loc.getWorld(), topX, topY, topZ);
+        topY = loc.getWorld().getHighestBlockYAt(location);
         return new Location(loc.getWorld(), topX, topY, topZ);
+    }
+
+    private static Boolean isLocationSafe(Location location){
+        banned.add(Material.AIR);
+        banned.add(Material.LAVA);
+        banned.add(Material.LEAVES);
+        banned.add(Material.LEAVES_2);
+        banned.add(Material.WATER);
+        banned.add(Material.STAINED_GLASS);
+        banned.add(Material.THIN_GLASS);
+        banned.add(Material.GLASS);
+        banned.add(Material.STAINED_GLASS_PANE);
+        banned.add(Material.STATIONARY_LAVA);
+        banned.add(Material.STATIONARY_WATER);
+        banned.add(Material.STONE);
+
+        int x = location.getBlockX();
+        int y = location.getBlockY();
+        int z = location.getBlockZ();
+
+        Block block = location.getWorld().getBlockAt(x, y, z);
+        Block below = location.getWorld().getBlockAt(x, y-1, z);
+        Block above = location.getWorld().getBlockAt(x, y+1, z);
+
+        return !(banned.contains(below.getType())) || (block.getType().isSolid()) || (above.getType().isSolid());
     }
 }
