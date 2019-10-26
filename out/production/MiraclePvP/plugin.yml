@@ -1,8 +1,7 @@
 name: MiraclePvP
 version: 0.2.1-SNAPSHOT
-main: me.sahustei.miraclepvp.Main
-author: Sahustei
-website: www.sahustei.nl
+main: net.miraclepvp.kitpvp.Main
+author: JustSanchyro
 description: An Advanced KitPvP System
 commands:
   unbreakable:
@@ -36,6 +35,8 @@ commands:
     description: Prefix command
   kit:
     description: Kit command
+  coins:
+    description: Coins command
 permissions:
   miraclepvp.*:
     description: Get all permissions
@@ -48,6 +49,7 @@ permissions:
       miraclepvp.kitpvp.*: true
       miraclepvp.prefix: true
       miraclepvp.kit: true
+      miraclepvp.coins: true
   miraclepvp.stats.*:
     description: Get all permissions for the stats command
     default: OP
@@ -116,4 +118,7 @@ permissions:
     default: OP
   miraclepvp.kitpvp.buildmode:
     description: Get the permission to toggle buildmode
+    default: OP
+  miraclepvp.coins:
+    description: Get the permission to manage coins
     default: OP
