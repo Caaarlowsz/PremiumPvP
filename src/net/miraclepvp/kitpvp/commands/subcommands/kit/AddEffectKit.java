@@ -32,7 +32,7 @@ public class AddEffectKit implements CommandExecutor {
                 ArrayList<PotionEffectType> types = new ArrayList<>();
                 kit.getEffects().forEach(effect -> types.add(KitEffects.deSerialize(effect).getType()));
                 try {
-                    PotionEffectType effectType = PotionEffectType.getByName(args[2]);
+                    PotionEffectType effectType = PotionEffectType.getByName(args[2].toUpperCase());
                     if(types.contains(effectType)){
                         sender.sendMessage(color("&cThis kit already has this effect."));
                         return true;

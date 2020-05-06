@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 
+import static net.miraclepvp.kitpvp.bukkit.Text.IntegerToCompactInteger;
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class ProfileGUI {
@@ -24,7 +25,11 @@ public class ProfileGUI {
         User user = Data.getUser(player);
 
         //Setting the skull
-        inventory.setItem(4, new ItemstackFactory(SkullBuilder.getPlayerSkull(player.getName())).setDisplayName("&5" + player.getName() + "'s PvP Profile").addLoreLine("&7" + player.getUniqueId().toString()));
+        inventory.setItem(4, new ItemstackFactory(SkullBuilder.getPlayerSkull(player.getName()))
+                .setDisplayName("&5" + player.getName() + "'s PvP Profile")
+                .addLoreLine("&7First Join: " + user.getFirstJoin() + " GMT")
+                .addLoreLine("&7Online Time: " + User.transformTime(user.getOnlineTime()))
+        );
 
         //Setting the glass
         Integer[] gSlot = {0,1,2,3,5,6,7,8,9,17,18,26,27,35,36,37,38,39,40,41,42,43,44};
@@ -35,15 +40,17 @@ public class ProfileGUI {
         inventory.setItem(20, new ItemstackFactory(Material.EXP_BOTTLE)
                 .setDisplayName("&5Level").addLoreLine(" ")
                 .addLoreLine("&7Level: " + user.getLevel())
-                .addLoreLine("&7Experience: " + user.getExperience())
+                .addLoreLine("&7Progress: " + IntegerToCompactInteger(user.getExperience(),1, false) + "&8/&7" + IntegerToCompactInteger(user.getExperienceNeeded(),1, false))
+                .addLoreLine("&7 " + user.getProgressBar())
         );
 
         //Setting the kills & deaths item
         inventory.setItem(21, new ItemstackFactory(Material.IRON_SWORD)
                 .setDisplayName("&5Kill Death Ratio").addLoreLine(" ")
-                .addLoreLine("&7Kills: " + user.getKills())
-                .addLoreLine("&7Deaths : " + user.getDeaths())
-                .addLoreLine("&7K/D Ratio : " + user.getKdRatio())
+                .addLoreLine("&7Kills: " + IntegerToCompactInteger(user.getKills(),1, false))
+                .addLoreLine("&7Assists: " + IntegerToCompactInteger(user.getAssists(),1, false))
+                .addLoreLine("&7Deaths: " + IntegerToCompactInteger(user.getDeaths(),1, false))
+                .addLoreLine("&7K/D Ratio: " + user.getKdRatio())
         );
 
         //Setting the streak item
@@ -56,8 +63,8 @@ public class ProfileGUI {
         //Setting the economic item
         inventory.setItem(23, new ItemstackFactory(Material.GOLD_NUGGET)
                 .setDisplayName("&5Economy").addLoreLine(" ")
-                .addLoreLine("&7Balance: " + user.getCoins())
-                .addLoreLine("&7Active Bounty: 0" /* TODO Get bounty */)
+                .addLoreLine("&7Balance: " + IntegerToCompactInteger(user.getCoins(),1, false))
+                .addLoreLine("&7Active Bounty: " + user.getBounty())
                 .addLoreLine(" ")
                 .addLoreLine("&7Owned Kits: " + user.getKitsList().size())
         );
@@ -66,7 +73,17 @@ public class ProfileGUI {
                 .setDisplayName("&5Cosmetics").addLoreLine(" ")
                 .addLoreLine("&7Tokens: " + user.getTokens())
                 .addLoreLine(" ")
-                .addLoreLine("&7Owned Cosmetics: " + (user.getTrailsList().size() + user.getChatcolorsList().size() + user.getKitsList().size() + user.getNamecolorsList().size() + user.getSuffixesList().size()))
+                .addLoreLine("&7Owned Cosmetics: " + (user.getTrailsList().size() + user.getChatcolorsList().size() + user.getNamecolorsList().size() + user.getSuffixesList().size()))
+        );
+
+        inventory.setItem(40, new ItemstackFactory(Material.CHEST)
+                .setDisplayName("&5Crates").addLoreLine(" ")
+                .addLoreLine("&7Gear Crates:")
+                .addLoreLine("&7 Common: " + user.getGearcommon())
+                .addLoreLine("&7 Miracle: " + user.getGearmiracle())
+                .addLoreLine("&7Cosmetic Crates:")
+                .addLoreLine("&7 Common: " + user.getCosmeticcommon())
+                .addLoreLine("&7 Miracle: " + user.getCosmeticmiracle())
         );
         return inventory;
     }

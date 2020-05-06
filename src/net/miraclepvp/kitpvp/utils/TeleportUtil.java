@@ -4,90 +4,69 @@ import net.miraclepvp.kitpvp.data.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class TeleportUtil {
 
-    private static ArrayList<Material> banned = new ArrayList<>();
+    private static ArrayList<Player> availablePlayers = new ArrayList<>();
+    private static ArrayList<Location> shuffledLocs = Config.getSpawnpoints();
+
+    private static Location loc;
 
     public static void getTeleport(Player player){
-        Location location = getLocation();
-        while(!isLocationSafe(location)){
-            location = getLocation();
-        }
-        player.teleport(new Location(location.getWorld(), location.getBlockX()+0.5, location.getBlockY()+0.1, location.getBlockZ()+0.5));
+        Collections.shuffle(shuffledLocs);
+        player.teleport(getLocation(), PlayerTeleportEvent.TeleportCause.PLUGIN);
     }
 
-    private static Location getLocation(){
-        ArrayList<Player> avaiblePlayers = new ArrayList<>();
-        Bukkit.getOnlinePlayers().forEach(players -> {
-            if(players.hasMetadata("kit") && !players.hasMetadata("vanished") && !players.hasMetadata("build"))
-                avaiblePlayers.add(players);
+    public static Location getLocation(){
+        Random random = new Random();
+        Bukkit.getOnlinePlayers().stream()
+                .filter(players -> players.hasMetadata("kit") && !players.hasMetadata("vanished") && !players.hasMetadata("build")).forEach(players -> availablePlayers.add(players));
+
+        loc =  shuffledLocs.get(random.nextInt(shuffledLocs.size()));
+
+        if(availablePlayers.size() <= 0) return loc;
+
+        boolean found = false;
+        int count = 0;
+        while(!found && count < shuffledLocs.size()){
+            if(getPlayersNearby(shuffledLocs.get(count), 50)) {
+                found = true;
+                return shuffledLocs.get(count);
+            } else
+                count++;
+        }
+        shuffledLocs.forEach(location -> {
+            if(getPlayersNearby(location, 50))
+                loc = location;
         });
-        Random rand = new Random();
-        Location loc;
-        Integer x, z, topX, topY, topZ;
-        topY=65;
-        if(avaiblePlayers.size() > 0) {
-            Collections.shuffle(avaiblePlayers);
-            x = rand.nextInt((50 - 25)+1) +25;
-            z = rand.nextInt((50 - 25)+1) +25;
-            loc = avaiblePlayers.get(0).getLocation();
-            if (x < 25)
-                topX = loc.getBlockX()-x;
-            else
-                topX = loc.getBlockX()+x;
-            if (z < 25)
-                topZ = loc.getBlockZ()-z;
-            else
-                topZ = loc.getBlockZ()+z;
-        } else {
-            x = rand.nextInt(500);
-            z = rand.nextInt(500);
-            loc = Config.getGameLoc();
-            if (x < 250)
-                topX = loc.getBlockX() - x;
-            else
-                topX = loc.getBlockX() + x;
-            if (z < 250)
-                topZ = loc.getBlockZ() - z;
-            else
-                topZ = loc.getBlockZ() + z;
-        }
-        Location location = new Location(loc.getWorld(), topX, topY, topZ);
-        topY = loc.getWorld().getHighestBlockYAt(location);
-
-
-        return new Location(loc.getWorld(), topX, topY, topZ);
+        return loc;
     }
 
-    private static Boolean isLocationSafe(Location location){
-        banned.add(Material.AIR);
-        banned.add(Material.LAVA);
-        banned.add(Material.LEAVES);
-        banned.add(Material.LEAVES_2);
-        banned.add(Material.WATER);
-        banned.add(Material.STAINED_GLASS);
-        banned.add(Material.THIN_GLASS);
-        banned.add(Material.WEB);
-        banned.add(Material.GLASS);
-        banned.add(Material.STAINED_GLASS_PANE);
-        banned.add(Material.STONE);
-        banned.add(Material.SOIL);
+    public static boolean getPlayersNearby(Location loc, int range) {
+        for (Entity entity : loc.getWorld().getEntities())
+            if (isInBorder(loc, entity.getLocation(), range))
+                if(entity instanceof Player && availablePlayers.contains(entity))
+                    return true;
+        return false;
+    }
 
-        int x = location.getBlockX();
-        int y = location.getBlockY();
-        int z = location.getBlockZ();
+    public static boolean isInBorder(Location center, Location notCenter, int range) {
+        int x = center.getBlockX(), z = center.getBlockZ();
+        int x1 = notCenter.getBlockX(), z1 = notCenter.getBlockZ();
 
-        Block block = location.getWorld().getBlockAt(x, y, z);
-        Block below = location.getWorld().getBlockAt(x, y-1, z);
-        Block above = location.getWorld().getBlockAt(x, y+1, z);
-
-        return !(banned.contains(below.getType()) || (block.getType().isSolid()) || (above.getType().isSolid()));
+        if (x1 >= (x + range) || z1 >= (z + range) || x1 <= (x - range) || z1 <= (z - range)) {
+            return false;
+        } else if(Math.abs(Math.round(x) - Math.round(x1))<10){
+            return false;
+        }
+        return true;
     }
 }

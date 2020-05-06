@@ -1,9 +1,18 @@
 name: MiraclePvP
-version: 0.2.1-SNAPSHOT
+version: 1.05.1
 main: net.miraclepvp.kitpvp.Main
-author: JustSanchyro
+author: AlmostSomeone
 description: An Advanced KitPvP System
+depend: [WorldGuard, WorldEdit]
 commands:
+  arena:
+    description: Arena command
+  map:
+    description: Map command
+  duel:
+    description: Duel command
+  top:
+    description: Top command
   unbreakable:
     aliases: [unbk]
     description: Unbreakable command
@@ -16,18 +25,16 @@ commands:
     description: Trail command
   cosmetics:
     description: Cosmetics Command
-    aliases: [cosmetic,cosmo]
+    aliases: [cosmetic]
   suffix:
     description: Suffix Command
-  freeze:
-    description: Freeze players
   chatcolor:
     description: ChatColor command
   namecolor:
     description: NameColor command
   stats:
     description: Stats command
-    aliases: [status,information,info]
+    aliases: [status]
   kitpvp:
     description: KitPvP command
     aliases: [kp]
@@ -37,11 +44,54 @@ commands:
     description: Kit command
   coins:
     description: Coins command
+  guild:
+    description: Guild command
+    aliases: [g]
+  spawnpoints:
+    description: Spawnpoint command
+  chat:
+    description: Chat command
+  staffchat:
+    description: Staffchat command
+  sc:
+    description: Alias from staffchat
+  supplydrop:
+    description: Supplydrop command
+    aliases: [sd]
+  zone:
+    description: Zone command
+  booster:
+    description: Booster command
+    aliases: [boosters]
+  fly:
+    description: Fly Command for donators
+  nick:
+    description: Nick Command for donators
+  report:
+    description: Report Command
+  crate:
+    description: Crate command
+  spawn:
+    description: Spawn command
+  npc:
+    description: NPC Command
+  level:
+    description: Level Command
+  freeze:
+    description: Freeze Command
+  discord:
+    description: Discord Command
+  resetstats:
+    description: Reset Stats
 permissions:
   miraclepvp.*:
     description: Get all permissions
     default: OP
     children:
+      miraclepvp.arena: true
+      miraclepvp.map: true
+      miraclepvp.zone.*: true
+      miraclepvp.staffchat.*: true
       miraclepvp.stats.*: true
       miraclepvp.cosmetic.*: true
       miraclepvp.rename: true
@@ -50,6 +100,25 @@ permissions:
       miraclepvp.prefix: true
       miraclepvp.kit: true
       miraclepvp.coins: true
+      miraclepvp.guild.*: true
+      miraclepvp.donator.*: true
+      miraclepvp.report.*: true
+      miraclepvp.freeze.*: true
+      miraclepvp.resetstats: true
+  miraclepvp.staffchat.*:
+    description: Get all permissions for the staffchat system
+    default: OP
+    children:
+      miraclepvp.staffchat.send: true
+      miraclepvp.staffchat.receive: true
+  miraclepvp.zone.*:
+    description: Get all permissions for the zone command
+    default: OP
+    children:
+      miraclepvp.zone: true
+      miraclepvp.zone.create: true
+      miraclepvp.zone.remove: true
+      miraclepvp.zone.list: true
   miraclepvp.stats.*:
     description: Get all permissions for the stats command
     default: OP
@@ -74,6 +143,105 @@ permissions:
       miraclepvp.kitpvp.lobby: true
       miraclepvp.kitpvp.setmap: true
       miraclepvp.kitpvp.buildmode: true
+      miraclepvp.kitpvp.reload: true
+      miraclepvp.kitpvp.gettracker: true
+      miraclepvp.kitpvp.getanvil: true
+      miraclepvp.kitpvp.save: true
+  miraclepvp.guild.*:
+    description: Get all permissions for the guild system
+    default: OP
+    children:
+      miraclepvp.guild.create: true
+  miraclepvp.donator.*:
+    description: Get all donator permissions.
+    default: OP
+    children:
+      miraclepvp.donator.spambypass: true
+      miraclepvp.donator.fly: true
+      miraclepvp.donator.nick: true
+      miraclepvp.donator.autodeploy: true
+      miraclepvp.donator.quickselect: true
+      miraclepvp.donator.killbroadcast: true
+      miraclepvp.donator.streakbroadcast: true
+  miraclepvp.report.*:
+    description: Get all permissions for the report command.
+    default: OP
+    children:
+      miraclepvp.report.menu: true
+      miraclepvp.report.receive: true
+  miraclepvp.freeze.*:
+    description: Get all permissions to use the freeze command.
+    default: OP
+    children:
+      miraclepvp.freeze: true
+      miraclepvp.freeze.bypass: true
+      miraclepvp.freeze.alert: true
+  miraclepvp.duel.invite:
+    description: Get the permission to execute the /duel invite command.
+    default: OP
+  miraclepvp.kitpvp.gettracker:
+    description: Get the permission to execute the /kp gettracker command.
+    default: OP
+  miraclepvp.kitpvp.getanvil:
+    description: Get the permission to execute the /kp getanvil command.
+    default: OP
+  miraclepvp.freeze.alert:
+    description: Get the permission to get a alert when a frozen player leaves the server
+    default: OP
+  miraclepvp.freeze:
+    description: Get the permission to freeze players
+    default: OP
+  miraclepvp.freeze.bypass:
+    description: Get the permission to bypass the freeze plugin
+    default: OP
+  miraclepvp.kitpvp.reload:
+    description: Get the permission to reload the config
+    default: OP
+  miraclepvp.report.menu:
+    description: Get the permission to open the report GUI
+    default: OP
+  miraclepvp.report.receive:
+    description: Get the permission to receive reports in chat
+    default: OP
+  miraclepvp.donator.spambypass:
+    description: Get the permissions to bypass the spam filter.
+    default: OP
+  miraclepvp.donator.fly:
+    description: Get the permissions to fly in the spawn.
+    default: OP
+  miraclepvp.donator.nick:
+    description: Get the permission to disquise yourself.
+    default: OP
+  miraclepvp.donator.autodeploy:
+    description: Get the permission to use autodeployment
+    default: OP
+  miraclepvp.donator.quickselect:
+    description: Get the permission to use quickselect
+    default: OP
+  miraclepvp.killbroadcast:
+    description: Get the permission to use killbroadcast
+    default: OP
+  miraclepvp.streakbroadcast:
+    description: Get the permission to use streakbroadcast
+    default: OP
+  miraclepvp.zone:
+    description: Get the permission to execute the zone command.
+    default: OP
+  miraclepvp.zone.create:
+    description: Get the permission to create zones
+    default: OP
+  miraclepvp.zone.remove:
+    description: Get the permission to remove zones
+    default: OP
+  miraclepvp.zone.list:
+    description: Get the permission to get a list of all zones
+    default: OP
+  miraclepvp.staffchat.send:
+    description: Get the permission to send staffchat messages.
+    default: OP
+  miraclepvp.staffchat.receive:
+    description: Get the permission to receive staffchat messages.
+    default: OP
   miraclepvp.stats:
     description: Get permissions for the stats command
     default: OP
@@ -121,4 +289,10 @@ permissions:
     default: OP
   miraclepvp.coins:
     description: Get the permission to manage coins
+    default: OP
+  miraclepvp.guild.create:
+    description: Get the permission to create a guild
+    default: OP
+  miraclepvp.resetstats:
+    description: Reset someone's stats
     default: OP

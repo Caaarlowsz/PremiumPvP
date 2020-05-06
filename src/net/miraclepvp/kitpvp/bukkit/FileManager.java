@@ -7,7 +7,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FileManager {
@@ -19,17 +21,6 @@ public class FileManager {
 
     public static boolean isFileLoaded(String fileName) {
         return configs.containsKey(fileName);
-    }
-
-    public static void loadSchematic(Plugin plugin, String fileName) {
-        File file = new File(plugin.getDataFolder() + "/schematics/", fileName);
-        if (!file.exists()) {
-            try {
-                plugin.saveResource(fileName, false);
-            } catch (Exception var4) {
-                var4.printStackTrace();
-            }
-        }
     }
 
     public static void load(Plugin plugin, String fileName) {

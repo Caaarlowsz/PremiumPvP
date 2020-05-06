@@ -21,15 +21,16 @@ public class KitCMD implements CommandExecutor {
     private RemoveEffectKit removeEffectKit = new RemoveEffectKit();
     private PriceKit priceKit = new PriceKit();
     private SellpriceKit sellpriceKit = new SellpriceKit();
+    private EditKit editKit = new EditKit();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!(sender instanceof Player)){
-            sender.sendMessage(color("&cOnly playrs are allowed to execute this command"));
+            sender.sendMessage(color("&cOnly players are allowed to execute this command."));
             return true;
         }
         if(!(sender.hasPermission("miraclepvp.kit"))){
-            sender.sendMessage(color("&4You don't have enough permissions to do this!"));
+            sender.sendMessage(color("&4You don't have enough permissions to do this."));
             return true;
         }
         if(args.length == 0){
@@ -69,6 +70,9 @@ public class KitCMD implements CommandExecutor {
                 break;
             case "sellprice":
                 sellpriceKit.onCommand(sender, cmd, label, args);
+                break;
+            case "edit":
+                editKit.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(color("&cPlease use /kit help for more information."));

@@ -14,18 +14,17 @@ public class ListChat implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        Player player = (Player)sender;
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
-        ChatCenterUtil.sendCenteredMessage(player, "&fChatColor");
-        ChatCenterUtil.sendCenteredMessage(player, "&7A list of all chatcolors.");
-        ChatCenterUtil.sendCenteredMessage(player, "");
+        ChatCenterUtil.sendCenteredMessage(sender, "&5&m-----------------------------------------------------");
+        ChatCenterUtil.sendCenteredMessage(sender, "&fChatColor");
+        ChatCenterUtil.sendCenteredMessage(sender, "&7A list of all chatcolors.");
+        ChatCenterUtil.sendCenteredMessage(sender, "");
         Data.chatcolors.forEach(chatcolor -> {
             pos++;
-            player.sendMessage(Text.color("&5" + pos + ". &f" + chatcolor.getName() + "&8: &7" + chatcolor.getUuid()));
+            sender.sendMessage(Text.color("&5" + pos + ". &f" + chatcolor.getName() + "&8: &7" + chatcolor.getUuid()));
         });
         if(Data.chatcolors.isEmpty())
-            player.sendMessage(Text.color("&cNo chatcolors added yet"));
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
+            sender.sendMessage(Text.color("&cNo chatcolors added yet"));
+        ChatCenterUtil.sendCenteredMessage(sender, "&5&m-----------------------------------------------------");
         pos=0;
         return true;
     }

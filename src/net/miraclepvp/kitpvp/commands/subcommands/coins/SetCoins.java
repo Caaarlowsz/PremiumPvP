@@ -32,7 +32,7 @@ public class SetCoins implements CommandExecutor {
             }
             try {
                 Integer value = Integer.parseInt(args[2]);
-                target.setCoins(value);
+                target.setCoins(value, false);
                 sender.sendMessage(Text.color("&aYou have set " + player.getName() + "'s coins to " + target.getCoins() + "."));
                 return true;
             } catch (Exception ex) {

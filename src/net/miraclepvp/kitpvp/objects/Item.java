@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public enum Item {
 
     KITS(1, new ItemstackFactory(Material.COMPASS).setDisplayName("&5Kits").addLoreLine("&7Click on this item to manage your kits.")),
-    UNLOCKER(3, new ItemstackFactory(Material.CHEST).setDisplayName("&5Crate").addLoreLine("&7Click on this item to open a crate.")),
+    ABILITIES(3, new ItemstackFactory(Material.EYE_OF_ENDER).setDisplayName("&5Abilities").addLoreLine("&7Click on this item to manage your abilities.")),
     STATS(5, new ItemstackFactory(SkullBuilder.getCustomSkull("http://textures.minecraft.net/texture/373eef035658bf1b43f72a6ace3ab047265d863e0fe75586f84c02a7133e0cdf")).setDisplayName("&5Profile").addLoreLine("&7Click on this item to view your profile.")),
     COSMETICS(7, new ItemstackFactory(Material.BLAZE_POWDER).setDisplayName("&5Cosmetics").addLoreLine("&7Click on this item to manage your cosmetics."));
 
@@ -34,7 +34,7 @@ public enum Item {
 
     public static void load(){
         types.add(KITS);
-        types.add(UNLOCKER);
+        types.add(ABILITIES);
         types.add(STATS);
         types.add(COSMETICS);
     }

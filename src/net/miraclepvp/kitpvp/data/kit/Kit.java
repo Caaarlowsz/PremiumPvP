@@ -1,10 +1,6 @@
 package net.miraclepvp.kitpvp.data.kit;
 
-import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.data.Data;
-import net.miraclepvp.kitpvp.listeners.custom.PlayerStatusChangeEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,8 +8,6 @@ import org.bukkit.potion.PotionEffect;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class Kit {
 
@@ -28,18 +22,18 @@ public class Kit {
 
     public ArrayList<String> effects = new ArrayList<>();
 
-    public Kit(String name, Material icon, Integer price, ItemStack[] items, ItemStack[] armor){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    public Kit(String name, Material icon, Integer price, ItemStack[] items, ItemStack[] armor) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.description = "&7The " + name + " kit.";
         this.created = formatter.format(date);
         this.price = price;
-        this.sellprice = price/2;
+        this.sellprice = price / 2;
         this.icon = icon;
         this.enabled = true;
-        for (int i = 0; i < items.length; i++){
+        for (int i = 0; i < items.length; i++) {
             this.items.put(i, new KitItem(items[i]));
         }
         if (armor[3] != null) this.armor.put(ArmorSlot.HELMET, new KitItem(armor[3]));
@@ -128,48 +122,29 @@ public class Kit {
         this.effects = effects;
     }
 
-    public void addEffect(PotionEffect potionEffect){
+    public void addEffect(PotionEffect potionEffect) {
         ArrayList<String> effect = this.getEffects();
         effect.add(KitEffects.serialize(potionEffect));
         this.setEffects(effect);
     }
 
-    public void removeEffect(PotionEffect potionEffect){
+    public void removeEffect(PotionEffect potionEffect) {
         ArrayList<String> effect = this.getEffects();
         effect.remove(KitEffects.serialize(potionEffect));
         this.setEffects(effect);
     }
 
-    public void giveKit(Player p) {
-//        CustomKit kit = Data.getUser(p).getKit(uuid);
-//        if (kit != null) {
-            p.getInventory().clear();
-            p.getInventory().setArmorContents(null);
+    public void changeInventory(Player player) {
+        ItemStack[] items = player.getInventory().getContents();
+        ItemStack[] armor = player.getInventory().getArmorContents();
+        for (int i = 0; i < items.length; i++) {
+            this.items.put(i, new KitItem(items[i]));
+        }
+        if (armor[3] != null) this.armor.put(ArmorSlot.HELMET, new KitItem(armor[3]));
+        if (armor[2] != null) this.armor.put(ArmorSlot.CHESTPLATE, new KitItem(armor[2]));
+        if (armor[1] != null) this.armor.put(ArmorSlot.LEGGING, new KitItem(armor[1]));
+        if (armor[0] != null) this.armor.put(ArmorSlot.BOOTS, new KitItem(armor[0]));
 
-            ItemStack helmet = armor.get(ArmorSlot.HELMET).getItemStack();
-            ItemStack chestplate = armor.get(ArmorSlot.CHESTPLATE).getItemStack();
-            ItemStack leggings = armor.get(ArmorSlot.LEGGING).getItemStack();
-            ItemStack boots = armor.get(ArmorSlot.BOOTS).getItemStack();
-
-            for (int i = 0; i < getItems().size(); i++) {
-                p.getInventory().setItem(i, getItems().get(i).getItemStack());
-            }
-
-            if(helmet != null) p.getInventory().setHelmet(helmet);
-            if(chestplate != null) p.getInventory().setChestplate(chestplate);
-            if(leggings != null) p.getInventory().setLeggings(leggings);
-            if(boots != null) p.getInventory().setBoots(boots);
-
-            if(effects.size() > 0)
-                effects.forEach(effect -> p.addPotionEffect(KitEffects.deSerialize(effect)));
-
-            p.setGameMode(GameMode.ADVENTURE);
-
-            if(p.hasMetadata("build")){
-                p.sendMessage(color("&cYour buildmode has been deactived since you've received a kit."));
-                p.removeMetadata("build", Main.getInstance());
-                return;
-            }
-        //}
+        Data.users.forEach(user -> user.removeFromKitLayouts(this.uuid));
     }
 }

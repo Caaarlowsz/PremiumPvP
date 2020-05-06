@@ -6,14 +6,10 @@ import java.util.ArrayList;
 
 public enum StatType {
 
-    TOKENS("Tokens"),
     KILLS("Kills"),
     DEATHS("Deaths"),
     STREAK("Streak"),
-    KD("K/D Ratio"),
-    COINS("Coins"),
-    LEVEL("Level"),
-    EXPERIENCE("Experience")
+    LEVEL("Level")
     ;
 
     private static ArrayList<StatType> statTypes = new ArrayList<>();
@@ -27,14 +23,10 @@ public enum StatType {
     }
 
     public static void load(){
-        statTypes.add(TOKENS);
         statTypes.add(KILLS);
         statTypes.add(DEATHS);
         statTypes.add(STREAK);
-        statTypes.add(KD);
-        statTypes.add(COINS);
         statTypes.add(LEVEL);
-        statTypes.add(EXPERIENCE);
 
         Top.reload();
     }

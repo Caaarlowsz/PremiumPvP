@@ -24,7 +24,7 @@ public class ClearPrefix implements CommandExecutor {
             if (player == null) return true;
             User target = Data.getUser(player);
             if (target == null) return true;
-            target.setPrefix(null);
+            target.setPrefix(Data.getPrefix("default"));
             sender.sendMessage(Text.color("&aYou've cleared the prefix of " + player.getName() + "."));
             return true;
         } catch (NoSuchElementException ex) {

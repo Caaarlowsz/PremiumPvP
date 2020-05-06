@@ -36,7 +36,7 @@ public class GiveKit implements CommandExecutor {
                     return true;
                 }
                 sender.sendMessage(Text.color("&aYou have succesfully given " + player.getName() + " the kit " + kit.getName() + "!"));
-                target.addKit(kit.getUuid());
+                target.getKitsList().add(kit.getUuid());
                 return true;
             } catch (NoSuchElementException ex) {
                 sender.sendMessage(Text.color("&cThere is no kit with this name."));

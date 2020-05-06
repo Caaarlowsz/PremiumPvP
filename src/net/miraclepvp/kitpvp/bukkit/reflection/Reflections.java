@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class Reflections {
+public class Reflections {
 
     // Deduce the net.minecraft.server.v* package
     private static String OBC_PREFIX = Bukkit.getServer().getClass().getPackage().getName();
@@ -18,7 +18,14 @@ public final class Reflections {
     // Variable replacement
     private static Pattern MATCH_VARIABLE = Pattern.compile("\\{([^\\}]+)\\}");
 
-    private Reflections() {
+    public Reflections() {
+    }
+
+    public static void setField(Object obj, String fieldName, Object value) throws IllegalArgumentException, IllegalAccessException {
+        Field f = getField(obj.getClass(), fieldName);
+
+        f.set(obj, value);
+        f.setAccessible(false);
     }
 
     private static String expandVariables(String name) {
@@ -87,6 +94,20 @@ public final class Reflections {
 
     public static Class<?> getCraftBukkitClass(String name) {
         return getCanonicalClass(OBC_PREFIX + "." + name);
+    }
+
+    public static Field getField(Class<?> clazz, String fieldName) {
+        Field f = null;
+
+        try {
+            f = clazz.getDeclaredField(fieldName);
+
+            f.setAccessible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return f;
     }
 
     public static <T> FieldAccessor<T> getField(Class<?> target, String name, Class<T> fieldType) {

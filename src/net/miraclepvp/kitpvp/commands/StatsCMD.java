@@ -53,10 +53,11 @@ public class StatsCMD implements CommandExecutor {
         player.sendMessage(Text.color("&fOnline Time: &7" + User.transformTime(user.getOnlineTime())));
         ChatCenterUtil.sendCenteredMessage(player, "");
         player.sendMessage(Text.color("&fOwned Kits: &7" + user.getKitsList().size()));
-        player.sendMessage(Text.color("&fOwned Cosmetics: &7" + (user.getTrailsList().size() + user.getChatcolorsList().size() + user.getKitsList().size() + user.getNamecolorsList().size() + user.getSuffixesList().size())));
+        player.sendMessage(Text.color("&fOwned Cosmetics: &7" + (user.getTrailsList().size() + user.getChatcolorsList().size() + user.getNamecolorsList().size() + user.getSuffixesList().size())));
         ChatCenterUtil.sendCenteredMessage(player, "");
         player.sendMessage(Text.color("&fCosmotokens: &7" + user.getTokens()));
         player.sendMessage(Text.color("&fKills: &7" + user.getKills()));
+        player.sendMessage(Text.color("&fAssists: &7" + user.getAssists()));
         player.sendMessage(Text.color("&fDeaths: &7" + user.getDeaths()));
         player.sendMessage(Text.color("&fK/D Ratio: &7" + user.getKdRatio()));
         player.sendMessage(Text.color("&fCoins: &7" + user.getCoins()));
@@ -64,7 +65,7 @@ public class StatsCMD implements CommandExecutor {
         player.sendMessage(Text.color("&fKillstreak: &7" + user.getKillstreak()));
         player.sendMessage(Text.color("&fHighest Killstreak: &7" + user.bestkillstreak));
         ChatCenterUtil.sendCenteredMessage(player, "");
-        
+        player.sendMessage(Text.color("&fGuild: &7" + (user.getGuild() == null ? "none" : Data.getGuild(user.getGuild()).getName())));
         player.sendMessage(Text.color("&fOnline: " + (target.isOnline() ? "&aTrue" : "&cFalse")));
         ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
     }

@@ -13,8 +13,11 @@ public class KitpvpCMD implements CommandExecutor {
     private InfoKitpvp infoKitpvp = new InfoKitpvp();
     private SetlobbyKitpvp setlobbyKitpvp = new SetlobbyKitpvp();
     private LobbyKitpvp lobbyKitpvp = new LobbyKitpvp();
-    private SetmapKitpvp setmapKitpvp = new SetmapKitpvp();
     private BuildmodeKitpvp buildmodeKitpvp = new BuildmodeKitpvp();
+    private ReloadKitpvp reloadKitpvp = new ReloadKitpvp();
+    private TrackerKitpvp trackerKitpvp = new TrackerKitpvp();
+    private SaveKitpvp saveKitpvp = new SaveKitpvp();
+    private AnvilKitpvp anvilKitpvp = new AnvilKitpvp();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -35,11 +38,20 @@ public class KitpvpCMD implements CommandExecutor {
             case "lobby":
                 lobbyKitpvp.onCommand(sender, cmd, label, args);
                 break;
-            case "setmap":
-                setmapKitpvp.onCommand(sender, cmd, label, args);
-                break;
             case "buildmode":
                 buildmodeKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "reload":
+                reloadKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "gettracker":
+                trackerKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "save":
+                saveKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "getanvil":
+                anvilKitpvp.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(color("&cPlease use /kitpvp help for more information."));

@@ -19,9 +19,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import static net.miraclepvp.kitpvp.bukkit.Text.color;
+
 public class KitGUI implements Listener {
 
-    public static Integer[] slots = {12, 13, 14, 15, 21, 22, 23, 24, 30, 31, 32, 33, 39, 40, 41, 42};
+    private static Integer[] slots = {12, 13, 14, 15, 21, 22, 23, 24, 30, 31, 32, 33, 39, 40, 41, 42};
 
     public static Inventory getInventory(Player player, Boolean shop, Integer page) {
         Integer invSize = 9 * 6;
@@ -30,7 +32,7 @@ public class KitGUI implements Listener {
         Integer last = (slots.length * page);
         Integer gopage = page + 1;
         Integer gobpage = page - 1;
-        Inventory inv = Bukkit.createInventory(null, invSize, Text.color("&8" + (shop ? "Shop" : "Selector") + " - Kit"));
+        Inventory inv = Bukkit.createInventory(null, invSize, color("&8" + (shop ? "Shop" : "Selector") + " - Kit"));
         User user = Data.getUser(player);
         for (int i = 0; i < invSize; i++)
             inv.setItem(i, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 7).setDisplayName(" "));
@@ -44,7 +46,6 @@ public class KitGUI implements Listener {
         inv.setItem(28, new ItemstackFactory(Material.BONE).setDisplayName("&5Kill Broadcast").addLoreLine("&7This feature will broadcast your kills in the chat."));
         inv.setItem(36, user.isStreakBroadcast() ? selected : notSelected);
         inv.setItem(37, new ItemstackFactory(Material.BLAZE_ROD).setDisplayName("&5Streak Broadcast").addLoreLine("&7This feature will broadcast your killstreaks in chat."));
-        inv.setItem(53, new ItemstackFactory(Material.CHEST).setDisplayName("&5Editor").addLoreLine("&7Click here to edit a kit layout"));
 
         Arrays.stream(slots).forEach(value -> inv.setItem(value, null));
 
@@ -63,12 +64,12 @@ public class KitGUI implements Listener {
                     inv.addItem(new ItemstackFactory(kit.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(kit.getName()))
                             .addLoreLine("&7" + kit.getDescription())
                             .addLoreLine(" ")
-                            .addLoreLine("&7UUID: " + kit.getUuid())
-                            .addLoreLine(" ")
-                            .addLoreLine("&7Name: " + kit.getName())
                             .addLoreLine("&7Price: " + kit.getPrice())
                             .addLoreLine("&7Sell price: " + kit.getSellprice())
-                            .addLoreLine(" "));
+                            .addLoreLine(" ")
+                            .addLoreLine("&7Left Click to buy this kit")
+                            .addLoreLine("&7Right Click to preview this kit")
+                    );
                 i++;
             }
         } else {
@@ -86,12 +87,13 @@ public class KitGUI implements Listener {
                     inv.addItem(new ItemstackFactory(kit.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(kit.getName()))
                             .addLoreLine("&7" + kit.getDescription())
                             .addLoreLine(" ")
-                            .addLoreLine("&7UUID: " + kit.getUuid())
+                            .addLoreLine("&7Sell price: " + kit.getSellprice())
                             .addLoreLine(" ")
                             .addLoreLine("&7Left Click to select this kit.")
                             .addLoreLine("&7Right Click to sell this kit.")
+                            .addLoreLine("&7Shift and Click left to edit this kit.")
                             .addLoreLine(kit.isEnabled() ? "" : "&cTEMPORARY DISABLED")
-                            .addLoreLine(" "));
+                    );
                 i++;
             }
         }
@@ -102,8 +104,29 @@ public class KitGUI implements Listener {
         if (page > 1)
             inv.setItem(48, new ItemstackFactory(SkullBuilder.ARROW_LEFT.getSkull()).setDisplayName("&5Previous page (" + gobpage + ")").addLoreLine("&7Click here to go to the previous page"));
         inv.setItem(17, new ItemstackFactory(SkullBuilder.getPlayerSkull(player.getName())).setDisplayName("&5Coins").addLoreLine("&7You have " + user.getCoins() + " coins."));
-        inv.setItem(35, new ItemstackFactory(shop ? Material.COMPASS : Material.EMERALD).setDisplayName(shop ? "&5Selector" : "&5Shop").addLoreLine("&7Click here to go to the kit" + (shop ? " shop." : " selector.")));
+        inv.setItem(35, new ItemstackFactory(shop ? Material.COMPASS : Material.EMERALD).setDisplayName(shop ? "&5Selector" : "&5Shop").addLoreLine("&7Click here to go to the kit" + (shop ? " selector." : " shop.")));
         inv.setItem(45, new ItemstackFactory(Material.PAPER).setDisplayName("&5Page:&7 " + page + "/" + (pages == 0 ? 1 : pages)));
+        return inv;
+    }
+
+    public static Inventory getConfirmation(Player player, Boolean sell,Kit kit){
+        Inventory inv = Bukkit.createInventory(null, 1*9, color("&8" + (sell ? "Sell" : "Buy") + " Confirmation"));
+
+        inv.setItem(2, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 14).setDisplayName("&cCancel"));
+
+        //Information item
+        inv.setItem(4, new ItemstackFactory(Material.PAPER)
+                .setDisplayName("&5Are you sure?")
+                .addLoreLine("&7You are on the edge of")
+                .addLoreLine("&7" + (sell ? "selling your" : "buying the") + " " + kit.getName())
+                .addLoreLine("&7kit for " + (sell ? kit.getSellprice() : kit.getPrice()) + " coins")
+                .addLoreLine(" ")
+                .addLoreLine("&7Click left to cancel")
+                .addLoreLine("&7Click right to accept")
+        );
+
+        inv.setItem(6, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 5).setDisplayName("&aAccept"));
+
         return inv;
     }
 }

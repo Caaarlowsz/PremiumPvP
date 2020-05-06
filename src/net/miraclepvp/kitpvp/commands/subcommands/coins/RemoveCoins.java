@@ -32,7 +32,7 @@ public class RemoveCoins implements CommandExecutor {
             }
             try {
                 Integer value = Integer.parseInt(args[2]);
-                target.setCoins(target.getCoins() - value);
+                target.setCoins(target.getCoins() - value, false);
                 sender.sendMessage(Text.color("&aYou have removed " + value + " coins from " + player.getName() + "'s account."));
                 return true;
             } catch (Exception ex) {

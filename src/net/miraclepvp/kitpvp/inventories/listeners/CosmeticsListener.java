@@ -30,7 +30,7 @@ public class CosmeticsListener implements Listener {
         Player player = ((Player) event.getWhoClicked());
         if(event.getClickedInventory() == null) return;
         if(event.getClickedInventory().getName() == null) return;
-        if (!(event.getClickedInventory().getName().contains("Cosmetics"))) return;
+        if (!(event.getClickedInventory().getName().contains("Cosmetic"))) return;
         User user = Data.getUser(player);
         event.setCancelled(true);
         Boolean shop = false;
@@ -38,7 +38,7 @@ public class CosmeticsListener implements Listener {
         if (org.bukkit.ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Shop"))
             shop = true;
         CosmeticType cosmeticType = CosmeticType.valueOf(org.bukkit.ChatColor.stripColor(event.getClickedInventory().getName()
-                .replaceAll((shop ? "Shop" : "Selector") + " - Cosmetics:", "").replaceAll(" ", "")));
+                .replaceAll((shop ? "Shop" : "Selector") + " - Cosmetic:", "").replaceAll(" ", "")));
         HashMap<Integer, CosmeticType> cosmeticMap = new HashMap<>();
         CosmeticType.types.forEach(value -> cosmeticMap.put(CosmeticsGUI.getSlot(value.getPosition()), value));
         if (cosmeticMap.containsKey(event.getSlot()))
@@ -159,7 +159,7 @@ public class CosmeticsListener implements Listener {
                         player.closeInventory();
                     } else {
                         user.setTokens(user.getTokens() + trail.getSell());
-                        if(user.getActiveTrail() != null && user.getActiveTrail().equals(trail))
+                        if(user.getActiveTrail() != null && user.getActiveTrail().equals(trail.getUuid()))
                             user.setActiveTrail(null);
                         user.removeTrail(trail.getUuid());
                         player.sendMessage(color("&aYou've sold the " + trail.getName() + " trail."));
@@ -177,7 +177,7 @@ public class CosmeticsListener implements Listener {
                         player.closeInventory();
                     } else {
                         user.setTokens(user.getTokens() + suffix.getSell());
-                        if(user.getActiveSuffix() != null && user.getActiveSuffix().equals(suffix))
+                        if(user.getActiveSuffix() != null && user.getActiveSuffix().equals(suffix.getUuid()))
                             user.setActiveSuffix(null);
                         user.removeSuffixes(suffix.getUuid());
                         player.sendMessage(color("&aYou've sold the " + suffix.getName() + " suffix."));
@@ -195,7 +195,7 @@ public class CosmeticsListener implements Listener {
                         player.closeInventory();
                     } else {
                         user.setTokens(user.getTokens() + chatcolor.getSell());
-                        if(user.getActiveChatcolor() != null && user.getActiveChatcolor().equals(chatcolor))
+                        if(user.getActiveChatcolor() != null && user.getActiveChatcolor().equals(chatcolor.getUuid()))
                             user.setActiveChatcolor(null);
                         user.removeChatColor(chatcolor.getUuid());
                         player.sendMessage(color("&aYou've sold the " + chatcolor.getName() + " chatcolor."));
@@ -213,7 +213,7 @@ public class CosmeticsListener implements Listener {
                         player.closeInventory();
                     } else {
                         user.setTokens(user.getTokens() + namecolor.getSell());
-                        if(user.getActiveNamecolor() != null && user.getActiveNamecolor().equals(namecolor))
+                        if(user.getActiveNamecolor() != null && user.getActiveNamecolor().equals(namecolor.getUuid()))
                             user.setActiveNamecolor(null);
                         user.removeNameColor(namecolor.getUuid());
                         player.sendMessage(color("&aYou've sold the " + namecolor.getName() + " namecolor."));

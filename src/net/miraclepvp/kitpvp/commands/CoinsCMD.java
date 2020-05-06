@@ -24,7 +24,7 @@ public class CoinsCMD implements CommandExecutor {
             return true;
         }
         if(args.length == 0){
-            sender.sendMessage(Text.color("&cPlease use /coins help for more information."));
+            sender.sendMessage(Text.color("&aYou have " + Data.getUser(((Player) sender)).getCoins() + " coins."));
             return true;
         }
         switch (args[0].toLowerCase()){
@@ -44,7 +44,7 @@ public class CoinsCMD implements CommandExecutor {
                 this.balanceCoins.onCommand(sender, cmd, label, args);
                 break;
             default:
-                sender.sendMessage(Text.color("&cPlease use /coins help for more information."));
+                sender.sendMessage(Text.color("&aYou have " + Data.getUser(((Player) sender)).getCoins() + " coins."));
                 break;
         }
         return true;

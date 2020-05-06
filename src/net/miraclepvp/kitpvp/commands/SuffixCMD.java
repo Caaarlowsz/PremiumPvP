@@ -57,7 +57,7 @@ public class SuffixCMD implements CommandExecutor {
                 listSuffix.onCommand(sender, cmd, label, args);
                 break;
             default:
-                sender.sendMessage(Text.color("&cPlease use /trail help for more information."));
+                sender.sendMessage(Text.color("&cPlease use /suffix help for more information."));
                 break;
         }
         return true;

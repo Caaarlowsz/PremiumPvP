@@ -1,11 +1,13 @@
 package net.miraclepvp.kitpvp.data.sign;
 
 import net.miraclepvp.kitpvp.bukkit.FileManager;
+import net.miraclepvp.kitpvp.bukkit.NMSNickManager;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.Top;
 import net.miraclepvp.kitpvp.data.user.StatType;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.bukkit.Text;
+import net.miraclepvp.kitpvp.objects.NickManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -44,8 +46,11 @@ public class Sign {
             return;
         }
         User user = Top.getTop(getStats(), getPosition());
-        sign.setLine(1, Text.color("&5" + user.getStat(getStats()) + " " + getStats().getName()));
-        sign.setLine(2, Text.color("&5" + user.getPlayer().getName()));
+        Boolean compact = false;
+        if(getStats().equals(StatType.KILLS) || getStats().equals(StatType.DEATHS))
+            compact = true;
+        sign.setLine(1, Text.color("&5" + user.getStat(getStats(), compact) + " " + getStats().getName()));
+        sign.setLine(2, Text.color("&5" +  NickManager.getRealName(user.getUuid())));
         sign.setLine(3, "");
         sign.update();
         setUser(user);
@@ -60,16 +65,17 @@ public class Sign {
             h2 = b.getRelative(0, 1, -1);
         if (getBlockFace().equalsIgnoreCase("north"))
             h2 = b.getRelative(0, 1, 1);
+        //TODO Get original skin of nicked players
         if (h1.getType() == Material.SKULL) {
             Skull skull = (Skull) h1.getState();
             skull.setSkullType(SkullType.PLAYER);
-            skull.setOwner(user.getPlayer().getName());
+            skull.setOwner(NickManager.getRealName(user.getUuid()));
             skull.update();
         }
         if (h2.getType() == Material.SKULL) {
             Skull skull = (Skull) h2.getState();
             skull.setSkullType(SkullType.PLAYER);
-            skull.setOwner(user.getPlayer().getName());
+            skull.setOwner(NickManager.getRealName(user.getUuid()));
             skull.update();
         }
     }

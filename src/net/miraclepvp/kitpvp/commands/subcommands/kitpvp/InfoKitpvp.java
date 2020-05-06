@@ -16,7 +16,7 @@ public class InfoKitpvp implements CommandExecutor {
         ChatCenterUtil.sendCenteredMessage(player, "&fKitPvP");
         ChatCenterUtil.sendCenteredMessage(player, "&7Version " + Main.getInstance().version);
         ChatCenterUtil.sendCenteredMessage(player, "");
-        ChatCenterUtil.sendCenteredMessage(player, "&fAuthor: &7Sahustei");
+        ChatCenterUtil.sendCenteredMessage(player, "&fAuthor: &7AlmostSomeone");
         ChatCenterUtil.sendCenteredMessage(player, "&fWebsite: &7www.sahustei.nl");
         ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
         return true;

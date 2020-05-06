@@ -34,7 +34,7 @@ public class CosmeticsGUI {
         Integer last = (slots.length * page);
         Integer gopage = page + 1;
         Integer gobpage = page - 1;
-        Inventory inv = Bukkit.createInventory(null, invSize, Text.color("&8" + (shop ? "Shop" : "Selector") + " - Cosmetics: " + cosmeticType.getName()));
+        Inventory inv = Bukkit.createInventory(null, invSize, Text.color("&8" + (shop ? "Shop" : "Selector") + " - Cosmetic: " + cosmeticType.getName()));
         User user = Data.getUser(player);
         user.setCosmeticWasShop(shop);
         user.setLastCosmeticType(cosmeticType);
@@ -92,6 +92,8 @@ public class CosmeticsGUI {
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this trail.")
                                 .addLoreLine("&7Right Click to sell this trail.")
+                                .addLoreLine(" ")
+                                .addLoreLine("&7Sell price: " + trail.getSell())
                                 .addLoreLine(" "));
                     i++;
                 }
@@ -140,6 +142,8 @@ public class CosmeticsGUI {
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this suffix.")
                                 .addLoreLine("&7Right Click to sell this suffix.")
+                                .addLoreLine(" ")
+                                .addLoreLine("&7Sell price: " + suffix.getSell())
                                 .addLoreLine(" "));
                     i++;
                 }
@@ -188,6 +192,8 @@ public class CosmeticsGUI {
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this chatcolor.")
                                 .addLoreLine("&7Right Click to sell this chatcolor.")
+                                .addLoreLine(" ")
+                                .addLoreLine("&7Sell price: " + chatcolor.getSell())
                                 .addLoreLine(" "));
                     i++;
                 }
@@ -236,6 +242,8 @@ public class CosmeticsGUI {
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this namecolor.")
                                 .addLoreLine("&7Right Click to sell this namecolor.")
+                                .addLoreLine(" ")
+                                .addLoreLine("&7Sell price: " + namecolor.getSell())
                                 .addLoreLine(" "));
                     i++;
                 }
