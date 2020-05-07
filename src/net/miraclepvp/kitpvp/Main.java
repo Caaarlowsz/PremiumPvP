@@ -53,10 +53,10 @@ public final class Main extends JavaPlugin {
         if(version.toLowerCase().endsWith("-dev"))
             isDevmode = true;
 
-        if(!new LicenseHandler(/*"IHFF-4BP1-FP4L-C8TQ"*/"GL2J-GFCQ-WOV0-STJ8", "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register()) return;
-
         Config.load();
         getLogger().info("Config has been loaded");
+
+        if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register()) return;
 
         StatType.load();
         getLogger().info("Stats Types have been loaded");

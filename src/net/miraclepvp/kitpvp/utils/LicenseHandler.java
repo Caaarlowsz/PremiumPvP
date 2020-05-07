@@ -1,6 +1,7 @@
 package net.miraclepvp.kitpvp.utils;
 
 import net.miraclepvp.kitpvp.Main;
+import net.miraclepvp.kitpvp.data.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -111,7 +112,7 @@ public class LicenseHandler {
     }
 
     public static void silendValidade(){
-        if(!new LicenseHandler(/*"IHFF-4BP1-FP4L-C8TQ"*/ "GL2J-GFCQ-WOV0-STJ8", "https://www.sanchyro.nl/license/verify.php", Main.getInstance()).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").setConsoleLog(LogType.NONE).register()) return;
+            if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", Main.getInstance()).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").setConsoleLog(LogType.NONE).register()) return;
     }
 
 

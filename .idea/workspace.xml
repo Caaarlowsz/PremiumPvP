@@ -28,307 +28,42 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="Paar changes">
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CoinsCMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/StatsCMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/AddCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/BalanceCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/HelpCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/RemoveCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/SetCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/AddEffectKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/PriceKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RemoveEffectKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/SellpriceKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/CustomKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitEffects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CrateGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CrateListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ProfileListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerDeathEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDeath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Lag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Tablist.java" afterDir="false" />
+    <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MiraclePvP_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MiraclePvP_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/WorldGuard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/WorldGuard.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/FileManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/ItemstackFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/SkullBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/Text.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$ConstructorInvoker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$FieldAccessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections$MethodInvoker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/bukkit/reflection/Reflections.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/ChatColorCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/CosmoTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/KitCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/KitpvpCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/NameColorCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/PrefixCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/Rename.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/StatsCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/SuffixCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/TrailCMD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/Unbreakable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/AddChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/DeleteChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/GiveChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/HelpChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/IconChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/ListChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/PriceChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/RenameChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/chatcolor/SellpriceChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/CreateKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/DeleteKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/GiveKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/HelpKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/ListKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/RenameKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kit/ToggleKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/BuildmodeKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/HelpKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/InfoKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/LobbyKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/SetlobbyKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/kitpvp/SetmapKitpvp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/AddName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/DeleteName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/GiveName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/HelpName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/IconName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/ListName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/PriceName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/RenameName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/namecolor/SellpriceName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/AddPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/ClearPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/DeletePrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/HelpPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/InfoPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/ListPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/RenamePrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/SetPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/SetprefixPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/prefix/SetweightPrefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/AddSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/DeleteSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/GiveSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/HelpSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/IconSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/ListSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/PriceSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/RenameSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/suffix/SellpriceSuffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/tokens/AddTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/tokens/BalanceTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/tokens/HelpTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/tokens/RemoveTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/tokens/SetTokens.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/AddTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/DeleteTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/GiveTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/HelpTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/IconTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/ListTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/PriceTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/RenameTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/commands/subcommands/trail/SellpriceTrail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/Top.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/chatcolor/Chatcolor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/kit/ArmorSlot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/kit/Kit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/kit/KitItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/namecolor/Namecolor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/prefix/Prefix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/sign/Sign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/suffix/Suffix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/trail/Trail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/user/StatType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/data/user/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/CosmeticsGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/KitGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/UpdatelogGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/listeners/CosmeticsListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/inventories/listeners/KitListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/SignListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/custom/PlayerStatusChangeEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerBlockChange.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerDamage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerDeath.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerDrop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerHunger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerInventory$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerInventory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerJoin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerLeave.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerShoot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/listeners/player/playerStatusChange.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/CosmeticType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/DefaultFontInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/hasKit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/objects/isBuild.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/utils/ActionbarUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/utils/ChatCenterUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/utils/PingUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/utils/TeleportUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/me/sahustei/miraclepvp/utils/Trails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/bukkit/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/bukkit/ItemstackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/ItemstackFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/bukkit/SkullBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/SkullBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/bukkit/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/Text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/bukkit/reflection/Reflections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/reflection/Reflections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/ChatColorCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ChatColorCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/CosmoTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CosmoTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/KitCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/KitpvpCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitpvpCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/NameColorCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/NameColorCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/PrefixCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/PrefixCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/Rename.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/Rename.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/StatsCMD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/SuffixCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SuffixCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/TrailCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/TrailCMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/Unbreakable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/Unbreakable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/AddChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/AddChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/DeleteChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/DeleteChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/GiveChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/GiveChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/HelpChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/HelpChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/IconChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/IconChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/ListChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/ListChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/PriceChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/PriceChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/RenameChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/RenameChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/chatcolor/SellpriceChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/SellpriceChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/CreateKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/CreateKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/DeleteKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/DeleteKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/GiveKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/GiveKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/HelpKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/HelpKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/ListKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ListKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/RenameKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RenameKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kit/ToggleKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ToggleKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/BuildmodeKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/BuildmodeKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/HelpKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/InfoKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/InfoKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/LobbyKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/LobbyKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/SetlobbyKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SetlobbyKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/kitpvp/SetmapKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SetmapKitpvp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/AddName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/AddName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/DeleteName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/DeleteName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/GiveName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/GiveName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/HelpName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/HelpName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/IconName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/IconName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/ListName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/ListName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/PriceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/PriceName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/RenameName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/RenameName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/namecolor/SellpriceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/SellpriceName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/AddPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/AddPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/ClearPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ClearPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/DeletePrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/DeletePrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/HelpPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/HelpPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/InfoPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/InfoPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/ListPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ListPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/RenamePrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/RenamePrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/SetPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/SetprefixPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetprefixPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/prefix/SetweightPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetweightPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/AddSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/AddSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/DeleteSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/DeleteSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/GiveSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/GiveSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/HelpSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/IconSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/IconSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/ListSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/ListSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/PriceSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/PriceSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/RenameSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RenameSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/suffix/SellpriceSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SellpriceSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/tokens/AddTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/AddTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/tokens/BalanceTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/BalanceTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/tokens/HelpTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/HelpTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/tokens/RemoveTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/RemoveTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/tokens/SetTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/SetTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/AddTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/AddTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/DeleteTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/DeleteTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/GiveTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/GiveTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/HelpTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/HelpTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/IconTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/IconTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/ListTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/ListTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/PriceTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/PriceTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/RenameTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/RenameTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/commands/subcommands/trail/SellpriceTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/SellpriceTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/Top.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Top.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/chatcolor/Chatcolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/chatcolor/Chatcolor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/kit/ArmorSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/ArmorSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/kit/Kit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/Kit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/kit/KitItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/namecolor/Namecolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/namecolor/Namecolor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/prefix/Prefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/prefix/Prefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/sign/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/sign/Sign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/suffix/Suffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/suffix/Suffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/trail/Trail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/trail/Trail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/user/StatType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/StatType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/data/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/CosmeticsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/KitGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/UpdatelogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/UpdatelogGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/listeners/CosmeticsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/inventories/listeners/KitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/SignListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/SignListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/custom/PlayerStatusChangeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerStatusChangeEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerBlockChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerBlockChange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerDeath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDrop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerHunger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerHunger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerLeave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/listeners/player/playerStatusChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerStatusChange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/CosmeticType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/CosmeticType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/DefaultFontInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/DefaultFontInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/hasKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/hasKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/objects/isBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/isBuild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/ActionbarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/ActionbarUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/ChatCenterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/ChatCenterUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/PingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/PingUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/TeleportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/TeleportUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/sahustei/miraclepvp/utils/Trails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/Trails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/LicenseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/LicenseHandler.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="AntiCombatLog" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Enum" />
         <option value="Class" />
       </list>
@@ -343,9 +78,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="MiraclePvP/invalid/Minecraft" />
+    </ignored-facets>
+  </component>
   <component name="ProjectId" id="1PggapoZmbl1gmSy34sIhlqJOoK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;h2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
@@ -354,45 +100,38 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands" />
+    <property name="last_opened_file_path" value="D:/Oude projecten/Spigot/Intellij/StaffPanel" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.097751714" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\commands\subcommands" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.coins" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.kit" />
-      <recent name="net.miraclepvp.kitpvp.listeners.custom" />
-      <recent name="net.miraclepvp.kitpvp.listeners.player" />
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/BadlionNetwork/BadlionClientModAPI" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Games\MC\libaries\AntiCombatLog" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
+      <recent name="net.miraclepvp.kitpvp.objects" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
+      <recent name="net.miraclepvp.kitpvp.utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\bukkit" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\commands\subcommands" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -459,6 +198,173 @@
       <workItem from="1571921582193" duration="413000" />
       <workItem from="1572073571324" duration="1232000" />
       <workItem from="1572076329210" duration="398000" />
+      <workItem from="1572076745106" duration="537000" />
+      <workItem from="1572613049439" duration="129000" />
+      <workItem from="1572613239354" duration="1459000" />
+      <workItem from="1572683097674" duration="88000" />
+      <workItem from="1572683665161" duration="3713000" />
+      <workItem from="1572964265235" duration="1583000" />
+      <workItem from="1573290545444" duration="6604000" />
+      <workItem from="1573326071351" duration="535000" />
+      <workItem from="1573382156508" duration="9408000" />
+      <workItem from="1573412911874" duration="6515000" />
+      <workItem from="1573482285698" duration="14698000" />
+      <workItem from="1573656275455" duration="12214000" />
+      <workItem from="1573902458270" duration="4147000" />
+      <workItem from="1574243732170" duration="7308000" />
+      <workItem from="1574325888658" duration="6985000" />
+      <workItem from="1574502243003" duration="479000" />
+      <workItem from="1574613743407" duration="89000" />
+      <workItem from="1575192926697" duration="167000" />
+      <workItem from="1575193307865" duration="4318000" />
+      <workItem from="1575215912031" duration="5046000" />
+      <workItem from="1576063351150" duration="12000" />
+      <workItem from="1576063378965" duration="3697000" />
+      <workItem from="1576870777438" duration="2931000" />
+      <workItem from="1577096078147" duration="5788000" />
+      <workItem from="1577101915074" duration="7604000" />
+      <workItem from="1577176583530" duration="3166000" />
+      <workItem from="1577569228024" duration="2477000" />
+      <workItem from="1577614503395" duration="2630000" />
+      <workItem from="1577653530126" duration="2218000" />
+      <workItem from="1577874915738" duration="10973000" />
+      <workItem from="1577914279330" duration="15957000" />
+      <workItem from="1577959699457" duration="985000" />
+      <workItem from="1577960927156" duration="10281000" />
+      <workItem from="1577979340980" duration="216000" />
+      <workItem from="1578002852273" duration="10983000" />
+      <workItem from="1578046156725" duration="5059000" />
+      <workItem from="1578053095815" duration="15080000" />
+      <workItem from="1578151949397" duration="9470000" />
+      <workItem from="1578226116572" duration="6333000" />
+      <workItem from="1578238688679" duration="16323000" />
+      <workItem from="1578318958444" duration="3881000" />
+      <workItem from="1578347938554" duration="1115000" />
+      <workItem from="1578413395654" duration="11632000" />
+      <workItem from="1578467519772" duration="39675000" />
+      <workItem from="1578560604767" duration="27968000" />
+      <workItem from="1578671561766" duration="14240000" />
+      <workItem from="1578739358290" duration="3287000" />
+      <workItem from="1578756467119" duration="3674000" />
+      <workItem from="1578957470689" duration="686000" />
+      <workItem from="1579103570713" duration="15654000" />
+      <workItem from="1579183276566" duration="1667000" />
+      <workItem from="1579255519377" duration="9096000" />
+      <workItem from="1579335951906" duration="6509000" />
+      <workItem from="1579342507512" duration="3054000" />
+      <workItem from="1579351022796" duration="601000" />
+      <workItem from="1579358370531" duration="3789000" />
+      <workItem from="1579428301502" duration="11167000" />
+      <workItem from="1579461955504" duration="3745000" />
+      <workItem from="1579529195540" duration="3182000" />
+      <workItem from="1579556185029" duration="1147000" />
+      <workItem from="1579602409577" duration="15594000" />
+      <workItem from="1579717242044" duration="625000" />
+      <workItem from="1579727904694" duration="1108000" />
+      <workItem from="1580456218163" duration="9634000" />
+      <workItem from="1580568298410" duration="1943000" />
+      <workItem from="1580639699461" duration="18465000" />
+      <workItem from="1580919759304" duration="19000" />
+      <workItem from="1580919842695" duration="15814000" />
+      <workItem from="1580985337231" duration="630000" />
+      <workItem from="1581009140003" duration="1906000" />
+      <workItem from="1581176450012" duration="315000" />
+      <workItem from="1581667809400" duration="1159000" />
+      <workItem from="1581775767219" duration="5430000" />
+      <workItem from="1581868769996" duration="1076000" />
+      <workItem from="1581959847474" duration="1824000" />
+      <workItem from="1582135244664" duration="3341000" />
+      <workItem from="1582289868339" duration="52000" />
+      <workItem from="1582289979721" duration="4139000" />
+      <workItem from="1582361397489" duration="1657000" />
+      <workItem from="1582364517484" duration="13614000" />
+      <workItem from="1582459693133" duration="5571000" />
+      <workItem from="1582467290826" duration="7925000" />
+      <workItem from="1582478507368" duration="1919000" />
+      <workItem from="1582916884915" duration="14270000" />
+      <workItem from="1582965830990" duration="2402000" />
+      <workItem from="1582980132650" duration="5199000" />
+      <workItem from="1582998882219" duration="10876000" />
+      <workItem from="1583055854976" duration="7287000" />
+      <workItem from="1583343325138" duration="1243000" />
+      <workItem from="1583431794267" duration="3932000" />
+      <workItem from="1583508646772" duration="2162000" />
+      <workItem from="1583657697464" duration="30467000" />
+      <workItem from="1583766338626" duration="8477000" />
+      <workItem from="1584002464446" duration="693000" />
+      <workItem from="1584003973856" duration="4529000" />
+      <workItem from="1584033850412" duration="1654000" />
+      <workItem from="1584130723892" duration="708000" />
+      <workItem from="1584177358843" duration="676000" />
+      <workItem from="1584191361108" duration="6426000" />
+      <workItem from="1584260830821" duration="2773000" />
+      <workItem from="1584276139594" duration="11480000" />
+      <workItem from="1584355578391" duration="8389000" />
+      <workItem from="1584447544749" duration="190000" />
+      <workItem from="1584459811167" duration="607000" />
+      <workItem from="1584521881453" duration="4849000" />
+      <workItem from="1584553847333" duration="1315000" />
+      <workItem from="1584627669108" duration="1156000" />
+      <workItem from="1584634810661" duration="1199000" />
+      <workItem from="1584789600440" duration="4771000" />
+      <workItem from="1584894442139" duration="601000" />
+      <workItem from="1584902443892" duration="48000" />
+      <workItem from="1584998261083" duration="310000" />
+      <workItem from="1585000234992" duration="247000" />
+      <workItem from="1585040666450" duration="2737000" />
+      <workItem from="1585049824580" duration="3967000" />
+      <workItem from="1585078889414" duration="51000" />
+      <workItem from="1585161828258" duration="758000" />
+      <workItem from="1585218859636" duration="227000" />
+      <workItem from="1585226080367" duration="1195000" />
+      <workItem from="1585397340379" duration="1210000" />
+      <workItem from="1585478484376" duration="1356000" />
+      <workItem from="1585665074179" duration="3124000" />
+      <workItem from="1585679492064" duration="994000" />
+      <workItem from="1585741421488" duration="1362000" />
+      <workItem from="1585753804512" duration="9267000" />
+      <workItem from="1585822718837" duration="5375000" />
+      <workItem from="1585831495038" duration="1286000" />
+      <workItem from="1585832789351" duration="393000" />
+      <workItem from="1585833329135" duration="870000" />
+      <workItem from="1585835803596" duration="3281000" />
+      <workItem from="1585900540321" duration="1096000" />
+      <workItem from="1585905818961" duration="14892000" />
+      <workItem from="1586165109772" duration="112000" />
+      <workItem from="1586165290394" duration="1906000" />
+      <workItem from="1586246709193" duration="5057000" />
+      <workItem from="1586268200556" duration="170000" />
+      <workItem from="1586268623336" duration="3621000" />
+      <workItem from="1586280213582" duration="1525000" />
+      <workItem from="1586330142559" duration="17601000" />
+      <workItem from="1586421623329" duration="2188000" />
+      <workItem from="1586424655971" duration="11869000" />
+      <workItem from="1586439965325" duration="953000" />
+      <workItem from="1586512651135" duration="1668000" />
+      <workItem from="1586522102270" duration="175000" />
+      <workItem from="1586601946228" duration="14000" />
+      <workItem from="1586608377936" duration="1834000" />
+      <workItem from="1586682375495" duration="600000" />
+      <workItem from="1586693239232" duration="785000" />
+      <workItem from="1586702351237" duration="2682000" />
+      <workItem from="1586776677977" duration="484000" />
+      <workItem from="1586850492346" duration="201000" />
+      <workItem from="1586851096892" duration="2615000" />
+      <workItem from="1586876840054" duration="724000" />
+      <workItem from="1586941958091" duration="3107000" />
+      <workItem from="1586965769795" duration="1288000" />
+      <workItem from="1586975847542" duration="756000" />
+      <workItem from="1587040112586" duration="1719000" />
+      <workItem from="1588012536620" duration="2437000" />
+      <workItem from="1588064913020" duration="17210000" />
+      <workItem from="1588097415216" duration="254000" />
+      <workItem from="1588155803560" duration="9874000" />
+      <workItem from="1588240496747" duration="24917000" />
+      <workItem from="1588326019059" duration="4939000" />
+      <workItem from="1588337878797" duration="2738000" />
+      <workItem from="1588514806310" duration="1505000" />
+      <workItem from="1588771041757" duration="1743000" />
+      <workItem from="1588844554427" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -488,27 +394,98 @@
       <option name="project" value="LOCAL" />
       <updated>1570035517477</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Paar changes">
+      <created>1572076970823</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1572076970823</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Paar changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Paar changes" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Notifications/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580923232611" />
+    <state x="2472" y="179" key="#Notifications/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1582290235595" />
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1588080653206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588080653206" />
+    <state x="2531" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586850572606">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="611" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1586165215197" />
+    <state x="2531" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586850572606" />
+    <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1582135322591">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1582135322591" />
+    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588157163754">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588157163754" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588156954936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588156954936" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588162621404" />
+    <state x="2660" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586430007673" />
+    <state x="706" y="230" key="RollbackChangesDialog" timestamp="1585070470899">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="706" y="230" key="RollbackChangesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585070470899" />
+    <state x="2360" y="94" key="SettingsEditor" timestamp="1588777273801">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="684" y="189" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588071325578" />
+    <state x="2360" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588777273801" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1582392027266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
+    <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="350" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1586693238770" />
+    <state x="656" y="350" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586850488051" />
+    <state x="342" y="169" key="new project wizard" timestamp="1588078040662">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="169" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588078040662" />
+    <state x="2019" y="115" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1585823528091" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1583787803576">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583787803576" />
+    <state x="2536" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1581784627950" />
+    <state x="623" y="226" width="670" height="58" key="search.everywhere.popup" timestamp="1588327930761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="226" width="670" height="58" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588327930761" />
   </component>
 </project>

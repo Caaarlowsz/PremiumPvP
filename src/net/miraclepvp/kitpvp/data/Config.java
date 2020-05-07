@@ -13,6 +13,7 @@ public class Config {
 
     private static String serverName = "KitPvP";
     private static String discordLink = "";
+    private static String licenseKey = "";
     private static Integer broadcastDelay = 300;
     private static Integer signReloadDelay = 900;
     private static ArrayList<String> messages = new ArrayList<>();
@@ -28,6 +29,7 @@ public class Config {
 
         FileManager.load(Main.getInstance(), "config.yml");
         FileConfiguration config = FileManager.get("config.yml");
+        licenseKey = config.getString("license");
         serverName = config.getString("broadcast.servername");
         discordLink = config.getString("discord.link");
         broadcastDelay = config.getInt("broadcast.delay");
@@ -98,6 +100,10 @@ public class Config {
 
     public static void setLobbyLoc(Location lobbyLoc) {
         Config.lobbyLoc = lobbyLoc;
+    }
+
+    public static String getLicenseKey() {
+        return licenseKey;
     }
 
     public static ArrayList<Location> getSpawnpoints() {

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="WorldGuard">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../MiraclePvP Backups/2-1-2020/plugins/WorldGuard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../server/plugins/WorldGuard.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
