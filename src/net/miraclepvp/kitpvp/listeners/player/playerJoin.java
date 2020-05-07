@@ -105,7 +105,8 @@ public class playerJoin implements Listener {
         Board.showScoreboard(player);
 
         if (player.hasMetadata("vanished")) return;
-        if (player.hasMetadata("build")) return;
+        if (player.hasMetadata("build"))
+            player.removeMetadata("build", Main.getInstance());
         if(Duel.isIngame(player))
             Duel.getDuel(player).leave(player);
 

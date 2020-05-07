@@ -33,13 +33,10 @@ public class ListSpawnpoints implements CommandExecutor {
         ChatCenterUtil.sendCenteredMessage(player, "");
         Config.getSpawnpoints().forEach(spawnpoint -> {
             pos++;
-
             IChatBaseComponent comp = IChatBaseComponent.ChatSerializer
-                    .a(color("{text: \"&5" + pos + ". &f" + spawnpoint.getWorld().getName() + ", " + (Math.round(spawnpoint.getX() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getY() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getZ() * 100.00) / 100.00) + "\", clickEvent: {\"action\": \"run_command\" , value: \"/minecraft:tp " + player.getName() + " " + spawnpoint.getX() + " " + spawnpoint.getY() + " " + spawnpoint.getZ() + "\"}}"));
+                    .a(color("{text: \"&5" + pos + ". &f" + (spawnpoint == null ? "world not found" : spawnpoint.getWorld().getName()) + ", " + (Math.round(spawnpoint.getX() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getY() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getZ() * 100.00) / 100.00) + "\", clickEvent: {\"action\": \"run_command\" , value: \"/minecraft:tp " + player.getName() + " " + spawnpoint.getX() + " " + spawnpoint.getY() + " " + spawnpoint.getZ() + "\"}}"));
             PacketPlayOutChat ppoc = new PacketPlayOutChat(comp);
             ((CraftPlayer) player).getHandle().playerConnection.sendPacket(ppoc);
-
-            //player.sendMessage(Text.color("&5" + pos + ". &f" + spawnpoint.getWorld().getName() + ", " + (Math.round(spawnpoint.getX() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getY() * 100.00) / 100.00) + ", " + (Math.round(spawnpoint.getZ() * 100.00) / 100.00)));
         });
 
         if(Config.getSpawnpoints().isEmpty())

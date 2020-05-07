@@ -56,12 +56,12 @@ public final class Main extends JavaPlugin {
         if(version.toLowerCase().endsWith("-dev"))
             isDevmode = true;
 
+        WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
+
         Config.load();
         getLogger().info("Config has been loaded");
 
         if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register()) return;
-
-        WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
 
         StatType.load();
         getLogger().info("Stats Types have been loaded");

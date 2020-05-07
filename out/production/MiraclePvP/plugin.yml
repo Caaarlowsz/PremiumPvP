@@ -141,6 +141,7 @@ permissions:
     children:
       miraclepvp.kitpvp.setlobby: true
       miraclepvp.kitpvp.lobby: true
+      miraclepvp.kitpvp.map: true
       miraclepvp.kitpvp.setmap: true
       miraclepvp.kitpvp.buildmode: true
       miraclepvp.kitpvp.reload: true
@@ -178,6 +179,9 @@ permissions:
       miraclepvp.freeze.alert: true
   miraclepvp.duel.invite:
     description: Get the permission to execute the /duel invite command.
+    default: OP
+  miraclepvp.kitpvp.map:
+    description: Get the permission to execute the /kp map command.
     default: OP
   miraclepvp.kitpvp.gettracker:
     description: Get the permission to execute the /kp gettracker command.
