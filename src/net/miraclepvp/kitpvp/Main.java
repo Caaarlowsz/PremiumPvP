@@ -1,6 +1,7 @@
 package net.miraclepvp.kitpvp;
 
 import com.mojang.authlib.GameProfile;
+import net.miraclepvp.kitpvp.bukkit.WorldManager;
 import net.miraclepvp.kitpvp.bukkit.reflection.Reflections;
 import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
@@ -22,6 +23,8 @@ import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import net.miraclepvp.kitpvp.utils.LicenseHandler;
 import net.miraclepvp.kitpvp.utils.Trails;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -186,7 +189,7 @@ public final class Main extends JavaPlugin {
         AnvilListener.prepareAnvil();
         getLogger().info("Anvil is prepared and ready to use");
 
-        //TODO Make a world for FFA map and every map
+        WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
 
         Bukkit.getOnlinePlayers().stream().forEach(player -> {
             if (!Data.users.stream().anyMatch(i -> i.getUuid().equals(player.getUniqueId()))) {

@@ -1,3 +1,4 @@
+license: xxxx-xxxx-xxxx-xxxx
 mysql:
   host: localhost
   port: 3306
