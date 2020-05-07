@@ -61,6 +61,8 @@ public final class Main extends JavaPlugin {
 
         if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register()) return;
 
+        WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
+
         StatType.load();
         getLogger().info("Stats Types have been loaded");
 
@@ -188,8 +190,6 @@ public final class Main extends JavaPlugin {
 
         AnvilListener.prepareAnvil();
         getLogger().info("Anvil is prepared and ready to use");
-
-        WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
 
         Bukkit.getOnlinePlayers().stream().forEach(player -> {
             if (!Data.users.stream().anyMatch(i -> i.getUuid().equals(player.getUniqueId()))) {

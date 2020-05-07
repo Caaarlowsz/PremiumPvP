@@ -29,14 +29,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/MapKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$LogType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$LogType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$ValidationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$ValidationType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/WorldManager$VoidGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/WorldManager$VoidGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/WorldManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/WorldManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/WorldManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitpvpCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitpvpCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +373,7 @@
       <workItem from="1588337878797" duration="2738000" />
       <workItem from="1588514806310" duration="1505000" />
       <workItem from="1588771041757" duration="1743000" />
-      <workItem from="1588844554427" duration="838000" />
+      <workItem from="1588844554427" duration="1998000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -409,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588845091840</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="The plugin now makes a void world called FFA.">
+      <created>1588845551856</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588845551856</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +445,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Paar changes" />
     <MESSAGE value="Added the functionality of having the license in the config. Improved security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the functionality of having the license in the config. Improved security" />
+    <MESSAGE value="The plugin now makes a void world called FFA." />
+    <option name="LAST_COMMIT_MESSAGE" value="The plugin now makes a void world called FFA." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
@@ -459,10 +475,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588156954936" />
-    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1588845087628">
+    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1588845549203">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845087628" />
+    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845549203" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -481,10 +497,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1588845096894">
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1588845554749">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845096894" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845554749" />
     <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -18,6 +18,7 @@ public class HelpKitpvp implements CommandExecutor {
         ChatCenterUtil.sendCenteredMessage(player, "");
         ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp info");
         ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp lobby <player>");
+        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp map <player>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp setlobby");
         ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp buildmode");
         ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp gettracker");

@@ -18,6 +18,7 @@ public class KitpvpCMD implements CommandExecutor {
     private TrackerKitpvp trackerKitpvp = new TrackerKitpvp();
     private SaveKitpvp saveKitpvp = new SaveKitpvp();
     private AnvilKitpvp anvilKitpvp = new AnvilKitpvp();
+    private MapKitpvp mapKitpvp = new MapKitpvp();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -52,6 +53,9 @@ public class KitpvpCMD implements CommandExecutor {
                 break;
             case "getanvil":
                 anvilKitpvp.onCommand(sender, cmd, label, args);
+                break;
+            case "map":
+                mapKitpvp.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(color("&cPlease use /kitpvp help for more information."));
