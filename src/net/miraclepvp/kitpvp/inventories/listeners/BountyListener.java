@@ -21,7 +21,7 @@ public class BountyListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player)) return;
         if (event.getClickedInventory() == null) return;
         if (event.getClickedInventory().getName() == null) return;
-        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Bounty"))) return;
+        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Bounty Hunt - "))) return;
         event.setCancelled(true);
         if (event.getCurrentItem() == null) return;
         if(event.getCurrentItem().getItemMeta() == null) return;

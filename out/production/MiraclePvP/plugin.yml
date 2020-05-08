@@ -1,5 +1,5 @@
 name: MiraclePvP
-version: 1.05.1
+version: 1.05.1-dev
 main: net.miraclepvp.kitpvp.Main
 author: AlmostSomeone
 description: An Advanced KitPvP System
@@ -142,6 +142,7 @@ permissions:
       miraclepvp.kitpvp.setlobby: true
       miraclepvp.kitpvp.lobby: true
       miraclepvp.kitpvp.map: true
+      miraclepvp.kitpvp.realname: true
       miraclepvp.kitpvp.setmap: true
       miraclepvp.kitpvp.buildmode: true
       miraclepvp.kitpvp.reload: true
@@ -182,6 +183,9 @@ permissions:
     default: OP
   miraclepvp.kitpvp.map:
     description: Get the permission to execute the /kp map command.
+    default: OP
+  miraclepvp.kitpvp.realname:
+    description: Get the permission to execute /kp realname command.
     default: OP
   miraclepvp.kitpvp.gettracker:
     description: Get the permission to execute the /kp gettracker command.

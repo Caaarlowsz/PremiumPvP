@@ -29,7 +29,7 @@ public class BountyGUI {
         Integer last = (slots.length * page);
         Integer gopage = page + 1;
         Integer gobpage = page - 1;
-        Inventory inv = Bukkit.createInventory(null, invSize, color("&8Bounty Hunter"));
+        Inventory inv = Bukkit.createInventory(null, invSize, color("&8Bounty Hunt"));
 
         //Filling the GUI with glass
         for (int i = 0; i < invSize; i++)
@@ -72,7 +72,7 @@ public class BountyGUI {
         Integer last = (slots.length * page);
         Integer gopage = page + 1;
         Integer gobpage = page - 1;
-        Inventory inv = Bukkit.createInventory(null, invSize, color("&8Bounty Hunter - Players"));
+        Inventory inv = Bukkit.createInventory(null, invSize, color("&8Bounty Hunt - Players"));
 
         //Filling the GUI with glass
         for (int i = 0; i < invSize; i++)
@@ -109,7 +109,7 @@ public class BountyGUI {
     }
 
     public static Inventory getSetBountyInventory(Player player, Integer value) {
-        Inventory inv = Bukkit.createInventory(null, 9 * 5, color("&8Bounty Hunter - " + player.getName()));
+        Inventory inv = Bukkit.createInventory(null, 9 * 5, color("&8Bounty Hunt - " + player.getName()));
         Integer[] sides = {0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44};
         Arrays.stream(sides).forEach(integer -> inv.setItem(integer, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 7).setDisplayName(" ")));
         inv.setItem(4, new ItemstackFactory(SkullBuilder.getPlayerSkull(player.getName())).setDisplayName("&5" + player.getName()));
