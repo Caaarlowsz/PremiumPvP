@@ -118,7 +118,7 @@ public class CosmeticsGUI {
                                 .addLoreLine(" ")
                                 .addLoreLine("&7UUID: " + suffix.getUuid())
                                 .addLoreLine(" ")
-                                .addLoreLine("&7Name: " + suffix.getName())
+                                .addLoreLine("&7Suffix: " + suffix.getSuffix())
                                 .addLoreLine("&7Price: " + suffix.getCost())
                                 .addLoreLine("&7Sell price: " + suffix.getSell())
                                 .addLoreLine(" "));

@@ -125,9 +125,9 @@ public class Booster {
                 }
             } else {
                 if (boosterType.equals(BoosterType.COINS))
-                    coinBoost -= percentage;
+                    coinBoost = (coinBoost-percentage);
                 if (boosterType.equals(BoosterType.EXPERIENCE))
-                    experienceBoost -= percentage;
+                    experienceBoost = (experienceBoost-percentage);
                 activeBoosters.remove(this);
             }
         }

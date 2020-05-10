@@ -30,9 +30,12 @@
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/KitpvpCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/KitpvpCMD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +100,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -364,6 +368,8 @@
       <workItem from="1588844554427" duration="4938000" />
       <workItem from="1588856586598" duration="1815000" />
       <workItem from="1588859752502" duration="2296000" />
+      <workItem from="1588967018927" duration="893000" />
+      <workItem from="1589094475284" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -435,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588859600530</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed max 32 characters in Bounty Hunter {PlayerName} bug">
+      <created>1588967280554</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588967280554</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +473,8 @@
     <MESSAGE value="Added a /kp map command to teleport to the map" />
     <MESSAGE value="Loading world before loading spawnpoints" />
     <MESSAGE value="Added the kitpvp realname command to find the real name of a nicked player." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the kitpvp realname command to find the real name of a nicked player." />
+    <MESSAGE value="Fixed max 32 characters in Bounty Hunter {PlayerName} bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed max 32 characters in Bounty Hunter {PlayerName} bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
@@ -489,11 +503,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588156954936" />
-    <state x="585" y="1" key="CommitChangelistDialog2" timestamp="1588859597503">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1588967277833">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859597503" />
-    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588846812413" />
+    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588967277833" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -512,11 +526,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1588859602360">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1588967284791">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859602360" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588846817574" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588967284791" />
     <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
