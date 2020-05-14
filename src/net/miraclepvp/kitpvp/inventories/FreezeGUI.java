@@ -12,7 +12,7 @@ public class FreezeGUI {
     public static Inventory getInventory(){
         Inventory inv = Bukkit.createInventory(null, 3*9, color("&8You are frozen!"));
         inv.setItem(13, new ItemstackFactory(Material.REDSTONE_BLOCK).setDisplayName("&cYou are frozen!")
-                .addLoreLine("&7Join the support in our Discord.")
+                .addLoreLine("&7Create a #frozen ticket in our Discord.")
                 .addLoreLine("&7Discord: discord.gg/TPXdxJK")
                 .addLoreLine(" ")
                 .addLoreLine("&7WARNING: DO NOT LEAVE THE SERVER!")

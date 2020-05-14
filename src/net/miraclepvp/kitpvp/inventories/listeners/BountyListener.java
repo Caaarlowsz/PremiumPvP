@@ -21,7 +21,7 @@ public class BountyListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player)) return;
         if (event.getClickedInventory() == null) return;
         if (event.getClickedInventory().getName() == null) return;
-        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Bounty Hunt - "))) return;
+        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).contains("Bounty Hunt"))) return;
         event.setCancelled(true);
         if (event.getCurrentItem() == null) return;
         if(event.getCurrentItem().getItemMeta() == null) return;
@@ -29,7 +29,8 @@ public class BountyListener implements Listener {
         if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(" ")) return;
         if(event.getCurrentItem().getType().equals(Material.PAPER)) return;
 
-        String[] words = ChatColor.stripColor(event.getClickedInventory().getName()).replace("- ", "").split(" ");
+        String[] words = ChatColor.stripColor(event.getClickedInventory().getName()).replace(":", "").split(" ");
+
         if(words.length==2){
             if(event.getSlot() == 49)
                 event.getWhoClicked().openInventory(BountyGUI.getPlayersInventory(((Player) event.getWhoClicked()), 1));
