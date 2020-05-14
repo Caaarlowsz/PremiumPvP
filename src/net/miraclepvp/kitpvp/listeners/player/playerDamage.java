@@ -14,7 +14,7 @@ public class playerDamage implements Listener {
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
-        if(!event.getEntity().hasMetadata("kit")) {
+        if(!event.getEntity().hasMetadata("kit") && !event.getEntity().hasMetadata("event")) {
             event.setCancelled(true);
             return;
         }
@@ -39,7 +39,7 @@ public class playerDamage implements Listener {
                 event.setCancelled(true);
                 return;
             }
-            if (!event.getDamager().hasMetadata("kit")){
+            if (!event.getDamager().hasMetadata("kit") && !event.getDamager().hasMetadata("event")){
                 event.setCancelled(true);
                 return;
             }

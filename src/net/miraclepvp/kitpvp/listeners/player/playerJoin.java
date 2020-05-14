@@ -55,7 +55,7 @@ public class playerJoin implements Listener {
         ChatCenterUtil.sendCenteredMessage(player, "&7Welcome to MiraclePvP");
         ChatCenterUtil.sendCenteredMessage(player, "&7");
         ChatCenterUtil.sendCenteredMessage(player, "&7Website: www.miraclepvp.net");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Store: store.miraclepvp.net");
+        ChatCenterUtil.sendCenteredMessage(player, "&7Store: miraclepvp.tebex.io");
         ChatCenterUtil.sendCenteredMessage(player, "&7Discord: discord.gg/TPXdxJK");
         ChatCenterUtil.sendCenteredMessage(player, "&7");
         ChatCenterUtil.sendCenteredMessage(player, "&7If you have any questions, visit the information page:");

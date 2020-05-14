@@ -283,7 +283,7 @@ public class User {
         getKitLayouts().remove(kitUUID);
     }
 
-    public boolean giveKit(UUID kitUUID, Boolean customAllowed) {
+    public boolean giveKit(UUID kitUUID, Boolean customAllowed, Boolean spawnAbilities) {
         if (!Bukkit.getOfflinePlayer(uuid).isOnline()) return false;
         if (Data.getKit(kitUUID).getName() == null) return false;
 
@@ -330,12 +330,13 @@ public class User {
             player.removeMetadata("build", Main.getInstance());
         }
 
-        HashMap<Abilities.AbilityType, Integer> abilities = Data.getUser(player).getAbilities();
-        if (abilities.get(Abilities.AbilityType.ABSORTION) != null)
-            player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, Abilities.AbilityType.ABSORTION.getLvl(abilities.get(Abilities.AbilityType.ABSORTION)) * 20, 0));
-        if (abilities.get(Abilities.AbilityType.REGEN_SPAWN) != null)
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Abilities.AbilityType.REGEN_SPAWN.getLvl(abilities.get(Abilities.AbilityType.REGEN_SPAWN)) * 20, 0));
-
+        if(spawnAbilities) {
+            HashMap<Abilities.AbilityType, Integer> abilities = Data.getUser(player).getAbilities();
+            if (abilities.get(Abilities.AbilityType.ABSORTION) != null)
+                player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, Abilities.AbilityType.ABSORTION.getLvl(abilities.get(Abilities.AbilityType.ABSORTION)) * 20, 0));
+            if (abilities.get(Abilities.AbilityType.REGEN_SPAWN) != null)
+                player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Abilities.AbilityType.REGEN_SPAWN.getLvl(abilities.get(Abilities.AbilityType.REGEN_SPAWN)) * 20, 0));
+        }
         return true;
     }
 

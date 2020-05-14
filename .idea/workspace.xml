@@ -29,12 +29,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ServereventCMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/BroadcastServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/CloseServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/HelpServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/JoinServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/LeaveServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/OpenServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/SetkitServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/SetlocationServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/StartServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/StopServerevent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/ServerEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/inEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/DuelCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/DuelCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/KitGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/KitGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$DamageProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$DamageProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerLeave.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerLeave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerMove.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DuelCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DuelCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Duel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInteract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,22 +165,22 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/BadlionNetwork/BadlionClientModAPI" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
-      <recent name="net.miraclepvp.kitpvp.objects" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
-      <recent name="net.miraclepvp.kitpvp.utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\bukkit" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.miraclepvp.kitpvp.objects" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
+      <recent name="net.miraclepvp.kitpvp.utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -369,7 +418,10 @@
       <workItem from="1588856586598" duration="1815000" />
       <workItem from="1588859752502" duration="2296000" />
       <workItem from="1588967018927" duration="893000" />
-      <workItem from="1589094475284" duration="295000" />
+      <workItem from="1589094475284" duration="11091000" />
+      <workItem from="1589131394973" duration="1889000" />
+      <workItem from="1589223679941" duration="781000" />
+      <workItem from="1589439101497" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -448,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588967280554</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="You can now see a suffix before buying it.">
+      <created>1589094781606</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589094781606</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +533,8 @@
     <MESSAGE value="Loading world before loading spawnpoints" />
     <MESSAGE value="Added the kitpvp realname command to find the real name of a nicked player." />
     <MESSAGE value="Fixed max 32 characters in Bounty Hunter {PlayerName} bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed max 32 characters in Bounty Hunter {PlayerName} bug" />
+    <MESSAGE value="You can now see a suffix before buying it." />
+    <option name="LAST_COMMIT_MESSAGE" value="You can now see a suffix before buying it." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
@@ -491,23 +551,27 @@
     </state>
     <state x="611" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859621753" />
     <state x="2531" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586850572606" />
+    <state x="723" y="405" width="475" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1589104806201">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="723" y="405" width="475" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589104806201" />
     <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1582135322591">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1582135322591" />
-    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588157163754">
+    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589096097632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588157163754" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588156954936">
+    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589096097632" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589096024592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588156954936" />
-    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1588967277833">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589096024592" />
+    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1589094778440">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859597503" />
-    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588967277833" />
+    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589094778440" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -526,11 +590,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1588967284791">
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1589094815822">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859602360" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588967284791" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589094815822" />
     <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -540,19 +604,23 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2687" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845139625" />
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1589095662837">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589095662837" />
     <state x="342" y="169" key="new project wizard" timestamp="1588078040662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="169" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588078040662" />
     <state x="2019" y="115" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1585823528091" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1583787803576">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1589097475827">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583787803576" />
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589097475827" />
     <state x="2536" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1581784627950" />
-    <state x="623" y="226" width="670" height="58" key="search.everywhere.popup" timestamp="1588327930761">
+    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup" timestamp="1589440803155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="226" width="670" height="58" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588327930761" />
+    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589440803155" />
   </component>
 </project>

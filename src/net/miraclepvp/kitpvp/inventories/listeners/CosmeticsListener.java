@@ -3,13 +3,19 @@ package net.miraclepvp.kitpvp.inventories.listeners;
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.chatcolor.Chatcolor;
+import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.namecolor.Namecolor;
 import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.CosmeticsGUI;
+import net.miraclepvp.kitpvp.inventories.KitGUI;
 import net.miraclepvp.kitpvp.objects.CosmeticType;
+import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import net.miraclepvp.kitpvp.utils.Trails;
+import org.apache.commons.lang3.StringUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,9 +24,12 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.UUID;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
+import static org.bukkit.Bukkit.getServer;
 
 public class CosmeticsListener implements Listener {
 
@@ -30,7 +39,7 @@ public class CosmeticsListener implements Listener {
         Player player = ((Player) event.getWhoClicked());
         if(event.getClickedInventory() == null) return;
         if(event.getClickedInventory().getName() == null) return;
-        if (!(event.getClickedInventory().getName().contains("Cosmetic"))) return;
+        if (!(event.getClickedInventory().getName().contains(" - Cosmetic: "))) return;
         User user = Data.getUser(player);
         event.setCancelled(true);
         Boolean shop = false;
@@ -95,10 +104,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    user.setTokens(user.getTokens() - trail.getCost());
-                    user.addTrail(trail.getUuid());
-                    player.sendMessage(color("&aYou've bought the " + trail.getName() + " trail for " + trail.getCost() + " CosmoPoints."));
-                    player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.Trail, trail.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -110,10 +116,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    user.setTokens(user.getTokens() - suffix.getCost());
-                    user.addSuffix(suffix.getUuid());
-                    player.sendMessage(color("&aYou've bought the " + suffix.getName() + " suffix for " + suffix.getCost() + " CosmoPoints."));
-                    player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.Suffix, suffix.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -125,10 +128,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    user.setTokens(user.getTokens() - chatcolor.getCost());
-                    user.addChatColor(chatcolor.getUuid());
-                    player.sendMessage(color("&aYou've bought the " + chatcolor.getName() + " chatcolor for " + chatcolor.getCost() + " CosmoPoints."));
-                    player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.ChatColor, chatcolor.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -140,10 +140,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    user.setTokens(user.getTokens() - namecolor.getCost());
-                    user.addNameColor(namecolor.getUuid());
-                    player.sendMessage(color("&aYou've bought the " + namecolor.getName() + " namecolor for " + namecolor.getCost() + " CosmoPoints."));
-                    player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.NameColor, namecolor.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -158,12 +155,7 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + trail.getName() + " trail."));
                         player.closeInventory();
                     } else {
-                        user.setTokens(user.getTokens() + trail.getSell());
-                        if(user.getActiveTrail() != null && user.getActiveTrail().equals(trail.getUuid()))
-                            user.setActiveTrail(null);
-                        user.removeTrail(trail.getUuid());
-                        player.sendMessage(color("&aYou've sold the " + trail.getName() + " trail."));
-                        player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.Trail, trail.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
@@ -176,12 +168,7 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + suffix.getName() + " suffix."));
                         player.closeInventory();
                     } else {
-                        user.setTokens(user.getTokens() + suffix.getSell());
-                        if(user.getActiveSuffix() != null && user.getActiveSuffix().equals(suffix.getUuid()))
-                            user.setActiveSuffix(null);
-                        user.removeSuffixes(suffix.getUuid());
-                        player.sendMessage(color("&aYou've sold the " + suffix.getName() + " suffix."));
-                        player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.Suffix, suffix.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
@@ -194,12 +181,7 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + chatcolor.getName() + " chatcolor."));
                         player.closeInventory();
                     } else {
-                        user.setTokens(user.getTokens() + chatcolor.getSell());
-                        if(user.getActiveChatcolor() != null && user.getActiveChatcolor().equals(chatcolor.getUuid()))
-                            user.setActiveChatcolor(null);
-                        user.removeChatColor(chatcolor.getUuid());
-                        player.sendMessage(color("&aYou've sold the " + chatcolor.getName() + " chatcolor."));
-                        player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.ChatColor, chatcolor.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
@@ -212,15 +194,123 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + namecolor.getName() + " namecolor."));
                         player.closeInventory();
                     } else {
-                        user.setTokens(user.getTokens() + namecolor.getSell());
-                        if(user.getActiveNamecolor() != null && user.getActiveNamecolor().equals(namecolor.getUuid()))
-                            user.setActiveNamecolor(null);
-                        user.removeNameColor(namecolor.getUuid());
-                        player.sendMessage(color("&aYou've sold the " + namecolor.getName() + " namecolor."));
-                        player.openInventory(CosmeticsGUI.getInventory(player, cosmeticType, shop, 1));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.NameColor, namecolor.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onConfirmClick(InventoryClickEvent event) {
+        if (!(event.getWhoClicked() instanceof Player)) return;
+        Player player = ((Player) event.getWhoClicked());
+        if (event.getClickedInventory() == null) return;
+        if (event.getClickedInventory().getName() == null) return;
+        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Cosmetic ") && ChatColor.stripColor(event.getClickedInventory().getName()).endsWith("Confirmation"))) return;
+        User user = Data.getUser(player);
+        event.setCancelled(true);
+
+        Boolean sell = ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(1)).contains("selling your ");
+
+        String name = ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(1))
+                .replaceAll("selling your ", "").replaceAll("buying the ", " ").trim();
+
+        if(name == "NaN"){
+            player.closeInventory();
+            return;
+        }
+
+        CosmeticType type = CosmeticType.Suffix;
+        UUID uuid = null;
+        Integer
+                sellPrice = 0,
+                buyPrice = 0;
+
+        try{
+            type = CosmeticType.valueOf(StringUtils.capitalize(ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(2)).split(" ")[0]));
+            switch (type) {
+                case Trail:
+                    Trail object = Data.getTrail(name);
+                    uuid = object.getUuid();
+                    sellPrice = object.getSell();
+                    buyPrice = object.getCost();
+                    break;
+                case Suffix:
+                    Suffix object2 = Data.getSuffix(name);
+                    uuid = object2.getUuid();
+                    sellPrice = object2.getSell();
+                    buyPrice = object2.getCost();
+                    break;
+                case ChatColor:
+                    Chatcolor object3 = Data.getChatcolor(name);
+                    uuid = object3.getUuid();
+                    sellPrice = object3.getSell();
+                    buyPrice = object3.getCost();
+                    break;
+                case NameColor:
+                    Namecolor object4 = Data.getNamecolor(name);
+                    uuid = object4.getUuid();
+                    sellPrice = object4.getSell();
+                    buyPrice = object4.getCost();
+                    break;
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            getServer().getLogger().info("An error occurred on CosmeticListener::260");
+            player.closeInventory();
+        }
+
+        if(event.getSlot() == 2){
+            player.sendMessage(color("&aYou've cancelled to " + (sell ? "sell" : "buy") + " the " + name + " cosmetic."));
+            player.openInventory(CosmeticsGUI.getInventory(player, type, false, 1));
+        }
+        else if(event.getSlot() == 6) {
+            if(sell) {
+                user.setTokens(user.getTokens() + sellPrice);
+                switch (type){
+                    case Trail:
+                        if(user.getActiveTrail() != null && user.getActiveTrail().equals(uuid))
+                            user.setActiveTrail(null);
+                        user.removeTrail(uuid);
+                        break;
+                    case Suffix:
+                        if(user.getActiveSuffix() != null && user.getActiveSuffix().equals(uuid))
+                            user.setActiveSuffix(null);
+                        user.removeSuffixes(uuid);
+                        break;
+                    case ChatColor:
+                        if(user.getActiveChatcolor() != null && user.getActiveChatcolor().equals(uuid))
+                            user.setActiveChatcolor(null);
+                        user.removeChatColor(uuid);
+                        break;
+                    case NameColor:
+                        if(user.getActiveNamecolor() != null && user.getActiveNamecolor().equals(uuid))
+                            user.setActiveNamecolor(null);
+                        user.removeNameColor(uuid);
+                        break;
+                }
+                player.sendMessage(color("&aYou've sold the " + name + " " + type.getName() + " for " + sellPrice + " tokens. ["  + Data.getSuffix(name).getSell() + "]"));
+                player.openInventory(CosmeticsGUI.getInventory(player, type, false, 1));
+            } else {
+                user.setTokens(user.getTokens() - buyPrice);
+                switch (type){
+                    case Trail:
+                        user.addTrail(uuid);
+                        break;
+                    case Suffix:
+                        user.addSuffix(uuid);
+                        break;
+                    case ChatColor:
+                        user.addChatColor(uuid);
+                        break;
+                    case NameColor:
+                        user.addNameColor(uuid);
+                        break;
+                }
+                player.sendMessage(color("&aYou've bought the " + name + " " + type.toString().toLowerCase() + " for " + buyPrice + " tokens."));
+                player.openInventory(CosmeticsGUI.getInventory(player, type, true, 1));
             }
         }
     }

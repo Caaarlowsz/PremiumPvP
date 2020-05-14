@@ -5,6 +5,7 @@ import net.miraclepvp.kitpvp.bukkit.SkullBuilder;
 import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.chatcolor.Chatcolor;
+import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.namecolor.Namecolor;
 import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
@@ -17,10 +18,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+
+import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class CosmeticsGUI {
 
@@ -66,8 +66,6 @@ public class CosmeticsGUI {
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(trail.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(trail.getName()))
                                 .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + trail.getUuid())
-                                .addLoreLine(" ")
                                 .addLoreLine("&7Name: " + trail.getName())
                                 .addLoreLine("&7Price: " + trail.getCost())
                                 .addLoreLine("&7Sell price: " + trail.getSell())
@@ -87,8 +85,6 @@ public class CosmeticsGUI {
                     Trail trail = (Trail) localIterator.next();
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(trail.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(trail.getName()))
-                                .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + trail.getUuid())
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this trail.")
                                 .addLoreLine("&7Right Click to sell this trail.")
@@ -116,8 +112,6 @@ public class CosmeticsGUI {
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(suffix.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(suffix.getName()))
                                 .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + suffix.getUuid())
-                                .addLoreLine(" ")
                                 .addLoreLine("&7Suffix: " + suffix.getSuffix())
                                 .addLoreLine("&7Price: " + suffix.getCost())
                                 .addLoreLine("&7Sell price: " + suffix.getSell())
@@ -137,8 +131,6 @@ public class CosmeticsGUI {
                     Suffix suffix = (Suffix) localIterator.next();
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(suffix.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(suffix.getName()))
-                                .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + suffix.getUuid())
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this suffix.")
                                 .addLoreLine("&7Right Click to sell this suffix.")
@@ -166,8 +158,6 @@ public class CosmeticsGUI {
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(chatcolor.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(chatcolor.getName()))
                                 .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + chatcolor.getUuid())
-                                .addLoreLine(" ")
                                 .addLoreLine("&7Name: " + chatcolor.getName())
                                 .addLoreLine("&7Price: " + chatcolor.getCost())
                                 .addLoreLine("&7Sell price: " + chatcolor.getSell())
@@ -187,8 +177,6 @@ public class CosmeticsGUI {
                     Chatcolor chatcolor = (Chatcolor) localIterator.next();
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(chatcolor.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(chatcolor.getName()))
-                                .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + chatcolor.getUuid())
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this chatcolor.")
                                 .addLoreLine("&7Right Click to sell this chatcolor.")
@@ -216,8 +204,6 @@ public class CosmeticsGUI {
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(namecolor.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(namecolor.getName()))
                                 .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + namecolor.getUuid())
-                                .addLoreLine(" ")
                                 .addLoreLine("&7Name: " + namecolor.getName())
                                 .addLoreLine("&7Price: " + namecolor.getCost())
                                 .addLoreLine("&7Sell price: " + namecolor.getSell())
@@ -237,8 +223,6 @@ public class CosmeticsGUI {
                     Namecolor namecolor = (Namecolor) localIterator.next();
                     if ((i >= first) && (i <= last))
                         inv.addItem(new ItemstackFactory(namecolor.getIcon()).setDisplayName("&5" + WordUtils.capitalizeFully(namecolor.getName()))
-                                .addLoreLine(" ")
-                                .addLoreLine("&7UUID: " + namecolor.getUuid())
                                 .addLoreLine(" ")
                                 .addLoreLine("&7Left Click to select this namecolor.")
                                 .addLoreLine("&7Right Click to sell this namecolor.")
@@ -264,5 +248,60 @@ public class CosmeticsGUI {
 
     public static Integer getSlot(Integer position){
         return (position*9)+1;
+    }
+
+    public static Inventory getConfirmation(Boolean sell, CosmeticType type, UUID uuid){
+        Inventory inv = Bukkit.createInventory(null, 1*9, color("&8Cosmetic " + (sell ? "Sell" : "Buy") + " Confirmation"));
+
+        inv.setItem(2, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 14).setDisplayName("&cCancel"));
+
+        String
+                name = "",
+                sellPrice = "",
+                buyPrice = "";
+
+        try {
+            switch (type) {
+                case Trail:
+                    name = Data.getTrail(uuid).getName();
+                    sellPrice = String.valueOf(Data.getTrail(uuid).getSell());
+                    buyPrice = String.valueOf(Data.getTrail(uuid).getCost());
+                    break;
+                case Suffix:
+                    name = Data.getSuffix(uuid).getName();
+                    sellPrice = String.valueOf(Data.getSuffix(uuid).getSell());
+                    buyPrice = String.valueOf(Data.getSuffix(uuid).getCost());
+                    break;
+                case ChatColor:
+                    name = Data.getChatcolor(uuid).getName();
+                    sellPrice = String.valueOf(Data.getChatcolor(uuid).getSell());
+                    buyPrice = String.valueOf(Data.getChatcolor(uuid).getCost());
+                    break;
+                case NameColor:
+                    name = Data.getNamecolor(uuid).getName();
+                    sellPrice = String.valueOf(Data.getNamecolor(uuid).getSell());
+                    buyPrice = String.valueOf(Data.getNamecolor(uuid).getCost());
+                    break;
+            }
+        }catch (Exception ex){
+            name = "NaN";
+            sellPrice = "NaN";
+            buyPrice = "NaN";
+        }
+
+        //Information item
+        inv.setItem(4, new ItemstackFactory(Material.PAPER)
+                .setDisplayName("&5Are you sure?")
+                .addLoreLine("&7You are on the edge of")
+                .addLoreLine("&7" + (sell ? "selling your" : "buying the") + " " + name)
+                .addLoreLine("&7" + type.toString().toLowerCase() + " for " + (sell ? sellPrice : buyPrice) + " cosmotokens")
+                .addLoreLine(" ")
+                .addLoreLine("&7Click left to cancel")
+                .addLoreLine("&7Click right to accept")
+        );
+
+        inv.setItem(6, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 5).setDisplayName("&aAccept"));
+
+        return inv;
     }
 }

@@ -115,7 +115,7 @@ public class KitListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    player.openInventory(KitGUI.getConfirmation(player, false, kit));
+                    player.openInventory(KitGUI.getConfirmation(false, kit));
                 } else {
                     player.openInventory(KitEditGUI.getPreviewInventory(kit, false));
                 }
@@ -139,7 +139,7 @@ public class KitListener implements Listener {
                             return;
                         }
                         TeleportUtil.getTeleport(player);
-                        if(user.giveKit(user.getPreviousKit(), true)){
+                        if(user.giveKit(user.getPreviousKit(), true, true)){
                             player.setMetadata("kit", new hasKit());
                             player.setAllowFlight(false);
                             player.setFlying(false);
@@ -154,7 +154,7 @@ public class KitListener implements Listener {
                         player.sendMessage(color("&cYou can't sell a free kit."));
                         return;
                     }
-                    player.openInventory(KitGUI.getConfirmation(player, true, kit));
+                    player.openInventory(KitGUI.getConfirmation(true, kit));
                 } else if (event.getClick().equals(ClickType.SHIFT_LEFT)){
                     player.openInventory(KitLayoutGUI.getPreviewInventory(kit));
                 }
@@ -169,13 +169,13 @@ public class KitListener implements Listener {
         Player player = ((Player) event.getWhoClicked());
         if (event.getClickedInventory() == null) return;
         if (event.getClickedInventory().getName() == null) return;
-        if (!(event.getClickedInventory().getName().endsWith("Confirmation"))) return;
+        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Kit ") && ChatColor.stripColor(event.getClickedInventory().getName()).endsWith("Confirmation"))) return;
         User user = Data.getUser(player);
         event.setCancelled(true);
 
-        Boolean sell = ChatColor.stripColor(event.getClickedInventory().getName()).replaceAll(" Confirmation", "").equalsIgnoreCase("Sell");
+        Boolean sell = ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(1)).contains("selling your ");
 
-        Kit kit = Data.getKit(ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(1)).replaceAll((sell ? "selling your " : "buying the "), ""));
+        Kit kit = Data.getKit( ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(1)).replaceAll("selling your ", "").replaceAll("buying the ", " ").trim());
 
         if(event.getSlot() == 2){
             player.sendMessage(color("&aYou've cancelled to " + (sell ? "sell" : "buy") + " the " + kit.getName() + " kit."));
@@ -185,7 +185,7 @@ public class KitListener implements Listener {
             if(sell) {
                 user.setCoins(user.getCoins() + kit.getSellprice(), false);
                 user.getKitsList().remove(kit.getUuid());
-                player.sendMessage(color("&aYou've sold the " + kit.getName() + " kit."));
+                player.sendMessage(color("&aYou've sold the " + kit.getName() + " kit for " + kit.getSellprice() + " Coins." ));
                 player.openInventory(KitGUI.getInventory(player, false, 1));
             } else {
                 user.setCoins(user.getCoins() - kit.getPrice(), false);

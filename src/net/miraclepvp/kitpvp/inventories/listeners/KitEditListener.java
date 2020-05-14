@@ -37,7 +37,7 @@ public class KitEditListener implements Listener {
             if (event.getSlot() == 25)
                 KitEditGUI.editting.put(player, Editting.ICON);
             if (event.getSlot() == 29){
-                if(user.giveKit(kit.getUuid(), false)) {
+                if(user.giveKit(kit.getUuid(), false, true)) {
                 } else {
                     player.sendMessage(color("&cCouldn't set your kit, something went wrong."));
                 }

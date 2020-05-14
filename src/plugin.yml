@@ -5,6 +5,9 @@ author: AlmostSomeone
 description: An Advanced KitPvP System
 depend: [WorldGuard, WorldEdit]
 commands:
+  serverevent:
+    description: Serverevent command
+    aliases: [se]
   arena:
     description: Arena command
   map:
@@ -105,6 +108,7 @@ permissions:
       miraclepvp.report.*: true
       miraclepvp.freeze.*: true
       miraclepvp.resetstats: true
+      miraclepvp.serverevent: true
   miraclepvp.staffchat.*:
     description: Get all permissions for the staffchat system
     default: OP
@@ -178,6 +182,9 @@ permissions:
       miraclepvp.freeze: true
       miraclepvp.freeze.bypass: true
       miraclepvp.freeze.alert: true
+  miraclepvp.serverevent:
+    description: Get the permissions to manage the server event.
+    default: OP
   miraclepvp.duel.invite:
     description: Get the permission to execute the /duel invite command.
     default: OP

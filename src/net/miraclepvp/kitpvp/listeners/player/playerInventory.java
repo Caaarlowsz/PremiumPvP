@@ -47,7 +47,7 @@ public class playerInventory implements Listener {
                     player.sendMessage(color("&aYou've selected the " + kit.getName() + " kit."));
                     if (user.isAutoDeploy()) {
                         TeleportUtil.getTeleport(player);
-                        if(user.giveKit(user.getPreviousKit(), true)){
+                        if(user.giveKit(user.getPreviousKit(), true, true)){
                             player.setMetadata("kit", new hasKit());
                             player.setAllowFlight(false);
                             player.setFlying(false);

@@ -304,7 +304,7 @@ public class Duel {
 
     private void preparePlayer(Player player) {
         User user = Data.getUser(player);
-        user.giveKit(kit.getUuid(), true);
+        user.giveKit(kit.getUuid(), true, false);
         player.setMetadata("kit", new hasKit());
         player.setAllowFlight(false);
         player.setFlying(false);

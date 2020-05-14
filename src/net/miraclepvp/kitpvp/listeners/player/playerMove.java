@@ -94,7 +94,7 @@ public class playerMove implements Listener {
             SpawnCMD.teleporting.remove(event.getPlayer().getUniqueId());
             event.getPlayer().sendMessage(color("&cTeleportation cancelled because you moved."));
         }
-        if(!event.getPlayer().hasMetadata("kit") && !Duel.isSpectator(event.getPlayer())){
+        if(!event.getPlayer().hasMetadata("kit") && !Duel.isSpectator(event.getPlayer()) && !event.getPlayer().hasMetadata("event")){
             Integer x = event.getFrom().getBlockX();
             Integer z = event.getFrom().getBlockZ();
             Integer difX = Config.getLobbyLoc().getBlockX()-x;

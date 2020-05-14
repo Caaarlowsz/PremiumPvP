@@ -29,6 +29,8 @@ public class playerLeave implements Listener {
         }
         if(!(Main.getInstance().combatTimer.containsKey(event.getPlayer()))) return;
         if(Main.getInstance().combatTimer.get(event.getPlayer()) <= 0) return;
+        if(event.getPlayer().hasMetadata("event"))
+            event.getPlayer().performCommand("serverevent leave");
         playerJoin.handleSpawn(event.getPlayer());
         event.getPlayer().setHealth(0);
         Bukkit.getServer().broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&8[&c&l!&8] &c" + event.getPlayer().getName() + "&7 left the server while in combat!"));

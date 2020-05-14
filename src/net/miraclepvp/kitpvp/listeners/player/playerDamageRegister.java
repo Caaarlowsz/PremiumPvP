@@ -6,6 +6,7 @@ import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.duel.Duel;
 import net.miraclepvp.kitpvp.data.user.Abilities;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.ServerEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
@@ -31,6 +32,12 @@ public class playerDamageRegister implements Listener {
     public void onDeath(PlayerDeathEvent event){
         event.setDeathMessage(null);
 
+        if(event.getEntity().hasMetadata("event")){
+            event.getEntity().spigot().respawn();
+            ServerEvent.leave(event.getEntity(), true);
+            return;
+        }
+
         if(Duel.isIngame(event.getEntity())){
             Duel duel = Duel.getDuel(event.getEntity());
             if(duel.host.equals(event.getEntity().getUniqueId()))
@@ -47,9 +54,10 @@ public class playerDamageRegister implements Listener {
     public void on(EntityDeathEvent event) {
         if (!(event.getEntity() instanceof Player)) return;
         Player player = (Player) event.getEntity();
+        if(player.hasMetadata("event")) return;
         event.getDrops().clear();
         event.setDroppedExp(0);
-        if(Duel.isIngame(player)) return;
+        if(Duel.isIngame(player) || player.hasMetadata("event")) return;
         if (!profiles.containsKey(player.getUniqueId())) profiles.put(player.getUniqueId(), new DamageProfile());
         DamageProfile profile = profiles.get(player.getUniqueId());
         profiles.remove(player.getUniqueId());
@@ -78,7 +86,6 @@ public class playerDamageRegister implements Listener {
                 e.setCancelled(true);
             return;
         }
-
 
         if (!profiles.containsKey(p.getUniqueId())) profiles.put(p.getUniqueId(), new DamageProfile());
         DamageProfile profile = profiles.get(p.getUniqueId());
@@ -116,6 +123,8 @@ public class playerDamageRegister implements Listener {
 
         if (e.getCause() == EntityDamageEvent.DamageCause.VOID) return;
 
+        if(p.hasMetadata("event")) return;
+
         profile.setDamageTaken(profile.getDamageTaken() + e.getDamage());
     }
 
@@ -124,6 +133,8 @@ public class playerDamageRegister implements Listener {
         if (!(e.getEntity() instanceof Player)) return;
         Player p = (Player) e.getEntity();
         Player damager = null;
+
+        if(p.hasMetadata("event")) return;
 
         if(Duel.isIngame(p) || Duel.isIngame(damager)) return;
 

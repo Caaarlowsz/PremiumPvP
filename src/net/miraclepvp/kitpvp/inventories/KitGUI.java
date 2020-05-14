@@ -109,8 +109,8 @@ public class KitGUI implements Listener {
         return inv;
     }
 
-    public static Inventory getConfirmation(Player player, Boolean sell,Kit kit){
-        Inventory inv = Bukkit.createInventory(null, 1*9, color("&8" + (sell ? "Sell" : "Buy") + " Confirmation"));
+    public static Inventory getConfirmation(Boolean sell,Kit kit){
+        Inventory inv = Bukkit.createInventory(null, 1*9, color("&8Kit " + (sell ? "Sell" : "Buy") + " Confirmation"));
 
         inv.setItem(2, new ItemstackFactory(Material.STAINED_GLASS_PANE, 1, 14).setDisplayName("&cCancel"));
 

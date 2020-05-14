@@ -136,7 +136,7 @@ public final class Main extends JavaPlugin {
                 new String[]{
                         "unbreakable", "rename", "cosmotokens", "trail", "suffix", "chatcolor", "namecolor", "stats", "kitpvp", "prefix", "kit",
                         "coins", "guild", "spawnpoints", "chat", "staffchat", "sc", "supplydrop", "zone", "booster", "fly", "nick", "report", "crate",
-                        "spawn", "npc", "level", "freeze", "discord", "resetstats", "top", "duel", "map", "arena"
+                        "spawn", "npc", "level", "freeze", "discord", "resetstats", "top", "duel", "map", "arena", "serverevent"
                 },
                 new UnbreakableCMD(),
                 new RenameCMD(),
@@ -171,7 +171,8 @@ public final class Main extends JavaPlugin {
                 new TopCMD(),
                 new DuelCMD(),
                 new MapCMD(),
-                new ArenaCMD()
+                new ArenaCMD(),
+                new ServereventCMD()
         );
 
         getLogger().info("There are " + cmdSize + " commands loaded!");

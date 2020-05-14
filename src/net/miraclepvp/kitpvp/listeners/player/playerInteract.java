@@ -92,7 +92,7 @@ public class playerInteract implements Listener {
                     TeleportUtil.getTeleport(player);
                     player.playSound(player.getLocation(), Sound.PORTAL_TRAVEL, 1, 0);
                     player.playEffect(player.getLocation(), Effect.PORTAL, 5);
-                    if(user.giveKit(user.getPreviousKit(), true)){
+                    if(user.giveKit(user.getPreviousKit(), true, true)){
                         player.setMetadata("kit", new hasKit());
                         player.setAllowFlight(false);
                         player.setFlying(false);

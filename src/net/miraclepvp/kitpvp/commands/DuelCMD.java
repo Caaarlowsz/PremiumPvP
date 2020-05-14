@@ -21,7 +21,7 @@ public class DuelCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!(sender instanceof Player)) return true;
-        if(Duel.isIngame(((Player) sender)) || Duel.isSpectator(((Player) sender)) || ((Player) sender).hasMetadata("kit")) {
+        if(Duel.isIngame(((Player) sender)) || Duel.isSpectator(((Player) sender)) || ((Player) sender).hasMetadata("kit") || ((Player) sender).hasMetadata("event")) {
             sender.sendMessage(color("&cYou can only use this command at spawn."));
             return true;
         }
