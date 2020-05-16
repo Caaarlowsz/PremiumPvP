@@ -11,12 +11,14 @@ public class Suffix {
     private String suffix;
     private Integer cost,sell;
     private Material icon;
+    private Boolean buyable;
 
     public Suffix(String name, String suffix, Material icon, int cost, int sell) {
         this.uuid = UUID.randomUUID();
         this.icon = icon;
         this.name = name;
         this.suffix = suffix;
+        this.buyable = true;
         this.cost = cost;
         this.sell = sell;
     }
@@ -34,6 +36,16 @@ public class Suffix {
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    public Boolean getBuyable() {
+        if(buyable == null)
+            return true;
+        return buyable;
+    }
+
+    public void setBuyable(Boolean buyable) {
+        this.buyable = buyable;
     }
 
     public Material getIcon()

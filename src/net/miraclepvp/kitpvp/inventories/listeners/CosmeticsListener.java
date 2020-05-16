@@ -3,18 +3,14 @@ package net.miraclepvp.kitpvp.inventories.listeners;
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.chatcolor.Chatcolor;
-import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.namecolor.Namecolor;
 import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.CosmeticsGUI;
-import net.miraclepvp.kitpvp.inventories.KitGUI;
 import net.miraclepvp.kitpvp.objects.CosmeticType;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import net.miraclepvp.kitpvp.utils.Trails;
 import org.apache.commons.lang3.StringUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -24,7 +20,6 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
@@ -47,7 +42,7 @@ public class CosmeticsListener implements Listener {
         if (org.bukkit.ChatColor.stripColor(event.getClickedInventory().getName()).startsWith("Shop"))
             shop = true;
         CosmeticType cosmeticType = CosmeticType.valueOf(org.bukkit.ChatColor.stripColor(event.getClickedInventory().getName()
-                .replaceAll((shop ? "Shop" : "Selector") + " - Cosmetic:", "").replaceAll(" ", "")));
+                .replaceAll((shop ? "Shop" : "Selector") + " - Cosmetic:", "").replaceAll(" ", "")).toUpperCase());
         HashMap<Integer, CosmeticType> cosmeticMap = new HashMap<>();
         CosmeticType.types.forEach(value -> cosmeticMap.put(CosmeticsGUI.getSlot(value.getPosition()), value));
         if (cosmeticMap.containsKey(event.getSlot()))
@@ -82,11 +77,11 @@ public class CosmeticsListener implements Listener {
         }
 
         if(event.getSlot() == 53 && !shop){
-            if(cosmeticType.equals(CosmeticType.Trail))
+            if(cosmeticType.equals(CosmeticType.TRAIL))
                 user.setActiveTrail(null);
-            if(cosmeticType.equals(CosmeticType.Suffix))
+            if(cosmeticType.equals(CosmeticType.SUFFIX))
                 user.setActiveSuffix(null);
-            if(cosmeticType.equals(CosmeticType.ChatColor))
+            if(cosmeticType.equals(CosmeticType.CHATCOLOR))
                 user.setActiveChatcolor(null);
             if(cosmeticType.equals(CosmeticType.NameColor))
                 user.setActiveNamecolor(null);
@@ -96,7 +91,7 @@ public class CosmeticsListener implements Listener {
 
         if (shop) {
             if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR) return;
-            if (cosmeticType.equals(CosmeticType.Trail)) {
+            if (cosmeticType.equals(CosmeticType.TRAIL)) {
                 try {
                     Trail trail = Data.getTrail(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (user.getTokens() < trail.getCost()) {
@@ -104,11 +99,11 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.Trail, trail.getUuid()));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.TRAIL, trail.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.Suffix)) {
+            if (cosmeticType.equals(CosmeticType.SUFFIX)) {
                 try {
                     Suffix suffix = Data.getSuffix(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (user.getTokens() < suffix.getCost()) {
@@ -116,11 +111,11 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.Suffix, suffix.getUuid()));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.SUFFIX, suffix.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.ChatColor)) {
+            if (cosmeticType.equals(CosmeticType.CHATCOLOR)) {
                 try {
                     Chatcolor chatcolor = Data.getChatcolor(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (user.getTokens() < chatcolor.getCost()) {
@@ -128,7 +123,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.ChatColor, chatcolor.getUuid()));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.CHATCOLOR, chatcolor.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -146,7 +141,7 @@ public class CosmeticsListener implements Listener {
             }
         } else {
             if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR) return;
-            if (cosmeticType.equals(CosmeticType.Trail)) {
+            if (cosmeticType.equals(CosmeticType.TRAIL)) {
                 try {
                     Trail trail = Data.getTrail(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (event.getClick().equals(ClickType.LEFT)) {
@@ -155,12 +150,12 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + trail.getName() + " trail."));
                         player.closeInventory();
                     } else {
-                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.Trail, trail.getUuid()));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.TRAIL, trail.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.Suffix)) {
+            if (cosmeticType.equals(CosmeticType.SUFFIX)) {
                 try {
                     Suffix suffix = Data.getSuffix(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (event.getClick().equals(ClickType.LEFT)) {
@@ -168,12 +163,16 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + suffix.getName() + " suffix."));
                         player.closeInventory();
                     } else {
-                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.Suffix, suffix.getUuid()));
+                        if(!suffix.getBuyable()){
+                            player.sendMessage(color("&cYou can not sell this suffix."));
+                            return;
+                        }
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.SUFFIX, suffix.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.ChatColor)) {
+            if (cosmeticType.equals(CosmeticType.CHATCOLOR)) {
                 try {
                     Chatcolor chatcolor = Data.getChatcolor(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (event.getClick().equals(ClickType.LEFT)) {
@@ -181,7 +180,7 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + chatcolor.getName() + " chatcolor."));
                         player.closeInventory();
                     } else {
-                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.ChatColor, chatcolor.getUuid()));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.CHATCOLOR, chatcolor.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
@@ -222,28 +221,28 @@ public class CosmeticsListener implements Listener {
             return;
         }
 
-        CosmeticType type = CosmeticType.Suffix;
+        CosmeticType type = CosmeticType.SUFFIX;
         UUID uuid = null;
         Integer
                 sellPrice = 0,
                 buyPrice = 0;
 
         try{
-            type = CosmeticType.valueOf(StringUtils.capitalize(ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(2)).split(" ")[0]));
+            type = CosmeticType.valueOf(ChatColor.stripColor(event.getClickedInventory().getItem(4).getItemMeta().getLore().get(2)).split(" ")[0].toUpperCase());
             switch (type) {
-                case Trail:
+                case TRAIL:
                     Trail object = Data.getTrail(name);
                     uuid = object.getUuid();
                     sellPrice = object.getSell();
                     buyPrice = object.getCost();
                     break;
-                case Suffix:
+                case SUFFIX:
                     Suffix object2 = Data.getSuffix(name);
                     uuid = object2.getUuid();
                     sellPrice = object2.getSell();
                     buyPrice = object2.getCost();
                     break;
-                case ChatColor:
+                case CHATCOLOR:
                     Chatcolor object3 = Data.getChatcolor(name);
                     uuid = object3.getUuid();
                     sellPrice = object3.getSell();
@@ -270,17 +269,17 @@ public class CosmeticsListener implements Listener {
             if(sell) {
                 user.setTokens(user.getTokens() + sellPrice);
                 switch (type){
-                    case Trail:
+                    case TRAIL:
                         if(user.getActiveTrail() != null && user.getActiveTrail().equals(uuid))
                             user.setActiveTrail(null);
                         user.removeTrail(uuid);
                         break;
-                    case Suffix:
+                    case SUFFIX:
                         if(user.getActiveSuffix() != null && user.getActiveSuffix().equals(uuid))
                             user.setActiveSuffix(null);
                         user.removeSuffixes(uuid);
                         break;
-                    case ChatColor:
+                    case CHATCOLOR:
                         if(user.getActiveChatcolor() != null && user.getActiveChatcolor().equals(uuid))
                             user.setActiveChatcolor(null);
                         user.removeChatColor(uuid);
@@ -291,18 +290,18 @@ public class CosmeticsListener implements Listener {
                         user.removeNameColor(uuid);
                         break;
                 }
-                player.sendMessage(color("&aYou've sold the " + name + " " + type.getName() + " for " + sellPrice + " tokens. ["  + Data.getSuffix(name).getSell() + "]"));
+                player.sendMessage(color("&aYou've sold the " + name + " " + type.getName() + " for " + sellPrice + " tokens."));
                 player.openInventory(CosmeticsGUI.getInventory(player, type, false, 1));
             } else {
                 user.setTokens(user.getTokens() - buyPrice);
                 switch (type){
-                    case Trail:
+                    case TRAIL:
                         user.addTrail(uuid);
                         break;
-                    case Suffix:
+                    case SUFFIX:
                         user.addSuffix(uuid);
                         break;
-                    case ChatColor:
+                    case CHATCOLOR:
                         user.addChatColor(uuid);
                         break;
                     case NameColor:

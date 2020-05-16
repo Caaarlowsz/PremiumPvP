@@ -17,6 +17,9 @@ public class SuffixCMD implements CommandExecutor {
     SellpriceSuffix sellpriceSuffix = new SellpriceSuffix();
     IconSuffix iconSuffix = new IconSuffix();
     ListSuffix listSuffix = new ListSuffix();
+    RemoveSuffix removeSuffix = new RemoveSuffix();
+    BuyableSuffix buyableSuffix = new BuyableSuffix();
+    SetSuffix setSuffix = new SetSuffix();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -55,6 +58,15 @@ public class SuffixCMD implements CommandExecutor {
                 break;
             case "list":
                 listSuffix.onCommand(sender, cmd, label, args);
+                break;
+            case "remove":
+                removeSuffix.onCommand(sender, cmd, label, args);
+                break;
+            case "buyable":
+                buyableSuffix.onCommand(sender, cmd, label, args);
+                break;
+            case "setsuffix":
+                setSuffix.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(Text.color("&cPlease use /suffix help for more information."));

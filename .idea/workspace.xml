@@ -29,11 +29,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/BuyableSuffix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RemoveSuffix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SetSuffix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/FreezeGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/FreezeGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BountyGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BountyGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/FreezeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/FreezeGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/META-INF/MiraclePvP.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SuffixCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SuffixCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/suffix/Suffix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/suffix/Suffix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SuffixCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SuffixCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/suffix/Suffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/suffix/Suffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,22 +126,22 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/BadlionNetwork/BadlionClientModAPI" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.suffix" />
+      <recent name="net.miraclepvp.kitpvp.objects" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\bukkit" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.miraclepvp.kitpvp.objects" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
-      <recent name="net.miraclepvp.kitpvp.utils" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -372,7 +384,9 @@
       <workItem from="1589223679941" duration="781000" />
       <workItem from="1589439101497" duration="4502000" />
       <workItem from="1589457776921" duration="766000" />
-      <workItem from="1589472535598" duration="2863000" />
+      <workItem from="1589472535598" duration="3110000" />
+      <workItem from="1589561640814" duration="118000" />
+      <workItem from="1589618945334" duration="1412000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -472,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589442994924</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed the Bounty Hunter GUI and updated the freeze gui">
+      <created>1589476621947</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1589476621947</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +522,8 @@
     <MESSAGE value="You can now see a suffix before buying it." />
     <MESSAGE value="Fixed the Kit shop and Cosmetic Shop" />
     <MESSAGE value="Updated the version in the plugin.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the version in the plugin.yml" />
+    <MESSAGE value="Fixed the Bounty Hunter GUI and updated the freeze gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Bounty Hunter GUI and updated the freeze gui" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
@@ -534,11 +556,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589096024592" />
-    <state x="585" y="1" key="CommitChangelistDialog2" timestamp="1589442992745">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1589476617956">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589442992745" />
-    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589094778440" />
+    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589476617956" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -557,11 +579,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1589442996464">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1589476623697">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589442996464" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589094815822" />
+    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589476623697" />
     <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

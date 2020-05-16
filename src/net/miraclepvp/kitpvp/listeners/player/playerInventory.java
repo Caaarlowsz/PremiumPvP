@@ -69,7 +69,7 @@ public class playerInventory implements Listener {
                 player.openInventory(ProfileGUI.getInventory(player));
                 break;
             case BLAZE_POWDER:
-                player.openInventory(CosmeticsGUI.getInventory(player, CosmeticType.valueOf(user.getLastCosmeticType()), user.getCosmeticWasShop(), 1));
+                player.openInventory(CosmeticsGUI.getInventory(player, CosmeticType.valueOf(user.getLastCosmeticType().toUpperCase()), user.getCosmeticWasShop(), 1));
                 break;
         }
     }

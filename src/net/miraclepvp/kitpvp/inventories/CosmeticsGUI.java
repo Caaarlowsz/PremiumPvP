@@ -5,7 +5,6 @@ import net.miraclepvp.kitpvp.bukkit.SkullBuilder;
 import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.chatcolor.Chatcolor;
-import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.namecolor.Namecolor;
 import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
@@ -51,7 +50,7 @@ public class CosmeticsGUI {
         Arrays.stream(slots).forEach(value -> inv.setItem(value, null));
 
         //          Trails
-        if (cosmeticType.equals(CosmeticType.Trail)) {
+        if (cosmeticType.equals(CosmeticType.TRAIL)) {
             if (shop) {
                 List<Trail> cloneList = new ArrayList<>();
                 cloneList.clear();
@@ -97,12 +96,12 @@ public class CosmeticsGUI {
         }
 
         //          Suffixes
-        if(cosmeticType.equals(CosmeticType.Suffix)){
+        if(cosmeticType.equals(CosmeticType.SUFFIX)){
             if (shop) {
                 List<Suffix> cloneList = new ArrayList<>();
                 cloneList.clear();
                 Data.suffixes.forEach(suffix -> {
-                    if (!user.getSuffixesList().contains(suffix.getUuid()))
+                    if (!user.getSuffixesList().contains(suffix.getUuid()) && suffix.getBuyable())
                         cloneList.add(suffix);
                 });
                 listsize = cloneList.size();
@@ -143,7 +142,7 @@ public class CosmeticsGUI {
         }
 
         //          ChatColors
-        if(cosmeticType.equals(CosmeticType.ChatColor)){
+        if(cosmeticType.equals(CosmeticType.CHATCOLOR)){
             if (shop) {
                 List<Chatcolor> cloneList = new ArrayList<>();
                 cloneList.clear();
@@ -262,17 +261,17 @@ public class CosmeticsGUI {
 
         try {
             switch (type) {
-                case Trail:
+                case TRAIL:
                     name = Data.getTrail(uuid).getName();
                     sellPrice = String.valueOf(Data.getTrail(uuid).getSell());
                     buyPrice = String.valueOf(Data.getTrail(uuid).getCost());
                     break;
-                case Suffix:
+                case SUFFIX:
                     name = Data.getSuffix(uuid).getName();
                     sellPrice = String.valueOf(Data.getSuffix(uuid).getSell());
                     buyPrice = String.valueOf(Data.getSuffix(uuid).getCost());
                     break;
-                case ChatColor:
+                case CHATCOLOR:
                     name = Data.getChatcolor(uuid).getName();
                     sellPrice = String.valueOf(Data.getChatcolor(uuid).getSell());
                     buyPrice = String.valueOf(Data.getChatcolor(uuid).getCost());

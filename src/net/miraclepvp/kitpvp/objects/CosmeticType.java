@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public enum CosmeticType {
 
-    Suffix("Suffix", 1, new ItemstackFactory(Material.SKULL_ITEM).setDisplayName("Suffix").addLoreLine("&7A nice suffix")),
-    Trail("Trail", 2, new ItemstackFactory(Material.ARROW).setDisplayName("Trail").addLoreLine("&7A nice trail")),
-    ChatColor("ChatColor", 3, new ItemstackFactory(Material.REDSTONE).setDisplayName("ChatColor").addLoreLine("&7A nice chatcolor")),
+    SUFFIX("Suffix", 1, new ItemstackFactory(Material.SKULL_ITEM).setDisplayName("Suffix").addLoreLine("&7A nice suffix")),
+    TRAIL("Trail", 2, new ItemstackFactory(Material.ARROW).setDisplayName("Trail").addLoreLine("&7A nice trail")),
+    CHATCOLOR("ChatColor", 3, new ItemstackFactory(Material.REDSTONE).setDisplayName("ChatColor").addLoreLine("&7A nice chatcolor")),
     NameColor("NameColor", 4, new ItemstackFactory(Material.NAME_TAG).setDisplayName("NameColor").addLoreLine("&7A nice namecolor"));
 
     public static ArrayList<CosmeticType> types = new ArrayList();
@@ -43,9 +43,9 @@ public enum CosmeticType {
     }
 
     public static void load(){
-        types.add(Suffix);
-        types.add(Trail);
-        types.add(ChatColor);
+        types.add(SUFFIX);
+        types.add(TRAIL);
+        types.add(CHATCOLOR);
         types.add(NameColor);
     }
 }

@@ -18,6 +18,9 @@ public class HelpSuffix implements CommandExecutor {
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix add <name> <suffix> <icon> <price>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix delete <name>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix give <player> <name>");
+        ChatCenterUtil.sendCenteredMessage(player, "&f/suffix remove <player> <name>");
+        ChatCenterUtil.sendCenteredMessage(player, "&f/suffix buyable <name>");
+        ChatCenterUtil.sendCenteredMessage(player, "&f/suffix setsuffix <name> <suffix>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix rename <name> <new_name>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix price <name> <new_price>");
         ChatCenterUtil.sendCenteredMessage(player, "&f/suffix sellprice <name> <new_sellprice>");
