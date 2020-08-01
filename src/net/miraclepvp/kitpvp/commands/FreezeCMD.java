@@ -1,13 +1,13 @@
 package net.miraclepvp.kitpvp.commands;
 
-import net.miraclepvp.kitpvp.bukkit.Text;
-import net.miraclepvp.kitpvp.inventories.FreezeGUI;
+import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.listeners.player.playerJoin;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,18 +45,33 @@ public class FreezeCMD implements CommandExecutor {
 
             if(frozenList.contains(target.getUniqueId())){
                 frozenList.remove(target.getUniqueId());
-                sender.sendMessage(color("&aYou've unfrozen " + target.getName() + "!"));
-
-                target.closeInventory();
-                target.sendMessage(color("&4You are unfrozen, thanks for your cooperation!"));
+                sender.sendMessage(color("&7You've unfrozen &c" + target.getName() + "&7!"));
+                target.sendMessage(color("&7You are unfrozen by &c" + sender.getName() + "&7, thanks for your cooperation!"));
                 return true;
             }
             frozenList.add(target.getUniqueId());
-            sender.sendMessage(color("&aYou've frozen " + target.getName() + "!"));
+            sender.sendMessage(color("&7You've frozen &c" + target.getName() + "&7!"));
+            target.sendMessage(color("&7You got frozen by &c" + sender.getName() + "&7."));
+
+            new BukkitRunnable(){
+                @Override
+                public void run() {
+                    if(!frozenList.contains(target.getUniqueId())) {
+                        cancel();
+                        return;
+                    }
+                    target.sendMessage(color("&8&m------------------------------------"));
+                    target.sendMessage(color("&8&l  (&4&lWARNING&8&l)        (&4&lWARNING&8&l)"));
+                    target.sendMessage(color(""));
+                    target.sendMessage(color("&c&lYou're currently frozen!"));
+                    target.sendMessage(color("&cJoin our discord:&f https://discord.miraclepvp.net/"));
+                    target.sendMessage(color(""));
+                    target.sendMessage(color("&8&l  (&4&lWARNING&8&l)        (&4&lWARNING&8&l)"));
+                    target.sendMessage(color("&8&m------------------------------------"));
+                }
+            }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 600L);
 
             playerJoin.handleSpawn(target);
-            target.sendMessage(color("&4You got frozen by staff. Do not log out and join the support in the Discord."));
-            target.openInventory(FreezeGUI.getInventory());
             return true;
         }catch (Exception ex){
             sender.sendMessage(color("&cThe given player is not online."));

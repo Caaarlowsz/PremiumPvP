@@ -22,7 +22,15 @@ public class ResetstatsCMD implements CommandExecutor {
             return true;
         }
         if(args.length<1){
-            sender.sendMessage(color("&cPlease use /resetstats <player>"));
+            sender.sendMessage(color("&cPlease use /resetstats <playerName/all>"));
+            return true;
+        }
+        if(args[0].equalsIgnoreCase("all")){
+            for(User user : Data.users)
+                user.createStats(user.getUuid(), true);
+
+            Data.save(false);
+            Data.save(true);
             return true;
         }
         try {

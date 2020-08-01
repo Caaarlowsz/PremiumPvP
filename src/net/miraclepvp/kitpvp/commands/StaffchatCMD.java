@@ -1,5 +1,7 @@
 package net.miraclepvp.kitpvp.commands;
 
+import net.miraclepvp.kitpvp.data.Data;
+import net.miraclepvp.kitpvp.objects.Chatmode;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -34,7 +36,7 @@ public class StaffchatCMD implements CommandExecutor {
     }
 
     public static void sendMessage(UUID uuid, String message){
-        Bukkit.getOnlinePlayers().stream().filter(player -> player.hasPermission("miraclepvp.staffchat.receive"))
+        Bukkit.getOnlinePlayers().stream().filter(player -> player.hasPermission("miraclepvp.staffchat.receive")).filter(player -> !Data.getUser(player).getHiddenChats().contains(Chatmode.STAFF))
                 .forEach(player -> player.sendMessage(color("&f[&4SC&f] " + Bukkit.getOfflinePlayer(uuid).getName() + "&8: &f" + message)));
     }
 }
