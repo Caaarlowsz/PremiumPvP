@@ -17,6 +17,7 @@ import net.miraclepvp.kitpvp.listeners.custom.PlayerStatusChangeEvent;
 import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.objects.Chatmode;
 import net.miraclepvp.kitpvp.objects.CosmeticType;
+import net.miraclepvp.kitpvp.objects.Crate;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -54,10 +55,7 @@ public class User {
             deaths,
             coins,
             level,
-            gearcommon,
-            gearmiracle,
-            cosmeticcommon,
-            cosmeticmiracle,
+            fkLevel,
             experience,
             killstreak,
             bestkillstreak,
@@ -70,8 +68,15 @@ public class User {
             mutedUsers,
             kits;
     public List<String> boosterList;
+    public List<Abilities.AbilityType> activeAbilities;
+    public List<Chatmode> hiddenChats;
     public HashMap<Abilities.AbilityType, Integer> abilities;
     public HashMap<UUID, ArrayList<Integer>> kitLayouts;
+    public HashMap<UUID, Integer>
+            bKills,
+            bAssists,
+            bDeaths;
+    public HashMap<Crate, Integer> crates;
     public Boolean cosmeticWasShop,
             autoDeploy,
             quickSelect,
@@ -89,53 +94,71 @@ public class User {
         if(reset && Bukkit.getOfflinePlayer(uuid).isOnline())
             Bukkit.getOfflinePlayer(uuid).getPlayer().kickPlayer(color("&cYour stats have been resetted by staff."));
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        this.uuid = uuid;
-        this.lastVersion = Main.getInstance().version;
-        this.tokens = Integer.valueOf(0);
-        this.activeSuffix = null;
-        this.prefix = Data.getPrefix("default").getUuid();
-        this.activeTrail = null;
-        this.activeChatcolor = null;
-        this.activeNamecolor = null;
+        if(!reset) {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            this.uuid = uuid;
+            this.firstJoin = formatter.format(date);
+            this.lastJoin = formatter.format(date);
+            this.tokens = 0;
+            this.lastVersion = Main.getInstance().version;
+            this.activeSuffix = null;
+            this.prefix = Data.getPrefix("default").getUuid();
+            this.activeTrail = null;
+            this.activeChatcolor = null;
+            this.activeNamecolor = null;
+            this.trailsList = new ArrayList<>();
+            this.suffixesList = new ArrayList<>();
+            this.chatcolorsList = new ArrayList<>();
+            this.namecolorsList = new ArrayList<>();
+            this.crates = new HashMap<>();
+            this.quickSelect = false;
+            this.autoDeploy = false;
+            this.killBroadcast = false;
+            this.streakBroadcast = false;
+            this.guild = null;
+            this.chatmode = Chatmode.ALL;
+            this.hiddenChats = new ArrayList<>();
+            this.flyEnabled = false;
+            this.kitLayouts = new HashMap<>();
+            this.mutedUsers = new ArrayList<>();
+
+            this.boosterList = new ArrayList<>();
+        } else {
+            List<String> newList = new ArrayList<>();
+            for(String bstr : this.boosterList){
+                Booster booster = Booster.deSerialize(bstr);
+                if(!booster.personal)
+                    newList.add(bstr);
+            }
+
+            this.boosterList = newList;
+        }
+
+        this.bKills = new HashMap<>();
+        this.bAssists = new HashMap<>();
+        this.bDeaths = new HashMap<>();
         this.previousKit = null;
-        this.trailsList = new ArrayList<>();
-        this.suffixesList = new ArrayList<>();
-        this.chatcolorsList = new ArrayList<>();
-        this.namecolorsList = new ArrayList<>();
         this.kits = new ArrayList<>();
-        this.firstJoin = formatter.format(date);
-        this.lastJoin = formatter.format(date);
-        this.onlineTime = Integer.valueOf(0);
-        this.kills = Integer.valueOf(0);
-        this.assists = Integer.valueOf(0);
-        this.deaths = Integer.valueOf(0);
-        this.coins = Integer.valueOf(0);
-        this.gearcommon = Integer.valueOf(0);
-        this.gearmiracle = Integer.valueOf(0);
-        this.cosmeticcommon = Integer.valueOf(0);
-        this.cosmeticmiracle = Integer.valueOf(0);
+        this.onlineTime = 0;
+        this.kills = 0;
+        this.assists = 0;
+        this.deaths = 0;
+        this.coins = 0;
+        getCrates().put(Crate.GEAR, 0);
+        getCrates().put(Crate.GEARMIRACLE, 0);
         this.level = 1;
-        this.experience = Integer.valueOf(0);
-        this.killstreak = Integer.valueOf(0);
-        this.bestkillstreak = Integer.valueOf(0);
-        this.bounty = Integer.valueOf(0);
+        this.fkLevel = 1;
+        this.experience = 0;
+        this.killstreak = 0;
+        this.bestkillstreak = 0;
+        this.bounty = 0;
         this.cosmeticWasShop = false;
-        this.quickSelect = false;
-        this.autoDeploy = false;
-        this.killBroadcast = false;
-        this.streakBroadcast = false;
         this.lastCosmeticType = null;
-        this.guild = null;
         this.everyoneMuted = false;
-        this.mutedUsers = new ArrayList<>();
-        this.boosterList = new ArrayList<>();
-        this.chatmode = Chatmode.ALL;
-        this.flyEnabled = false;
         this.abilities = new HashMap<>();
-        this.kitLayouts = new HashMap<>();
         this.banknoteValue = 0;
+        this.activeAbilities = new ArrayList<>();
     }
 
     public UUID getUuid() {
@@ -154,6 +177,50 @@ public class User {
         }
     }
 
+    public List<Chatmode> getHiddenChats() {
+        if(hiddenChats == null)
+            hiddenChats = new ArrayList<>();
+        return hiddenChats;
+    }
+
+    public List<Abilities.AbilityType> getActiveAbilities() {
+        if(activeAbilities == null) activeAbilities = new ArrayList<>();
+        return activeAbilities;
+    }
+
+    public HashMap<Crate, Integer> getCrates() {
+        if(crates == null)
+            crates = new HashMap<>();
+        return crates;
+    }
+
+    public void setbKills(HashMap<UUID, Integer> bKills) {
+        this.bKills = bKills;
+    }
+
+    public void setbDeaths(HashMap<UUID, Integer> bDeaths) {
+        this.bDeaths = bDeaths;
+    }
+
+    public void setbAssists(HashMap<UUID, Integer> bAssists) {
+        this.bAssists = bAssists;
+    }
+
+    public HashMap<UUID, Integer> getbKills() {
+        if(bKills == null) return new HashMap<>();
+        return bKills;
+    }
+
+    public HashMap<UUID, Integer> getbAssists() {
+        if(bAssists == null) return new HashMap<>();
+        return bAssists;
+    }
+
+    public HashMap<UUID, Integer> getbDeaths() {
+        if(bDeaths == null) return new HashMap<>();
+        return bDeaths;
+    }
+
     public Integer getTokens() {
         return tokens;
     }
@@ -170,26 +237,8 @@ public class User {
         if (guild == null)
             setChatmode(Chatmode.ALL);
         this.guild = guild;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
-    }
-
-    public Integer getGearcommon() {
-        return gearcommon;
-    }
-
-    public Integer getGearmiracle() {
-        return gearmiracle;
-    }
-
-    public Integer getCosmeticcommon() {
-        return cosmeticcommon;
-    }
-
-    public Integer getCosmeticmiracle() {
-        return cosmeticmiracle;
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setBanknoteValue(Integer banknoteValue) {
@@ -332,48 +381,13 @@ public class User {
 
         if(spawnAbilities) {
             HashMap<Abilities.AbilityType, Integer> abilities = Data.getUser(player).getAbilities();
-            if (abilities.get(Abilities.AbilityType.ABSORTION) != null)
+            List<Abilities.AbilityType> activeAbilities = new ArrayList<>();
+            if (activeAbilities.contains(Abilities.AbilityType.ABSORTION) && abilities.get(Abilities.AbilityType.ABSORTION) != null)
                 player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, Abilities.AbilityType.ABSORTION.getLvl(abilities.get(Abilities.AbilityType.ABSORTION)) * 20, 0));
-            if (abilities.get(Abilities.AbilityType.REGEN_SPAWN) != null)
+            if (activeAbilities.contains(Abilities.AbilityType.REGEN_SPAWN) && abilities.get(Abilities.AbilityType.REGEN_SPAWN) != null)
                 player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Abilities.AbilityType.REGEN_SPAWN.getLvl(abilities.get(Abilities.AbilityType.REGEN_SPAWN)) * 20, 0));
         }
         return true;
-    }
-
-    public void setGearcommon(Integer gearcommon) {
-        this.gearcommon = gearcommon;
-
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
-    }
-
-    public void setGearmiracle(Integer gearmiracle) {
-        this.gearmiracle = gearmiracle;
-
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
-    }
-
-    public void setCosmeticcommon(Integer cosmeticcommon) {
-        this.cosmeticcommon = cosmeticcommon;
-
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
-    }
-
-    public void setCosmeticmiracle(Integer cosmeticmiracle) {
-        this.cosmeticmiracle = cosmeticmiracle;
-
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
     }
 
     public HashMap<Abilities.AbilityType, Integer> getAbilities() {
@@ -383,10 +397,8 @@ public class User {
     public void setPreviousKit(UUID previousKit) {
         this.previousKit = previousKit;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Boolean isAutoDeploy() {
@@ -408,41 +420,41 @@ public class User {
     public void setQuickSelect(Boolean quickSelect) {
         this.quickSelect = quickSelect;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setAutoDeploy(Boolean autoDeploy) {
         this.autoDeploy = autoDeploy;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setKillBroadcast(Boolean killBroadcast) {
         this.killBroadcast = killBroadcast;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setStreakBroadcast(Boolean streakBroadcast) {
         this.streakBroadcast = streakBroadcast;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getOnlineTime() {
         return onlineTime;
+    }
+
+    public Integer getFkLevel() {
+        return fkLevel;
+    }
+
+    public void setFkLevel(Integer fkLevel) {
+        this.fkLevel = fkLevel;
     }
 
     public void setOnlineTime(Integer onlineTime) {
@@ -460,10 +472,8 @@ public class User {
     public void setLastJoin(String lastJoin) {
         this.lastJoin = lastJoin;
 
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setCoins(Integer coins, Boolean booster) {
@@ -496,10 +506,8 @@ public class User {
         }
         total = (globalExtra + personalExtra.get()) + total;
         this.coins = total;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getCoins() {
@@ -508,10 +516,8 @@ public class User {
 
     public void setBestkillstreak(Integer bestkillstreak) {
         this.bestkillstreak = bestkillstreak;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getBestkillstreak() {
@@ -520,10 +526,8 @@ public class User {
 
     public void setDeaths(Integer deaths) {
         this.deaths = deaths;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getDeaths() {
@@ -542,10 +546,8 @@ public class User {
         }
         if (Bukkit.getOfflinePlayer(uuid).isOnline())
             Board.addPlayerInTab(Bukkit.getPlayer(uuid));
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setExperience(Integer experience, Boolean booster) {
@@ -579,10 +581,8 @@ public class User {
         total = (globalExtra + personalExtra.get()) + total;
         this.experience = total;
         checkLevelup(uuid, level, experience);
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getExperience() {
@@ -591,10 +591,8 @@ public class User {
 
     public void setKills(Integer kills) {
         this.kills = kills;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getKills() {
@@ -603,10 +601,8 @@ public class User {
 
     public void setAssists(Integer assists) {
         this.assists = assists;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getAssists() {
@@ -617,12 +613,10 @@ public class User {
         if (this.bestkillstreak < killstreak)
             this.bestkillstreak = killstreak;
         this.killstreak = killstreak;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         if (killstreak % 3 == 0 && killstreak != 0 && streakBroadcast)
-            Bukkit.broadcastMessage(color("&a" + getPlayer().getName() + " is on a killstreak of " + killstreak));
+            Bukkit.broadcastMessage(color("&5" + getPlayer().getName() + " is on a killstreak of " + killstreak));
 
         //Give bounty
         if(killstreak <= 10 || bounty > 0) return;
@@ -640,10 +634,8 @@ public class User {
 
     public void setLevel(Integer level) {
         this.level = level;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public Integer getLevel() {
@@ -667,10 +659,8 @@ public class User {
             this.activeSuffix = null;
         } else {
             this.activeSuffix = activeSuffix.getUuid();
-            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-                PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-                getServer().getPluginManager().callEvent(event);
-            }
+            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+                getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         }
     }
 
@@ -683,10 +673,8 @@ public class User {
             this.activeTrail = null;
         } else {
             this.activeTrail = activeTrail.getUuid();
-            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-                PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-                getServer().getPluginManager().callEvent(event);
-            }
+            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+                getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         }
     }
 
@@ -696,10 +684,8 @@ public class User {
 
     public void setCosmeticWasShop(Boolean cosmeticWasShop) {
         this.cosmeticWasShop = cosmeticWasShop;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public String getLastCosmeticType() {
@@ -712,10 +698,8 @@ public class User {
             this.lastCosmeticType = null;
         } else {
             this.lastCosmeticType = lastCosmeticType.getName();
-            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-                PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-                getServer().getPluginManager().callEvent(event);
-            }
+            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+                getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         }
     }
 
@@ -728,10 +712,8 @@ public class User {
             this.activeChatcolor = null;
         } else {
             this.activeChatcolor = activeChatcolor.getUuid();
-            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-                PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-                getServer().getPluginManager().callEvent(event);
-            }
+            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+                getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         }
     }
 
@@ -744,10 +726,8 @@ public class User {
             this.activeNamecolor = null;
         } else {
             this.activeNamecolor = activeNamecolor.getUuid();
-            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-                PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-                getServer().getPluginManager().callEvent(event);
-            }
+            if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+                getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
         }
     }
 
@@ -785,10 +765,8 @@ public class User {
 
     public void setTrailsList(List<UUID> trailsList) {
         this.trailsList = trailsList;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void addSuffix(UUID uuid) {
@@ -805,10 +783,8 @@ public class User {
 
     public void setSuffixesList(List<UUID> suffixesList) {
         this.suffixesList = suffixesList;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void addChatColor(UUID uuid) {
@@ -825,10 +801,8 @@ public class User {
 
     public void setChatcolorsList(List<UUID> chatcolorsList) {
         this.chatcolorsList = chatcolorsList;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void addNameColor(UUID uuid) {
@@ -845,18 +819,14 @@ public class User {
 
     public void setNamecolorsList(List<UUID> namecolorsList) {
         this.namecolorsList = namecolorsList;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public void setTokens(Integer tokens) {
         this.tokens = tokens;
-        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid))) {
-            PlayerStatusChangeEvent event = new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid));
-            getServer().getPluginManager().callEvent(event);
-        }
+        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(uuid)))
+            getServer().getPluginManager().callEvent(new PlayerStatusChangeEvent(Bukkit.getPlayer(uuid)));
     }
 
     public OfflinePlayer getPlayer() {
@@ -917,13 +887,13 @@ public class User {
                 Bukkit.getPlayer(uuid).sendMessage(color("&aCongrats! You are now level " + user.getLevel() + "!"));
             if (user.getLevel() % 5 == 0) {
                 if (user.getLevel() % 10 == 0) {
-                    user.setGearmiracle(user.getGearmiracle() + 1);
+                    user.getCrates().put(Crate.GEARMIRACLE,user.getCrates().get(Crate.GEARMIRACLE)==null?1:user.getCrates().get(Crate.GEARMIRACLE)+1);
                     if (Bukkit.getOfflinePlayer(uuid).isOnline())
-                        Bukkit.getPlayer(uuid).sendMessage(color("&aYou've receiven a Miracle Gear crate."));
+                        Bukkit.getPlayer(uuid).sendMessage(color("&aYou've received a Miracle Gear crate."));
                 } else {
-                    user.setGearcommon(user.getGearcommon() + 1);
+                    user.getCrates().put(Crate.GEAR,user.getCrates().get(Crate.GEAR)==null?1:user.getCrates().get(Crate.GEAR)+1);
                     if (Bukkit.getOfflinePlayer(uuid).isOnline())
-                        Bukkit.getPlayer(uuid).sendMessage(color("&aYou've receiven a Common Gear crate."));
+                        Bukkit.getPlayer(uuid).sendMessage(color("&aYou've received a Common Gear crate."));
                 }
             }
         }

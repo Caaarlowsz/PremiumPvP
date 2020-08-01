@@ -1,8 +1,8 @@
 package net.miraclepvp.kitpvp.data.guild;
 
 import net.miraclepvp.kitpvp.data.Data;
+import net.miraclepvp.kitpvp.objects.Chatmode;
 import net.miraclepvp.kitpvp.objects.PermissionType;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -168,9 +168,9 @@ public class Guild {
         getPlayers().forEach(uuid -> {
             if (Bukkit.getOfflinePlayer(uuid).isOnline()) {
                 Player target = Bukkit.getPlayer(uuid);
-                ChatCenterUtil.sendCenteredMessage(target, "&5&m-----------------------------------------------------");
+                target.sendMessage(color("&5&m-----------------------------------------------------"));
                 target.sendMessage(color("&7" + message));
-                ChatCenterUtil.sendCenteredMessage(target, "&5&m-----------------------------------------------------");
+                target.sendMessage(color("&5&m-----------------------------------------------------"));
             }
         });
     }
@@ -178,9 +178,11 @@ public class Guild {
     public void sendMessage(OfflinePlayer sender, String message) {
         getPlayers().forEach(uuid -> {
             if (!Data.getUser(Bukkit.getOfflinePlayer(uuid)).getEveryoneMuted())
-                if (Bukkit.getOfflinePlayer(uuid).isOnline()) {
-                    Player target = Bukkit.getPlayer(uuid);
-                    target.sendMessage(color("&f[&5Guild&f] &f" + sender.getName() + (Bukkit.getOfflinePlayer(master).getName().equals(sender.getName()) ? " &7[GM]" : "") + "&8: &7" + message));
+                if(!Data.getUser(Bukkit.getOfflinePlayer(uuid)).getHiddenChats().contains(Chatmode.GUILD)) {
+                    if (Bukkit.getOfflinePlayer(uuid).isOnline()) {
+                        Player target = Bukkit.getPlayer(uuid);
+                        target.sendMessage(color("&f[&5Guild&f] &f" + sender.getName() + (Bukkit.getOfflinePlayer(master).getName().equals(sender.getName()) ? " &7[GM]" : "") + "&8: &7" + message));
+                    }
                 }
         });
     }
