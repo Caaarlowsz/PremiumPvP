@@ -2,13 +2,9 @@ package net.miraclepvp.kitpvp.commands.subcommands.guild;
 
 import net.miraclepvp.kitpvp.commands.subcommands.guild.helpPages.HelpGuildOne;
 import net.miraclepvp.kitpvp.commands.subcommands.guild.helpPages.HelpGuildTwo;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
-import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class HelpGuild implements CommandExecutor {
 

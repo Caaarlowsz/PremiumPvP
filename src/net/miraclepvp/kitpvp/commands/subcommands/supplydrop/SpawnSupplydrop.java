@@ -22,12 +22,10 @@ public class SpawnSupplydrop implements CommandExecutor {
 
         switch(args[1].toLowerCase()){
             case "normal":
-                Supplydrop.Crate normalcrate = new Supplydrop.Crate(Supplydrop.DropType.NORMAL);
-                normalcrate.spawn();
+                new Supplydrop.Crate(Supplydrop.DropType.NORMAL).spawn();
                 break;
             case "vote":
-                Supplydrop.Crate votecrate = new Supplydrop.Crate(Supplydrop.DropType.VOTE);
-                votecrate.spawn();
+                new Supplydrop.Crate(Supplydrop.DropType.VOTE).spawn();
                 break;
             default:
                 sender.sendMessage(color("&cPlease use /supplydrop spawn <normal/vote>"));

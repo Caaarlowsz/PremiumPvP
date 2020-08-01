@@ -1,5 +1,6 @@
 package net.miraclepvp.kitpvp.commands.subcommands.kitpvp;
 
+import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,8 +16,11 @@ public class SaveKitpvp implements CommandExecutor {
             sender.sendMessage(color("&cYou don't have the required permissions to do this."));
             return true;
         }
-        Data.save(false);
-        sender.sendMessage(color("&aYou've succesfully saved the data!"));
+        Boolean isBackup = false;
+        if(args.length>=2&&args[1].equalsIgnoreCase("backup"))isBackup=true;
+        Config.save();
+        Data.save(isBackup);
+        sender.sendMessage(color("&aYou've successfully saved the data!"));
         return true;
     }
 }

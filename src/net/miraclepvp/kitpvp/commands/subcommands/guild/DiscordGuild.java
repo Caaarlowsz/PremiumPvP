@@ -4,7 +4,6 @@ import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.objects.PermissionType;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -37,14 +36,14 @@ public class DiscordGuild implements CommandExecutor {
             userPerms = guild.getOfficerPerms();
 
         if(args.length != 2){
-            ChatCenterUtil.sendCenteredMessage(sender, "&5&m-----------------------------------------------------");
-            ChatCenterUtil.sendCenteredMessage(sender, "&f" + guild.getName());
-            ChatCenterUtil.sendCenteredMessage(sender, " ");
-            ChatCenterUtil.sendCenteredMessage(sender, "&fDISCORD");
-            ChatCenterUtil.sendCenteredMessage(sender, "&7" + guild.getDiscord());
+            player.sendMessage(color("&5&m-----------------------------------------------------"));
+            player.sendMessage(color("&f" + guild.getName()));
+            player.sendMessage(color(" "));
+            player.sendMessage(color("&fDISCORD"));
+            player.sendMessage(color("&7" + guild.getDiscord()));
             if(userPerms.contains(PermissionType.DISCORD) || guild.getMaster().equals(uuid))
                 sender.sendMessage(color("&7To change the invite link, use &5/guild discord <discord link>&7 or &5/guild discord reset &7to remove it"));
-            ChatCenterUtil.sendCenteredMessage(sender, "&5&m-----------------------------------------------------");
+            player.sendMessage(color("&5&m-----------------------------------------------------"));
             return true;
         }
 

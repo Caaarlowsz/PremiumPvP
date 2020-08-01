@@ -1,11 +1,7 @@
 package net.miraclepvp.kitpvp.commands.subcommands.guild;
 
-import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
-import net.miraclepvp.kitpvp.data.kit.Kit;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

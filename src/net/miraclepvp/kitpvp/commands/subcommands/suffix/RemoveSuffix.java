@@ -35,7 +35,9 @@ public class RemoveSuffix implements CommandExecutor {
                         sender.sendMessage(Text.color("&cThis player does not have this suffix!"));
                         return true;
                     }
-                    sender.sendMessage(Text.color("&aYou have succesfully taken the suffix " + suffix.getName() + " from " + player.getName() + "!"));
+                    if(target.getActiveSuffix().equals(suffix.getUuid()))
+                        target.setActiveSuffix(null);
+                    sender.sendMessage(Text.color("&aYou have successfully taken the suffix " + suffix.getName() + " from " + player.getName() + "!"));
                     target.removeSuffixes(suffix.getUuid());
                     return true;
                 }

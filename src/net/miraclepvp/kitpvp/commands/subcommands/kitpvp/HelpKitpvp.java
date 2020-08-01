@@ -1,10 +1,11 @@
 package net.miraclepvp.kitpvp.commands.subcommands.kitpvp;
 
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class HelpKitpvp implements CommandExecutor {
 
@@ -12,21 +13,21 @@ public class HelpKitpvp implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!(sender instanceof Player)) return true;
         Player player = (Player)sender;
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
-        ChatCenterUtil.sendCenteredMessage(player, "&fKitPvP");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Aliases: kp.");
-        ChatCenterUtil.sendCenteredMessage(player, "");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp info");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp lobby <player>");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp map <player>");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp realname <player>");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp setlobby");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp buildmode");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp gettracker");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp getanvil");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp reload");
-        ChatCenterUtil.sendCenteredMessage(player, "&f/kitpvp save");
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
+        player.sendMessage(color("&fKitPvP"));
+        player.sendMessage(color("&7Aliases: kp."));
+        player.sendMessage(color(""));
+        player.sendMessage(color("&f/kitpvp info"));
+        player.sendMessage(color("&f/kitpvp lobby <player>"));
+        player.sendMessage(color("&f/kitpvp map <player>"));
+        player.sendMessage(color("&f/kitpvp realname <player>"));
+        player.sendMessage(color("&f/kitpvp setlobby"));
+        player.sendMessage(color("&f/kitpvp buildmode"));
+        player.sendMessage(color("&f/kitpvp gettracker"));
+        player.sendMessage(color("&f/kitpvp getswitcherball"));
+        player.sendMessage(color("&f/kitpvp reload"));
+        player.sendMessage(color("&f/kitpvp save"));
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
         return true;
     }
 }

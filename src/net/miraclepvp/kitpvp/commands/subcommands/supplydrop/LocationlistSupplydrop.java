@@ -7,7 +7,6 @@ import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.zone.Zone;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -37,11 +36,11 @@ public class LocationlistSupplydrop implements CommandExecutor {
                 return true;
             }
 
-            ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
-            ChatCenterUtil.sendCenteredMessage(player, "&fSupplydrop");
-            ChatCenterUtil.sendCenteredMessage(player, "&7A list of all supplydrops location in the given zone.");
-            ChatCenterUtil.sendCenteredMessage(player, "&7Click on a location to teleport.");
-            ChatCenterUtil.sendCenteredMessage(player, "");
+            player.sendMessage(color("&5&m-----------------------------------------------------"));
+            player.sendMessage(color("&fSupplydrop"));
+            player.sendMessage(color("&7A list of all supplydrops location in the given zone."));
+            player.sendMessage(color("&7Click on a location to teleport."));
+            player.sendMessage(color(""));
             Zone zone = Data.getZone(args[1]);
             zone.getSupplydropLocations().stream().forEach(spwn -> {
                 pos++;
@@ -54,7 +53,7 @@ public class LocationlistSupplydrop implements CommandExecutor {
 
             if (Config.getSpawnpoints().isEmpty())
                 player.sendMessage(color("&cNo supplydrop locations added yet"));
-            ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
+            player.sendMessage(color("&5&m-----------------------------------------------------"));
             pos = 0;
             return true;
         }catch (NoSuchElementException ex){
