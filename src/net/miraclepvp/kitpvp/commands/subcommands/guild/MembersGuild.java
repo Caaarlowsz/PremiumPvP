@@ -3,7 +3,6 @@ package net.miraclepvp.kitpvp.commands.subcommands.guild;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -24,17 +23,17 @@ public class MembersGuild implements CommandExecutor {
             return true;
         }
         Guild guild = Data.getGuild(user.getGuild());
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
-        ChatCenterUtil.sendCenteredMessage(player, "&f" + guild.getName());
-        ChatCenterUtil.sendCenteredMessage(player, "&d&m--&d[ &5Master &d]&m--");
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
+        player.sendMessage(color("&f" + guild.getName()));
+        player.sendMessage(color("&d&m--&d[ &5Master &d]&m--"));
         OfflinePlayer master = Bukkit.getOfflinePlayer(guild.getMaster());
         player.sendMessage(color("&7" + master.getName() + (master.isOnline() ? "&a" : "&c") + " ⬤"));
-        ChatCenterUtil.sendCenteredMessage(player, "&d&m--&d[ &5Officer &d]&m--");
+        player.sendMessage(color("&d&m--&d[ &5Officer &d]&m--"));
         guild.getOfficers().forEach(uuid -> {
             OfflinePlayer target = Bukkit.getOfflinePlayer(uuid);
             player.sendMessage(color("&7" + target.getName() + (target.isOnline() ? "&a" : "&c") + " ⬤"));
         });
-        ChatCenterUtil.sendCenteredMessage(player, "&d&m--&d[ &5Member &d]&m--");
+        player.sendMessage(color("&d&m--&d[ &5Member &d]&m--"));
         guild.getMembers().forEach(uuid -> {
             OfflinePlayer target = Bukkit.getOfflinePlayer(uuid);
             player.sendMessage(color("&7" + target.getName() + (target.isOnline() ? "&a" : "&c") + " ⬤"));
@@ -43,7 +42,7 @@ public class MembersGuild implements CommandExecutor {
         player.sendMessage(color("&7Total Members: " + guild.getPlayers().size()));
         int online = (int) guild.getPlayers().stream().filter(uuid -> Bukkit.getOfflinePlayer(uuid).isOnline()).count();
         player.sendMessage(color("&7Online members: " + online));
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
         return true;
     }
 }

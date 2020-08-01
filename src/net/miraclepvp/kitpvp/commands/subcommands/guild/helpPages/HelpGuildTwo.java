@@ -1,6 +1,5 @@
 package net.miraclepvp.kitpvp.commands.subcommands.guild.helpPages;
 
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,10 +13,10 @@ public class HelpGuildTwo implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!(sender instanceof Player)) return true;
         Player player = (Player)sender;
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
-        ChatCenterUtil.sendCenteredMessage(player, "&fGuild &7(2/2)");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Get help with our guild system.");
-        ChatCenterUtil.sendCenteredMessage(player, "");
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
+        player.sendMessage(color("&fGuild &7(2/2)"));
+        player.sendMessage(color("&7Get help with our guild system."));
+        player.sendMessage(color(""));
         player.sendMessage(color("&f/guild slow"));
         player.sendMessage(color("&f/guild invite <player>"));
         player.sendMessage(color("&f/guild motd <motd>"));
@@ -28,7 +27,7 @@ public class HelpGuildTwo implements CommandExecutor {
         player.sendMessage(color("&f/guild chat <message>"));
         player.sendMessage(color("&f/guild leave"));
         player.sendMessage(color("&f/guild permissions"));
-        ChatCenterUtil.sendCenteredMessage(player, "&5&m-----------------------------------------------------");
+        player.sendMessage(color("&5&m-----------------------------------------------------"));
         return true;
     }
 }

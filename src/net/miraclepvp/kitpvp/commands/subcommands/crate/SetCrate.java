@@ -1,8 +1,9 @@
-package net.miraclepvp.kitpvp.commands.subcommands.coins;
+package net.miraclepvp.kitpvp.commands.subcommands.crate;
 
 import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Crate;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -11,36 +12,32 @@ import org.bukkit.command.CommandSender;
 
 import java.util.NoSuchElementException;
 
-public class RemoveCoins implements CommandExecutor {
+import static net.miraclepvp.kitpvp.bukkit.Text.color;
+
+public class SetCrate implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (args.length != 3) {
-            sender.sendMessage(Text.color("&cPlease use /coins remove <player> <amount>"));
+        if(args.length != 4){
+            sender.sendMessage(color("&cPlease use /crate set <player> <crate> <amount>"));
             return true;
         }
         try {
             OfflinePlayer player = Bukkit.getOfflinePlayer(args[1]);
-            if (player == null) {
-                sender.sendMessage(Text.color("&cThis player doesn't exist."));
-                return true;
-            }
+            if (player == null) return true;
             User target = Data.getUser(player);
-            if (target == null) {
-                sender.sendMessage(Text.color("&cThis player doesn't exist."));
-                return true;
-            }
+            if (target == null) return true;
             try {
-                Integer value = Integer.parseInt(args[2]);
-                target.setCoins(target.getCoins() - value, false);
-                sender.sendMessage(Text.color("&aYou have removed " + value + " coins from " + player.getName() + "'s account."));
+                Crate crate = Crate.valueOf(args[2].toUpperCase());
+                Integer value = Integer.parseInt(args[3]);
+                target.getCrates().put(crate, value);
+                sender.sendMessage(Text.color("&aYou have set " + player.getName() + "'s " + crate.toString() + " crates to " + value + " crates."));
                 return true;
             } catch (Exception ex) {
                 sender.sendMessage(Text.color("&cSomething went wrong, check your command."));
                 return true;
             }
-        } catch (
-                NoSuchElementException ex) {
+        } catch (NoSuchElementException ex) {
             sender.sendMessage(Text.color("&cThis player doesn't exist."));
             return true;
         }
