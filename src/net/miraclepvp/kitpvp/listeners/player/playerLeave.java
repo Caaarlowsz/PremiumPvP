@@ -2,16 +2,9 @@ package net.miraclepvp.kitpvp.listeners.player;
 
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.commands.FreezeCMD;
-import net.miraclepvp.kitpvp.data.Data;
-import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.inventories.FreezeGUI;
-import net.miraclepvp.kitpvp.listeners.custom.PlayerUnnickEvent;
-import net.miraclepvp.kitpvp.objects.NickManager;
+import net.miraclepvp.kitpvp.data.duel.Duel;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -25,8 +18,14 @@ public class playerLeave implements Listener {
         if(FreezeCMD.frozenList.contains(event.getPlayer().getUniqueId())){
             FreezeCMD.frozenList.remove(event.getPlayer().getUniqueId());
             Bukkit.getOnlinePlayers().stream().filter(player -> player.hasPermission("miraclepvp.freeze.alert")).forEach(player -> player.sendMessage(color("&6" + event.getPlayer().getName() + " left the server while frozen!")));
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "tempban " + event.getPlayer().getName() + " 30d -s Unfair Advantage | Disconnected while frozen");
         }
+
+        if (Duel.isIngame(event.getPlayer()))
+            Duel.getDuel(event.getPlayer()).leave(event.getPlayer());
+
+        if (Duel.isSpectator(event.getPlayer()))
+            Duel.stopSpectating(event.getPlayer());
+
         if(!(Main.getInstance().combatTimer.containsKey(event.getPlayer()))) return;
         if(Main.getInstance().combatTimer.get(event.getPlayer()) <= 0) return;
         if(event.getPlayer().hasMetadata("event"))

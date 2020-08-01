@@ -69,6 +69,29 @@ public class Supplydrop {
         private DropType dropType;
         private Zone zone;
         private Location location;
+        private static List<ItemStack> items = new ArrayList<>();
+
+        public static void prepareItems() {
+            Random random = new Random();
+            for (int i = 50; i < 100; i++)
+                items.add(createCoin(i));
+            for (int i = 100; i < 150; i++)
+                items.add(createExperience(i));
+            for (int i = 0; i < 100; i++)
+                items.add(new ItemstackFactory(Material.GOLDEN_APPLE, random.nextInt(2) + 1));
+            for (int i = 0; i < 75; i++)
+                items.add(new ItemstackFactory(Material.ARROW, getRandom(6, 16)));
+            for (int i = 0; i < 30; i++)
+                items.add(new ItemstackFactory(Material.ENDER_PEARL));
+            for (int i = 0; i < 10; i++)
+                items.add(createPersonalCoinBooster(10));
+            for (int i = 0; i < 5; i++)
+                items.add(createPersonalCoinBooster(15));
+            for (int i = 0; i < 10; i++)
+                items.add(createPersonalEXPBooster(10));
+            for (int i = 0; i < 5; i++)
+                items.add(createPersonalEXPBooster(15));
+        }
 
         public Crate(DropType dropType) {
             this.uuid = UUID.randomUUID();
@@ -94,66 +117,53 @@ public class Supplydrop {
         public Crate spawn() {
             if (!spawned) {
                 activeCrates.add(this);
+
                 Random random = new Random();
                 zone = Data.zones.get(random.nextInt(Data.zones.size()));
                 location = FileManager.deSerialize(zone.getSupplydropLocations().get(random.nextInt(zone.getSupplydropLocations().size())));
                 location.getBlock().setType(new ItemstackFactory(Material.CHEST).setDisplayName("Supply Drop").getType());
-                Bukkit.broadcastMessage(color("&aA " + dropType.getName() + " supply drop spawned at " + zone.getName() + "!"));
-                location.getWorld().strikeLightningEffect(location);
-                spawned = true;
 
-                BlockState state = location.getBlock().getState();
-                Inventory inv = ((ContainerBlock) state).getInventory();
-                inv.clear();
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        BlockState state = location.getBlock().getState();
+                        Inventory inv = ((ContainerBlock) state).getInventory();
+                        inv.clear();
 
+                        //Creating a list of avaible slots
+                        List<Integer> avaibleSlots = new ArrayList<>();
+                        for (int i = 1; i < inv.getSize(); i++)
+                            avaibleSlots.add(i);
 
-                //Creating a list of avaible slots
-                List<Integer> avaibleSlots = new ArrayList<>();
-                for(int i = 1; i<inv.getSize(); i++)
-                    avaibleSlots.add(i);
+                        //Adding items
+                        Integer itemamount = getRandom(2, 5);
+                        Collections.shuffle(items);
 
-                //Adding items
-                Integer itemamount = getRandom(2, 5);
-                List<ItemStack> items = new ArrayList<>();
-                for (int i = 50; i < 100; i++)
-                    items.add(createCoin(i));
-                for (int i = 100; i < 150; i++)
-                    items.add(createExperience(i));
-                for (int i = 0; i < 100; i++)
-                    items.add(new ItemstackFactory(Material.GOLDEN_APPLE, random.nextInt(2)+1));
-                for (int i = 0; i < 75; i++)
-                    items.add(new ItemstackFactory(Material.ARROW, getRandom(6, 16)));
-                for(int i = 0; i < 30; i++)
-                    items.add(new ItemstackFactory(Material.ENDER_PEARL));
-                for(int i = 0; i < 10; i++)
-                    items.add(createPersonalCoinBooster(10));
-                for(int i = 0; i < 5; i++)
-                    items.add(createPersonalCoinBooster(15));
-                for(int i = 0; i < 10; i++)
-                    items.add(createPersonalEXPBooster(10));
-                for(int i = 0; i < 5; i++)
-                    items.add(createPersonalEXPBooster(15));
-                Collections.shuffle(items);
+                        //Setting the items
+                        for (int i = 0; i < itemamount; i++) {
+                            Collections.shuffle(avaibleSlots);
+                            Integer slot = avaibleSlots.get(0);
+                            inv.setItem(slot - 1, items.get(i));
+                            avaibleSlots.remove(0);
+                        }
 
-                //Setting the items
-                for (int i = 0; i < itemamount; i++) {
-                    Collections.shuffle(avaibleSlots);
-                    Integer slot = avaibleSlots.get(0);
-                    inv.setItem(slot-1, items.get(i));
-                    avaibleSlots.remove(0);
-                }
-
-                try {
-                    CraftChest chest = (CraftChest) location.getBlock().getState();
-                    Field inventoryField = chest.getClass().getDeclaredField("chest");
-                    inventoryField.setAccessible(true);
-                    TileEntityChest teChest = ((TileEntityChest) inventoryField.get(chest));
-                    teChest.a("Supply Drop: " + dropType.getName() + " - X:" + location.getBlock().getX() + " Y:" + location.getBlock().getY() + " Z:" + location.getBlock().getZ());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    delete();
-                    Bukkit.broadcastMessage(color("&cThe supplydrop at " + zone.getName() + " has been despawned!"));
-                }
+                        try {
+                            CraftChest chest = (CraftChest) location.getBlock().getState();
+                            Field inventoryField = chest.getClass().getDeclaredField("chest");
+                            inventoryField.setAccessible(true);
+                            TileEntityChest teChest = ((TileEntityChest) inventoryField.get(chest));
+                            teChest.a("Supply Drop: " + dropType.getName() + " - X:" + location.getBlock().getX() + " Y:" + location.getBlock().getY() + " Z:" + location.getBlock().getZ());
+                            Bukkit.broadcastMessage(color("&aA " + dropType.getName() + " supply drop spawned at " + zone.getName() + "!"));
+                            location.getWorld().strikeLightningEffect(location);
+                            spawned = true;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            delete();
+                            Bukkit.broadcastMessage(color("&cThe supplydrop at " + zone.getName() + " has been despawned!"));
+                        }
+                    }
+                };
+                thread.start();
 
                 //Despawn crate after 5 minutes
                 new BukkitRunnable() {
@@ -166,7 +176,7 @@ public class Supplydrop {
                             } else {
                                 Bukkit.getLogger().warning("Could not delete the supplydrop. The drop is not in the list of active drops.");
                             }
-                        }catch (NoSuchElementException ex){
+                        } catch (NoSuchElementException ex) {
                             //DROP IS ALREADY DELETED
                         }
                     }

@@ -7,7 +7,6 @@ import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.SQL;
 import net.miraclepvp.kitpvp.data.Top;
-import net.miraclepvp.kitpvp.data.duel.Arena;
 import net.miraclepvp.kitpvp.data.user.StatType;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.listeners.*;
@@ -15,15 +14,12 @@ import net.miraclepvp.kitpvp.listeners.SignListener;
 import net.miraclepvp.kitpvp.listeners.entity.projectileHit;
 import net.miraclepvp.kitpvp.listeners.weatherChange;
 import net.miraclepvp.kitpvp.objects.*;
-import net.miraclepvp.kitpvp.bukkit.Text;
 import net.miraclepvp.kitpvp.commands.*;
 import net.miraclepvp.kitpvp.listeners.player.*;
 import net.miraclepvp.kitpvp.utils.ActionbarUtil;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
 import net.miraclepvp.kitpvp.utils.LicenseHandler;
 import net.miraclepvp.kitpvp.utils.Trails;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
@@ -34,13 +30,15 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.sql.*;
 import java.util.*;
 
+import static net.miraclepvp.kitpvp.bukkit.Text.color;
+
 public final class Main extends JavaPlugin {
 
     public String version = getDescription().getVersion();
     public Boolean isDevmode = false;
 
     private Connection connection;
-    public String host, database, username, password, table;
+    public String host, database, username, password;
     public int port;
 
     public HashMap<Player, Integer> combatTimer = new HashMap<>();
@@ -53,7 +51,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if(version.toLowerCase().endsWith("-dev"))
+        if (version.toLowerCase().endsWith("-dev"))
             isDevmode = true;
 
         WorldManager.loadEmptyWorld(World.Environment.NORMAL, "ffa");
@@ -61,7 +59,8 @@ public final class Main extends JavaPlugin {
         Config.load();
         getLogger().info("Config has been loaded");
 
-        if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register()) return;
+        if (!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register())
+            return;
 
         StatType.load();
         getLogger().info("Stats Types have been loaded");
@@ -122,7 +121,6 @@ public final class Main extends JavaPlugin {
                 new AbilityListener(),
                 new LeaderboardListener(),
                 new inventoryClose(),
-                new FreezeListener(),
                 new KitLayoutListener(),
                 new BankerListener(),
                 new ShopListener(),
@@ -136,7 +134,7 @@ public final class Main extends JavaPlugin {
                 new String[]{
                         "unbreakable", "rename", "cosmotokens", "trail", "suffix", "chatcolor", "namecolor", "stats", "kitpvp", "prefix", "kit",
                         "coins", "guild", "spawnpoints", "chat", "staffchat", "sc", "supplydrop", "zone", "booster", "fly", "nick", "report", "crate",
-                        "spawn", "npc", "level", "freeze", "discord", "resetstats", "top", "duel", "map", "arena", "serverevent"
+                        "spawn", "npc", "freeze", "discord", "top", "duel", "map", "arena", "serverevent", "resetstats", "anvil", "hidechat"
                 },
                 new UnbreakableCMD(),
                 new RenameCMD(),
@@ -164,17 +162,17 @@ public final class Main extends JavaPlugin {
                 new CrateCMD(),
                 new SpawnCMD(),
                 new NPCCMD(),
-                new LevelCMD(),
                 new FreezeCMD(),
                 new DiscordCMD(),
-                new ResetstatsCMD(),
                 new TopCMD(),
                 new DuelCMD(),
                 new MapCMD(),
                 new ArenaCMD(),
-                new ServereventCMD()
+                new ServereventCMD(),
+                new ResetstatsCMD(),
+                new AnvilCMD(),
+                new HidechatCMD()
         );
-
         getLogger().info("There are " + cmdSize + " commands loaded!");
 
         CosmeticType.load();
@@ -203,47 +201,28 @@ public final class Main extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
+                Thread thread = new Thread(() -> {
+                    for (Player player : Bukkit.getOnlinePlayers()) {
+                        User user = Data.getUser(player);
+                        user.setOnlineTime(user.getOnlineTime() + 1);
 
-                    User user = Data.getUser(player);
-                    user.setOnlineTime(user.getOnlineTime() + 1);
-
-                    if (player.hasMetadata("build")) {
-                        ActionbarUtil actionbarUtil = new ActionbarUtil("&cYou are in buildmode!");
-                        actionbarUtil.sendToPlayer(player);
-                    } else {
-                        if (combatTimer.get(player) != null && combatTimer.containsKey(player)) {
-                            if (combatTimer.get(player) > 0) {
-                                combatTimer.put(player, combatTimer.get(player) - 1);
-                                Integer timeLeft = combatTimer.get(player);
-                                Integer timeRan = 10 - timeLeft;
+                        if (player.hasMetadata("build")) new ActionbarUtil("&cYou are in buildmode!").sendToPlayer(player);
+                        else if (combatTimer.get(player) != null) { //Anders als hij in combat is
+                            Integer combattime = combatTimer.get(player);
+                            if (combattime > 0) {
+                                combattime--;
+                                combatTimer.put(player, combattime);
+                                Integer timeRan = 10 - combattime;
                                 String timer = "&cCombat Timer &8[";
-                                for (int i = 0; i < timeLeft; i++) {
-                                    timer = timer + "&a|";
-                                }
-                                for (int i = 1; i < timeRan; i++) {
-                                    timer = timer + "&7|";
-                                }
-                                timer = timer + "&8]";
-                                if (timeLeft == -1) {
-                                    timer = "&aYou are no longer in combat!";
-                                    combatTimer.remove(player);
-                                }
-                                if (!player.hasMetadata("vanished")) {
-                                    ActionbarUtil actionbarUtil = new ActionbarUtil(timer);
-                                    actionbarUtil.sendToPlayer(player);
-                                }
-                            } else {
-                                combatTimer.remove(player);
-                            }
-                        } else {
-                            if (playerMove.inZone.get(player.getUniqueId()) != null) {
-                                ActionbarUtil actionbarUtil = new ActionbarUtil("&5Location: " + playerMove.inZone.get(player.getUniqueId()));
-                                actionbarUtil.sendToPlayer(player);
-                            }
-                        }
+                                for (int i = 0; i < combattime; i++) timer+="&a|";
+                                for (int i = 1; i < timeRan; i++) timer+="&7|";
+                                timer+="&8]";
+                                new ActionbarUtil(timer).sendToPlayer(player);
+                            } else combatTimer.remove(player);
+                        } else if (playerMove.inZone.get(player.getUniqueId()) != null) new ActionbarUtil("&5Location: " + playerMove.inZone.get(player.getUniqueId())).sendToPlayer(player);
                     }
-                }
+                });
+                thread.start();
             }
         }.runTaskTimer(this, 20L, 20L);
         getLogger().info("Combat Timer has been loaded");
@@ -251,18 +230,13 @@ public final class Main extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (messageCount >= Config.getMessages().size())
-                    messageCount = 0;
-                if (Config.getMessages().get(messageCount).contains("<br>")) {
-                    String start = Config.getMessages().get(messageCount);
-                    String[] split = start.split("<br>");
-                    for (String s : split) {
-                        ChatCenterUtil.sendCenteredBroadcast(Text.color(s.replaceAll("<br>", "").replaceAll("%server_name%", Config.getServerName())));
-                    }
-                    messageCount++;
-                    return;
-                }
-                ChatCenterUtil.sendCenteredBroadcast(Text.color(Config.getMessages().get(messageCount)));
+                if (messageCount >= Config.getBroadcastMessages().size()) messageCount = 0;
+                Bukkit.broadcastMessage(color("&1 "));
+                Bukkit.broadcastMessage(color(Config.getBroadcastMessages().get(messageCount))
+                        .replaceAll("%server_name%", Config.getServerName())
+                        .replaceAll("%server_version%", Main.getInstance().version)
+                        .replaceAll("%arrow%", "»"));
+                Bukkit.broadcastMessage(color("&2 "));
                 messageCount++;
             }
         }.runTaskTimer(this, 0, Config.getBroadcastDelay() * 20);
@@ -280,44 +254,44 @@ public final class Main extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                for (Trails t : playerTrails.values())
-                    t.tick();
+                for (Trails t : playerTrails.values()) t.tick();
             }
-        }.runTaskTimer(this, 0, 3);
+        }.runTaskTimer(this, 0, 5);
 
-        final Boolean[] backup = {true};
-        new BukkitRunnable() {
-            public void run() {
-                Data.reload();
-                backup[0]=!backup[0];
-                if(backup[0])
-                    Data.backup();
-            }
-        }.runTaskTimer(this, 60*20 /* 1 Minute */, 60*60*20/* 1 Hour */);
-        getLogger().info("Backup system is loaded");
-
+        Supplydrop.Crate.prepareItems();
         new BukkitRunnable() {
             @Override
             public void run() {
-                Supplydrop.Crate normalcrate = new Supplydrop.Crate(Supplydrop.DropType.NORMAL);
-                normalcrate.spawn();
+                if(Bukkit.getOnlinePlayers().size()>=5)
+                    new Supplydrop.Crate(Supplydrop.DropType.NORMAL).spawn();
             }
         }.runTaskTimer(this, 36000L, 72000L);
+        getLogger().info("Supplydrop system is loaded");
 
-        new BukkitRunnable(){
+        new BukkitRunnable() {
             @Override
             public void run() {
                 try {
                     Statement statement = getConnection().createStatement();
                     ResultSet res = statement.executeQuery("SELECT * FROM faketable;");
                     res.next();
-                } catch(SQLException e){
-                }catch (Exception e){
-                    if(!isDevmode)
+                } catch (SQLException e) {
+                } catch (Exception e) {
+                    if (!isDevmode)
                         e.printStackTrace();
                 }
             }
         }.runTaskTimerAsynchronously(this, 0, 12000);
+
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS `reports` (`id` INT NOT NULL AUTO_INCREMENT, `uid` VARCHAR(36) NOT NULL, `tid` VARCHAR(36) NOT NULL, `message` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`));");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (Exception ex){
+            if(!isDevmode)
+                ex.printStackTrace();
+        }
     }
 
     private void registerListeners(Listener... listeners) {
@@ -352,7 +326,6 @@ public final class Main extends JavaPlugin {
         database = this.getConfig().getString("mysql.database");
         username = this.getConfig().getString("mysql.username");
         password = getConfig().getString("mysql.password");
-        table = "reports";
 
         mysqlOpenConnection();
     }

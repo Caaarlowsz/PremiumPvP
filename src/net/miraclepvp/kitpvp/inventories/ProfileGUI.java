@@ -4,6 +4,7 @@ import net.miraclepvp.kitpvp.bukkit.ItemstackFactory;
 import net.miraclepvp.kitpvp.bukkit.SkullBuilder;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Crate;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -79,11 +80,12 @@ public class ProfileGUI {
         inventory.setItem(40, new ItemstackFactory(Material.CHEST)
                 .setDisplayName("&5Crates").addLoreLine(" ")
                 .addLoreLine("&7Gear Crates:")
-                .addLoreLine("&7 Common: " + user.getGearcommon())
-                .addLoreLine("&7 Miracle: " + user.getGearmiracle())
+                .addLoreLine("&7 Common: " + user.getCrates().getOrDefault(Crate.GEAR, 0))
+                .addLoreLine("&7 Miracle: " + user.getCrates().getOrDefault(Crate.GEARMIRACLE, 0))
                 .addLoreLine("&7Cosmetic Crates:")
-                .addLoreLine("&7 Common: " + user.getCosmeticcommon())
-                .addLoreLine("&7 Miracle: " + user.getCosmeticmiracle())
+                .addLoreLine("&7 Color: " + user.getCrates().getOrDefault(Crate.COLOR, 0))
+                .addLoreLine("&7 Trail: " + user.getCrates().getOrDefault(Crate.TRAIL, 0))
+                .addLoreLine("&7 Suffix: " + user.getCrates().getOrDefault(Crate.SUFFIX, 0))
         );
         return inventory;
     }

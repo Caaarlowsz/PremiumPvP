@@ -18,15 +18,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
+
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class playerInventory implements Listener {
+
+    public static HashMap<UUID, Integer> switcherBalls = new HashMap<>();
 
     @EventHandler
     public void onInteractWithoutKit(PlayerInteractEvent event) {
@@ -62,7 +69,7 @@ public class playerInventory implements Listener {
                 player.openInventory(KitGUI.getInventory(player, false, 1));
                 break;
             case EYE_OF_ENDER:
-                player.openInventory(AbilityGUI.getMainInventory());
+                player.openInventory(AbilityGUI.getMainInventory(player));
                 event.setCancelled(true);
                 break;
             case SKULL_ITEM:
@@ -90,7 +97,7 @@ public class playerInventory implements Listener {
                 //ENDERPEARL TROWN
                 CooldownUtil.Cooldown cooldown = CooldownUtil.getCooldown(player, "enderpearl");
                 if (cooldown == null || !cooldown.hasTimeLeft()) {
-                    CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(player, "enderpearl", 30);
+                    CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(player, "enderpearl", 15);
                     newCooldown.start();
                 } else {
                     event.setCancelled(true);
@@ -129,7 +136,38 @@ public class playerInventory implements Listener {
                     return;
                 }
             }
+            if(
+                    event.getItem().getType().equals(Material.SNOW_BALL) &&
+                    event.getItem().getItemMeta() != null &&
+                    event.getItem().getItemMeta().getLore() != null &&
+                    event.getItem().getItemMeta().getLore().get(0) != null &&
+                    event.getItem().getItemMeta().getLore().get(0).equalsIgnoreCase(color("&7Throw this item at other"))
+            ) {
+                CooldownUtil.Cooldown cooldown = CooldownUtil.getCooldown(player, "switcherball");
+                if (cooldown == null || !cooldown.hasTimeLeft()) {
+                    CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(player, "switcherball", 20);
+                    newCooldown.start();
+                    if(switcherBalls.containsKey(player.getUniqueId())){
+                        event.setCancelled(true);
+                        player.sendMessage(color("&cYou can not throw multiple switcherballs at the same time!"));
+                        player.updateInventory();
+                        return;
+                    }
+                    switcherBalls.put(player.getUniqueId(), null);
+                } else {
+                    event.setCancelled(true);
+                    player.sendMessage(color("&cWait " + cooldown.getSecondsLeft() + " seconds before throwing a new switcherball!"));
+                    player.updateInventory();
+                }
+            }
         }
+    }
+
+    @EventHandler
+    public void onLaunch(ProjectileLaunchEvent event){
+        if(!(event.getEntity().getShooter() instanceof Player)) return;
+        if(switcherBalls.containsKey(((Player) event.getEntity().getShooter()).getUniqueId()) && switcherBalls.get(((Player) event.getEntity().getShooter()).getUniqueId()) == null)
+            switcherBalls.put(((Player) event.getEntity().getShooter()).getUniqueId(), event.getEntity().getEntityId());
     }
 
     @EventHandler

@@ -13,7 +13,7 @@ public enum CosmeticType {
     SUFFIX("Suffix", 1, new ItemstackFactory(Material.SKULL_ITEM).setDisplayName("Suffix").addLoreLine("&7A nice suffix")),
     TRAIL("Trail", 2, new ItemstackFactory(Material.ARROW).setDisplayName("Trail").addLoreLine("&7A nice trail")),
     CHATCOLOR("ChatColor", 3, new ItemstackFactory(Material.REDSTONE).setDisplayName("ChatColor").addLoreLine("&7A nice chatcolor")),
-    NameColor("NameColor", 4, new ItemstackFactory(Material.NAME_TAG).setDisplayName("NameColor").addLoreLine("&7A nice namecolor"));
+    NAMECOLOR("NameColor", 4, new ItemstackFactory(Material.NAME_TAG).setDisplayName("NameColor").addLoreLine("&7A nice namecolor"));
 
     public static ArrayList<CosmeticType> types = new ArrayList();
 
@@ -46,6 +46,6 @@ public enum CosmeticType {
         types.add(SUFFIX);
         types.add(TRAIL);
         types.add(CHATCOLOR);
-        types.add(NameColor);
+        types.add(NAMECOLOR);
     }
 }

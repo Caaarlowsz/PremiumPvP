@@ -188,7 +188,7 @@ public class CosmeticsGUI {
         }
 
             //          NameColors
-        if(cosmeticType.equals(CosmeticType.NameColor)){
+        if(cosmeticType.equals(CosmeticType.NAMECOLOR)){
             if (shop) {
                 List<Namecolor> cloneList = new ArrayList<>();
                 cloneList.clear();
@@ -276,7 +276,7 @@ public class CosmeticsGUI {
                     sellPrice = String.valueOf(Data.getChatcolor(uuid).getSell());
                     buyPrice = String.valueOf(Data.getChatcolor(uuid).getCost());
                     break;
-                case NameColor:
+                case NAMECOLOR:
                     name = Data.getNamecolor(uuid).getName();
                     sellPrice = String.valueOf(Data.getNamecolor(uuid).getSell());
                     buyPrice = String.valueOf(Data.getNamecolor(uuid).getCost());

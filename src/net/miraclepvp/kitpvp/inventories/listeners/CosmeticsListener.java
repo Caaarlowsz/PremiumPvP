@@ -10,7 +10,6 @@ import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.CosmeticsGUI;
 import net.miraclepvp.kitpvp.objects.CosmeticType;
 import net.miraclepvp.kitpvp.utils.Trails;
-import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -83,7 +82,7 @@ public class CosmeticsListener implements Listener {
                 user.setActiveSuffix(null);
             if(cosmeticType.equals(CosmeticType.CHATCOLOR))
                 user.setActiveChatcolor(null);
-            if(cosmeticType.equals(CosmeticType.NameColor))
+            if(cosmeticType.equals(CosmeticType.NAMECOLOR))
                 user.setActiveNamecolor(null);
             player.sendMessage(color("&aYou've disabled your " + cosmeticType.getName() + "!"));
             return;
@@ -127,7 +126,7 @@ public class CosmeticsListener implements Listener {
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.NameColor)) {
+            if (cosmeticType.equals(CosmeticType.NAMECOLOR)) {
                 try {
                     Namecolor namecolor = Data.getNamecolor(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (user.getTokens() < namecolor.getCost()) {
@@ -135,7 +134,7 @@ public class CosmeticsListener implements Listener {
                         event.setCancelled(true);
                         return;
                     }
-                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.NameColor, namecolor.getUuid()));
+                    player.openInventory(CosmeticsGUI.getConfirmation(false, CosmeticType.NAMECOLOR, namecolor.getUuid()));
                 } catch (NoSuchElementException ex) {
                 }
             }
@@ -185,7 +184,7 @@ public class CosmeticsListener implements Listener {
                 } catch (NoSuchElementException ex) {
                 }
             }
-            if (cosmeticType.equals(CosmeticType.NameColor)) {
+            if (cosmeticType.equals(CosmeticType.NAMECOLOR)) {
                 try {
                     Namecolor namecolor = Data.getNamecolor(org.bukkit.ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName()));
                     if (event.getClick().equals(ClickType.LEFT)) {
@@ -193,7 +192,7 @@ public class CosmeticsListener implements Listener {
                         player.sendMessage(color("&aYou've selected the " + namecolor.getName() + " namecolor."));
                         player.closeInventory();
                     } else {
-                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.NameColor, namecolor.getUuid()));
+                        player.openInventory(CosmeticsGUI.getConfirmation(true, CosmeticType.NAMECOLOR, namecolor.getUuid()));
                     }
                 } catch (NoSuchElementException ex) {
                 }
@@ -248,7 +247,7 @@ public class CosmeticsListener implements Listener {
                     sellPrice = object3.getSell();
                     buyPrice = object3.getCost();
                     break;
-                case NameColor:
+                case NAMECOLOR:
                     Namecolor object4 = Data.getNamecolor(name);
                     uuid = object4.getUuid();
                     sellPrice = object4.getSell();
@@ -284,7 +283,7 @@ public class CosmeticsListener implements Listener {
                             user.setActiveChatcolor(null);
                         user.removeChatColor(uuid);
                         break;
-                    case NameColor:
+                    case NAMECOLOR:
                         if(user.getActiveNamecolor() != null && user.getActiveNamecolor().equals(uuid))
                             user.setActiveNamecolor(null);
                         user.removeNameColor(uuid);
@@ -304,7 +303,7 @@ public class CosmeticsListener implements Listener {
                     case CHATCOLOR:
                         user.addChatColor(uuid);
                         break;
-                    case NameColor:
+                    case NAMECOLOR:
                         user.addNameColor(uuid);
                         break;
                 }

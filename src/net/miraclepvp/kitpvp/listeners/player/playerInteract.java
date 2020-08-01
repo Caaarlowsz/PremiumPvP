@@ -1,25 +1,38 @@
 package net.miraclepvp.kitpvp.listeners.player;
 
+import com.earth2me.essentials.Teleport;
+import net.miraclepvp.kitpvp.Main;
+import net.miraclepvp.kitpvp.bukkit.FileManager;
+import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.duel.Duel;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.*;
 import net.miraclepvp.kitpvp.inventories.listeners.BankerListener;
 import net.miraclepvp.kitpvp.inventories.listeners.ShopListener;
+import net.miraclepvp.kitpvp.objects.Crate;
 import net.miraclepvp.kitpvp.objects.hasKit;
 import net.miraclepvp.kitpvp.utils.CooldownUtil;
 import net.miraclepvp.kitpvp.utils.TeleportUtil;
 import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
@@ -32,6 +45,54 @@ public class playerInteract implements Listener {
         if (!(entity instanceof Arrow)) return;
         if (!event.getBlock().getType().equals(Material.TNT)) return;
         event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onGrapplingThrow(ProjectileLaunchEvent event) {
+        if (!event.getEntityType().equals(EntityType.FISHING_HOOK)) return;
+        if (!(event.getEntity().getShooter() instanceof Player)) return;
+        Player player = (Player) event.getEntity().getShooter();
+
+        if(!player.getName().equalsIgnoreCase("AlmostSomeone")) return;
+
+        Location target = null;
+        for (Block block : player.getLineOfSight((HashSet<Byte>) null, 100)) {
+            if (!block.getType().equals(Material.AIR))
+                target = block.getLocation();
+        }
+        if (target == null) {
+            player.sendMessage(color("&cYour grappling failed to hook into something"));
+            return;
+        }
+
+        player.teleport(player.getLocation().add(0, 0.5, 0), PlayerTeleportEvent.TeleportCause.PLUGIN);
+        final Vector v = getVectorForPoints(player.getLocation(), target);
+        v.normalize();
+        v.multiply(1.5);
+
+        try{
+            event.getEntity().setVelocity(v);
+        }catch (Exception e){
+            event.getEntity().setVelocity(v);
+        }
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.setVelocity(v);
+                event.getEntity().remove();
+            }
+        }.runTaskLater(Main.getInstance(), 5);
+    }
+
+    private Vector getVectorForPoints(Location l1, Location l2) {
+        double g = -0.08;
+        double d = l2.distance(l1);
+        double t = d;
+        double vX = (1.0 + 0.07 * t) * (l2.getX() - l1.getX()) / t;
+        double vY = (1.0 + 0.03 * t) * (l2.getY() - l1.getY()) / t - 0.5 * g * t;
+        double vZ = (1.0 + 0.07 * t) * (l2.getZ() - l1.getZ()) / t;
+        return new Vector(vX, vY, vZ);
     }
 
     @EventHandler
@@ -57,7 +118,7 @@ public class playerInteract implements Listener {
                     !ChatColor.stripColor(item.getItemMeta().getDisplayName()).endsWith("'s Head")) {
                 player.sendMessage(color("&6I don't need this, just give me the heads i'm looking for!"));
                 player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
-                player.damage(player.getMaxHealth()/2);
+                player.damage(player.getMaxHealth() / 2);
                 return;
             }
             String playerName = ChatColor.stripColor(item.getItemMeta().getDisplayName()).replace("'s Head", "");
@@ -83,20 +144,19 @@ public class playerInteract implements Listener {
                         player.sendMessage(color("&6Please select a kit you want to use and try again."));
                         break;
                     }
-                    if(Duel.invites.containsKey(player.getUniqueId())){
+                    if (Duel.invites.containsKey(player.getUniqueId())) {
                         player.sendMessage(color("&cYou can't deploy while your invite is still open."));
                         return;
                     }
                     player.sendMessage(color("&6Be careful, it's dangerous out there!"));
                     player.playSound(player.getLocation(), Sound.VILLAGER_HAGGLE, 1, 1);
                     TeleportUtil.getTeleport(player);
-                    player.playSound(player.getLocation(), Sound.PORTAL_TRAVEL, 1, 0);
-                    player.playEffect(player.getLocation(), Effect.PORTAL, 5);
-                    if(user.giveKit(user.getPreviousKit(), true, true)){
+                    player.playSound(player.getLocation(), Sound.PORTAL_TRAVEL, (float) 0.2, 0);
+                    if (user.giveKit(user.getPreviousKit(), true, true)) {
                         player.setMetadata("kit", new hasKit());
                         player.setAllowFlight(false);
                         player.setFlying(false);
-                    }else {
+                    } else {
                         player.sendMessage(color("&cCouldn't set your kit, something went wrong."));
                         playerJoin.handleSpawn(player);
                     }
@@ -132,70 +192,34 @@ public class playerInteract implements Listener {
         if (chest.getBlockInventory().getTitle().contains("Supply Drop")) {
             event.setCancelled(false);
             return;
-        }
-        else {
+        } else {
             event.setCancelled(true);
-            if (!chest.getBlockInventory().getTitle().contains("Crate"))
+            if (!chest.getBlockInventory().getTitle().contains("Crate:"))
                 return;
         }
 
         //Clicked block is a crate
         String name = ChatColor.stripColor(chest.getBlockInventory().getTitle());
-
-        Boolean
-                common = true,
-                gear = true;
-        if (name.contains("Miracle"))
-            common = false;
-        if (name.contains("Cosmetic"))
-            gear = false;
-
         User user = Data.getUser(event.getPlayer());
 
-        if (gear) {
-            if (common) {
-                if (user.getGearcommon() <= 0) {
-                    event.getPlayer().sendMessage(color("&cYou have no Common Gear keys."));
-                    return;
-                }
-            } else {
-                if (user.getGearmiracle() <= 0) {
-                    event.getPlayer().sendMessage(color("&cYou have no Miracle Gear keys."));
-                    return;
-                }
-            }
-        } else {
-            if (common) {
-                if (user.getCosmeticcommon() <= 0) {
-                    event.getPlayer().sendMessage(color("&cYou have no Common Cosmetic keys."));
-                    return;
-                }
-            } else {
-                if (user.getCosmeticmiracle() <= 0) {
-                    event.getPlayer().sendMessage(color("&cYou have no Miracle Cosmetic keys."));
-                    return;
-                }
-            }
+        Crate crate = Crate.valueOf(name.replaceAll("Crate: ", "").toUpperCase());
+
+        if ((!user.getCrates().containsKey(crate)) || user.getCrates().get(crate) == 0) {
+            event.getPlayer().sendMessage(color("&cYou don't have the " + crate.toString().toLowerCase() + " crate key."));
+            return;
         }
 
         CooldownUtil.Cooldown cooldown = CooldownUtil.getCooldown(event.getPlayer(), "crate");
         if (cooldown == null || !cooldown.hasTimeLeft()) {
-            CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(event.getPlayer(), "crate", 8);
+            CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(event.getPlayer(), "crate", 10);
             newCooldown.start();
 
-            if (gear) {
-                if (common)
-                    user.setGearcommon(user.getGearcommon() - 1);
-                else
-                    user.setGearmiracle(user.getGearmiracle() - 1);
-            } else {
-                if (common)
-                    user.setCosmeticcommon(user.getCosmeticcommon() - 1);
-                else
-                    user.setCosmeticmiracle(user.getCosmeticmiracle() - 1);
-            }
+            user.getCrates().put(crate, user.getCrates().get(crate) - 1);
 
-            event.getPlayer().openInventory(CrateGUI.getInventory(event.getPlayer(), common, gear));
+            event.getPlayer().openInventory(CrateGUI.getInventory(event.getPlayer(), crate));
+        } else {
+            event.getPlayer().sendMessage(color("&cWait " + cooldown.getSecondsLeft() + " seconds before opening a new crate."));
+            return;
         }
     }
 
@@ -232,7 +256,7 @@ public class playerInteract implements Listener {
                     try {
                         if (Data.getSign(event.getClickedBlock().getLocation()) != null)
                             event.getPlayer().openInventory(LeaderboardGUI.getTop(Data.getSign(event.getClickedBlock().getLocation()).getStats()));
-                    }catch (NoSuchElementException ex){
+                    } catch (NoSuchElementException ex) {
                     }
                     break;
                 case WOODEN_DOOR:
@@ -276,7 +300,7 @@ public class playerInteract implements Listener {
                     break;
                 case ANVIL:
                     event.setCancelled(true);
-                    if(event.getPlayer().hasMetadata("kit") && event.getClickedBlock().hasMetadata("miracleAnvil"))
+                    if (event.getPlayer().hasMetadata("kit") && Config.getAnvils().contains(FileManager.serialize(event.getClickedBlock().getLocation())))
                         event.getPlayer().openInventory(AnvilGUI.getInventory());
                     break;
                 case ENCHANTMENT_TABLE:

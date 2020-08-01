@@ -111,10 +111,6 @@ public class LicenseHandler {
         }
     }
 
-    public static void silendValidade(){
-            if(!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", Main.getInstance()).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").setConsoleLog(LogType.NONE).register()) return;
-    }
-
 
     //
     // Cryptographic

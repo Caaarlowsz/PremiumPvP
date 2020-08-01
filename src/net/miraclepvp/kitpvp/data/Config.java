@@ -9,6 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 
 public class Config {
@@ -18,16 +19,18 @@ public class Config {
     private static String licenseKey = "";
     private static Integer broadcastDelay = 300;
     private static Integer signReloadDelay = 900;
-    private static ArrayList<String> messages = new ArrayList<>();
     private static ArrayList<String> curseWords = new ArrayList<>();
+    private static ArrayList<String> broadcastMessages = new ArrayList<>();
+    private static ArrayList<String> anvils = new ArrayList<>();
     private static Location lobbyLoc = new Location(Bukkit.getWorlds().get(0), 0,0,0,0,0);
 
     private static ArrayList<Location> spawnpoints = new ArrayList<>();
 
     public static void load(){
-        messages.clear();
         curseWords.clear();
         spawnpoints.clear();
+        broadcastMessages.clear();
+        anvils.clear();
 
         FileManager.load(Main.getInstance(), "config.yml");
         FileConfiguration config = FileManager.get("config.yml");
@@ -36,10 +39,11 @@ public class Config {
         discordLink = config.getString("discord.link");
         broadcastDelay = config.getInt("broadcast.delay");
         signReloadDelay = config.getInt("sign.reloaddelay");
-        for (int i = 0; i < config.getStringList("broadcast.messages").size(); i++)
-            messages.add(config.getStringList("broadcast.messages").get(i));
-        for (int i = 0; i < config.getStringList("chat.curseWords").size(); i++)
-            curseWords.add(config.getStringList("chat.curseWords").get(i));
+
+        curseWords.addAll(config.getStringList("chat.curseWords"));
+        broadcastMessages.addAll(config.getStringList("broadcast.messages"));
+        anvils.addAll(config.getStringList("anvils"));
+
         lobbyLoc = FileManager.deSerialize(config.getString("lobby.location"));
 
         FileManager.load(Main.getInstance(), "spawnpoints.yml");
@@ -53,23 +57,24 @@ public class Config {
     }
 
     public static void save(){
-        if(!FileManager.get("config.yml").getString("lobby.location").equalsIgnoreCase(FileManager.serialize(lobbyLoc))) {
-            FileManager.set("config.yml", "lobby.location", FileManager.serialize(lobbyLoc));
-            FileManager.save(Main.getInstance(), "config.yml");
-        }
+        FileManager.set("config.yml", "lobby.location", FileManager.serialize(lobbyLoc));
+        FileManager.set("config.yml", "anvils", anvils);
+        FileManager.save(Main.getInstance(), "config.yml");
 
         ArrayList<String> stringlocs = new ArrayList<>();
         stringlocs.clear();
         spawnpoints.forEach(loc -> stringlocs.add(FileManager.serialize(loc)));
         FileManager.set("spawnpoints.yml", "locations", stringlocs);
         FileManager.save(Main.getInstance(), "spawnpoints.yml");
-
-        FileManager.set("nicknames.yml", "nicknames", NickManager.nickNames);
     }
 
     public static void reload(){
         FileManager.reload(Main.getInstance(), "config.yml");
         load();
+    }
+
+    public static ArrayList<String> getBroadcastMessages() {
+        return broadcastMessages;
     }
 
     public static String getDiscordLink() {
@@ -86,10 +91,6 @@ public class Config {
 
     public static Integer getSignReloadDelay() {
         return signReloadDelay;
-    }
-
-    public static ArrayList<String> getMessages() {
-        return messages;
     }
 
     public static ArrayList<String> getCurseWords() {
@@ -110,5 +111,9 @@ public class Config {
 
     public static ArrayList<Location> getSpawnpoints() {
         return spawnpoints;
+    }
+
+    public static ArrayList<String> getAnvils() {
+        return anvils;
     }
 }

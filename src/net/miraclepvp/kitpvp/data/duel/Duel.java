@@ -1,5 +1,9 @@
 package net.miraclepvp.kitpvp.data.duel;
 
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.kit.Kit;
@@ -44,11 +48,7 @@ public class Duel {
         if (invites.containsKey(duel.host))
             invites.remove(duel.host);
 
-        duel.sendMessage(player.getUniqueId() + " -0");
-
         duel.joined = player.getUniqueId();
-
-        duel.sendMessage(duel.joined + " -1");
 
         games.put(duel.host, player.getUniqueId());
 
@@ -102,10 +102,10 @@ public class Duel {
     public static Duel getDuel(OfflinePlayer player) {
         try {
             return duels.stream().filter(duel -> duel.host.equals(player.getUniqueId())).findFirst().get();
-        } catch (NoSuchElementException ex) {
+        } catch (Exception ex) {
             try {
                 return duels.stream().filter(duel -> duel.joined.equals(player.getUniqueId())).findFirst().get(); //Joined
-            } catch (NoSuchElementException e) {
+            } catch (Exception e) {
                 return null;
             }
         }
@@ -145,13 +145,20 @@ public class Duel {
             return;
         }
         invites.put(inviter.getUniqueId(), invited.getUniqueId());
-        inviter.sendMessage(color("&aYou've successfully invited " + invited.getName() + " for a duel. This player has 30 seconds to accept."));
+        inviter.sendMessage(color("&aYou've successfully invited " + invited.getName() + " for a duel. This player has 10 seconds to accept."));
         invited.sendMessage(" ");
         invited.sendMessage(color("&6You have been invited for a duel by " + inviter.getName() + (bid > 0 ? " for " + bid + " coins." : ".")));
         invited.sendMessage(color("&7Kit: " + kit.getName()));
         invited.sendMessage(color("&7Map: " + Data.getMap(map).name));
         invited.sendMessage(color("&7Spectators: " + (allowSpectator ? "allowed" : "disallowed")));
-        //TODO Clickable ACCEPT - DECLINE
+        TextComponent acceptComponent = new TextComponent(ChatColor.GREEN + "ACCEPT"); //ACCEPT
+        acceptComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duel accept " + inviter.getName()));
+        TextComponent middleLine = new TextComponent(ChatColor.DARK_GRAY + " - "); //MIDDLELINE
+        TextComponent declineComponent = new TextComponent(ChatColor.RED + "DECLINE"); //DECLINE
+        declineComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duel decline " + inviter.getName()));
+        acceptComponent.addExtra(middleLine);
+        acceptComponent.addExtra(declineComponent);
+        invited.spigot().sendMessage(acceptComponent);
         invited.sendMessage(" ");
 
         new BukkitRunnable() {
@@ -163,7 +170,7 @@ public class Duel {
                     invites.remove(inviter.getUniqueId());
                 }
             }
-        }.runTaskLater(Main.getInstance(), 600L);
+        }.runTaskLater(Main.getInstance(), 200L);
     }
 
     public void sendMessage(String text) {
@@ -195,6 +202,11 @@ public class Duel {
         new BukkitRunnable() {
             @Override
             public void run() {
+                if (status.equals(Status.DONE)) {
+                    cancel();
+                    return;
+                }
+
                 if (count[0] == 0) {
                     runGame();
                     cancel();
@@ -208,6 +220,8 @@ public class Duel {
     }
 
     public void runGame() {
+        if (status.equals(Status.DONE)) return;
+
         status = Status.INGAME;
 
         sendMessage("&6Let the game begin, good luck!");
@@ -256,7 +270,6 @@ public class Duel {
             winner = this.joined;
         else
             winner = this.host;
-
         end(Bukkit.getPlayer(winner));
     }
 
@@ -265,8 +278,14 @@ public class Duel {
 
         sendMessage("&cThe game ended, " + (winner == null ? "nobody" : winner.getName()) + " has won the game!");
 
+        spectators.forEach((uuid, uuid2) -> {
+            if(Bukkit.getOfflinePlayer(uuid).isOnline() && (uuid2.equals(host) || uuid2.equals(joined)))
+                Bukkit.getPlayer(uuid).sendMessage(color("&cThe game ended, " + (winner == null ? "nobody" : winner.getName()) + " has won the game!"));
+        });
+
         OfflinePlayer pOne = Bukkit.getOfflinePlayer(host);
         OfflinePlayer pTwo = Bukkit.getOfflinePlayer(joined);
+
         User uOne = Data.getUser(pOne);
         User uTwo = Data.getUser(pTwo);
         if (winner == null) {

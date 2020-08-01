@@ -8,18 +8,17 @@ import net.miraclepvp.kitpvp.data.user.Abilities;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.objects.ServerEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
@@ -29,18 +28,18 @@ public class playerDamageRegister implements Listener {
     private HashMap<UUID, DamageProfile> profiles = new HashMap<>();
 
     @EventHandler
-    public void onDeath(PlayerDeathEvent event){
+    public void onDeath(PlayerDeathEvent event) {
         event.setDeathMessage(null);
 
-        if(event.getEntity().hasMetadata("event")){
+        if (event.getEntity().hasMetadata("event")) {
             event.getEntity().spigot().respawn();
             ServerEvent.leave(event.getEntity(), true);
             return;
         }
 
-        if(Duel.isIngame(event.getEntity())){
+        if (Duel.isIngame(event.getEntity())) {
             Duel duel = Duel.getDuel(event.getEntity());
-            if(duel.host.equals(event.getEntity().getUniqueId()))
+            if (duel.host.equals(event.getEntity().getUniqueId()))
                 duel.end(Bukkit.getPlayer(duel.joined));
             else
                 duel.end(Bukkit.getPlayer(duel.host));
@@ -54,16 +53,16 @@ public class playerDamageRegister implements Listener {
     public void on(EntityDeathEvent event) {
         if (!(event.getEntity() instanceof Player)) return;
         Player player = (Player) event.getEntity();
-        if(player.hasMetadata("event")) return;
+        if (player.hasMetadata("event")) return;
         event.getDrops().clear();
         event.setDroppedExp(0);
-        if(Duel.isIngame(player) || player.hasMetadata("event")) return;
+        if (Duel.isIngame(player) || player.hasMetadata("event")) return;
         if (!profiles.containsKey(player.getUniqueId())) profiles.put(player.getUniqueId(), new DamageProfile());
         DamageProfile profile = profiles.get(player.getUniqueId());
         profiles.remove(player.getUniqueId());
         try {
             Bukkit.getPluginManager().callEvent(new net.miraclepvp.kitpvp.listeners.custom.PlayerDeathEvent(player, profile));
-        }catch(Exception ex){
+        } catch (Exception ex) {
             Bukkit.getServer().getLogger().warning("WARNING! Something went wrong booting the deathEvent at MiraclePvP:listeners.player.playerDamageRegister:44");
         }
         player.setHealth(player.getMaxHealth());
@@ -81,8 +80,8 @@ public class playerDamageRegister implements Listener {
         if (!(e.getEntity() instanceof Player)) return;
         Player p = (Player) e.getEntity();
 
-        if(Duel.isIngame(p)) {
-            if(Duel.getDuel(p).status.equals(Duel.Status.PREPARING))
+        if (Duel.isIngame(p)) {
+            if (Duel.getDuel(p).status.equals(Duel.Status.PREPARING))
                 e.setCancelled(true);
             return;
         }
@@ -123,9 +122,19 @@ public class playerDamageRegister implements Listener {
 
         if (e.getCause() == EntityDamageEvent.DamageCause.VOID) return;
 
-        if(p.hasMetadata("event")) return;
+        if (p.hasMetadata("event")) return;
 
         profile.setDamageTaken(profile.getDamageTaken() + e.getDamage());
+    }
+
+    @EventHandler
+    public void onProjectileHit(ProjectileHitEvent event) {
+        if(!event.getEntity().getType().equals(EntityType.SNOWBALL)) return;
+        Snowball da = (Snowball) event.getEntity();
+        if (!playerInventory.switcherBalls.containsValue(event.getEntity().getEntityId())) return;
+        if (!(da.getShooter() instanceof Player)) return;
+
+        playerInventory.switcherBalls.remove(((Player) event.getEntity().getShooter()).getUniqueId());
     }
 
     @EventHandler
@@ -134,9 +143,9 @@ public class playerDamageRegister implements Listener {
         Player p = (Player) e.getEntity();
         Player damager = null;
 
-        if(p.hasMetadata("event")) return;
+        if (p.hasMetadata("event")) return;
 
-        if(Duel.isIngame(p) || Duel.isIngame(damager)) return;
+        if (Duel.isIngame(p) || Duel.isIngame(damager)) return;
 
         if (!profiles.containsKey(p.getUniqueId())) profiles.put(p.getUniqueId(), new DamageProfile());
         DamageProfile profile = profiles.get(p.getUniqueId());
@@ -154,17 +163,18 @@ public class playerDamageRegister implements Listener {
         if (e.getDamager() instanceof Arrow) {
             Arrow da = (Arrow) e.getDamager();
             if (da.getShooter() instanceof Player) damager = (Player) da.getShooter();
-            new BukkitRunnable(){
+            new BukkitRunnable() {
                 @Override
                 public void run() {
-                    ((Player)da.getShooter()).sendMessage(color("&7" + p.getName() + " has &c" + Math.round(p.getHealth() * 100.00) / 100.00 + "hp&7."));
+                    ((Player) da.getShooter()).sendMessage(color("&7" + p.getName() + " has &c" + Math.round(p.getHealth() * 100.00) / 100.00 + "hp&7."));
                 }
             }.runTaskLater(Main.getInstance(), 5L);
-            User duser = Data.getUser((Player)da.getShooter());
+            User duser = Data.getUser((Player) da.getShooter());
             HashMap<Abilities.AbilityType, Integer> abilities = duser.getAbilities();
-            if(abilities.get(Abilities.AbilityType.ARROW_BACK) != null &&
+            List<Abilities.AbilityType> activeAbilities = duser.getActiveAbilities();
+            if (activeAbilities.contains(Abilities.AbilityType.ARROW_BACK) && abilities.get(Abilities.AbilityType.ARROW_BACK) != null &&
                     Abilities.chance(Abilities.AbilityType.ARROW_BACK.getLvl(abilities.get(Abilities.AbilityType.ARROW_BACK))))
-                ((Player)da.getShooter()).getInventory().addItem(new ItemstackFactory(Material.ARROW));
+                ((Player) da.getShooter()).getInventory().addItem(new ItemstackFactory(Material.ARROW));
         }
 
         if (e.getDamager() instanceof FishHook) {
@@ -175,6 +185,13 @@ public class playerDamageRegister implements Listener {
         if (e.getDamager() instanceof Snowball) {
             Snowball da = (Snowball) e.getDamager();
             if (da.getShooter() instanceof Player) damager = (Player) da.getShooter();
+            if(playerInventory.switcherBalls.containsKey(damager.getUniqueId()) && playerInventory.switcherBalls.get(damager.getUniqueId()).equals(da.getEntityId())) {
+                e.setCancelled(true);
+                Location shooter = ((Player) da.getShooter()).getLocation();
+                Location target = e.getEntity().getLocation();
+                ((Player) da.getShooter()).teleport(target);
+                e.getEntity().teleport(shooter);
+            }
         }
 
         if (e.getDamager() instanceof Egg) {
@@ -190,9 +207,9 @@ public class playerDamageRegister implements Listener {
             profile.given.remove(damager.getUniqueId());
             profile.given.put(damager.getUniqueId(), g + e.getDamage());
 
-            if(!Duel.isIngame(p))
+            if (!Duel.isIngame(p))
                 Main.getInstance().combatTimer.put(p, 10);
-            if(!Duel.isIngame(damager))
+            if (!Duel.isIngame(damager))
                 Main.getInstance().combatTimer.put(damager, 10);
         }
     }

@@ -27,14 +27,23 @@ public class LeaderboardGUI {
             User target = statType.getTop().get(i-1);
 
             try{
-                OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(target.getUuid());
-                inv.addItem(new ItemstackFactory(
-                        SkullBuilder.getPlayerSkull(offlinePlayer.getName()))
-                        .setDisplayName("&5#" + i)
-                        .addLoreLine("&7Name: " + offlinePlayer.getName())
-                        .addLoreLine("&7" + target.getStat(statType, compact) + " " + statType.getName())
-                );
-            } catch (Exception ex){
+                if(target == null || target.getUuid() == null || Bukkit.getOfflinePlayer(target.getUuid()) == null){
+                    inv.addItem(new ItemstackFactory(
+                            SkullBuilder.QUESTION.getSkull())
+                            .setDisplayName("&5#" + i)
+                            .addLoreLine("&7Name: " + (NickManager.getRealName(target.getUuid()) == null ? "NaN" : NickManager.getRealName(target.getUuid())))
+                            .addLoreLine("&7" + target.getStat(statType, compact) + " " + statType.getName())
+                    );
+                } else {
+                    OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(target.getUuid());
+                    inv.addItem(new ItemstackFactory(
+                            SkullBuilder.getPlayerSkull(offlinePlayer.getName()))
+                            .setDisplayName("&5#" + i)
+                            .addLoreLine("&7Name: " + offlinePlayer.getName())
+                            .addLoreLine("&7" + target.getStat(statType, compact) + " " + statType.getName())
+                    );
+                }
+            } catch(Exception ex){
                 inv.addItem(new ItemstackFactory(
                         SkullBuilder.QUESTION.getSkull())
                         .setDisplayName("&5#" + i)

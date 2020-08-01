@@ -10,7 +10,7 @@ import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.objects.Item;
 import net.miraclepvp.kitpvp.objects.Tablist;
 import net.miraclepvp.kitpvp.objects.npc.NPCManager;
-import net.miraclepvp.kitpvp.utils.ChatCenterUtil;
+import net.miraclepvp.kitpvp.utils.CooldownUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -51,28 +51,28 @@ public class playerJoin implements Listener {
 
         player.spigot().respawn();
 
-        ChatCenterUtil.sendCenteredMessage(player, "&d&m-----------------------------------------------------");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Welcome to MiraclePvP");
-        ChatCenterUtil.sendCenteredMessage(player, "&7");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Website: www.miraclepvp.net");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Store: miraclepvp.tebex.io");
-        ChatCenterUtil.sendCenteredMessage(player, "&7Discord: discord.gg/TPXdxJK");
-        ChatCenterUtil.sendCenteredMessage(player, "&7");
-        ChatCenterUtil.sendCenteredMessage(player, "&7If you have any questions, visit the information page:");
-        ChatCenterUtil.sendCenteredMessage(player, "&7www.miraclepvp.net/information.php");
-        ChatCenterUtil.sendCenteredMessage(player, "&d&m-----------------------------------------------------");
+        player.sendMessage(color("&5-----------------------------------------------"));
+        player.sendMessage(color("&7Welcome to MiraclePvP"));
+        player.sendMessage(color("&5* &7Website: www.miraclepvp.net"));
+        player.sendMessage(color("&5* &7Store: miraclepvp.tebex.io"));
+        player.sendMessage(color("&5* &7Discord: " + Config.getDiscordLink()));
+        player.sendMessage(color("&5* &7YouTube: youtube.com/channel/UCOegKWOcqnJE1EaoQc-mMTQ"));
+        player.sendMessage(color("&5-----------------------------------------------"));
 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        if (!user.getLastVersion().equalsIgnoreCase(Main.getInstance().version)) {
-            player.sendMessage(color("&a&lUPDATE! &fOur plugin has been updated since your latest join, make sure to read our changelog in the discord! https://discord.gg/TPXdxJK"));
-            player.sendMessage(color("&7Your last played version: " + user.getLastVersion() + ". The newest version (current) is: " + Main.getInstance().version));
-            user.setLastVersion(Main.getInstance().version);
-        }
-        user.setLastJoin(formatter.format(date));
-        Tablist.sendTab(player);
-        for (EntityPlayer npc : NPCManager.npcs)
-            NPCManager.showNPC(player, npc);
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            if (!user.getLastVersion().equalsIgnoreCase(Main.getInstance().version)) {
+                player.sendMessage(color("&a&lUPDATE! &fOur plugin has been updated since your latest join, make sure to read our changelog in the discord! https://discord.gg/TPXdxJK"));
+                player.sendMessage(color("&7Your last played version: " + user.getLastVersion() + ". The newest version (current) is: " + Main.getInstance().version));
+                user.setLastVersion(Main.getInstance().version);
+            }
+            user.setLastJoin(formatter.format(date));
+            Tablist.sendTab(player);
+            for (EntityPlayer npc : NPCManager.npcs)
+                NPCManager.showNPC(player, npc);
+        });
+        thread.start();
 
         handleSpawn(player);
 
@@ -104,13 +104,20 @@ public class playerJoin implements Listener {
         User user = Data.getUser(player);
         Board.showScoreboard(player);
 
+        CooldownUtil.Cooldown trackerCooldown = CooldownUtil.getCooldown(player, "tracker");
+        if(trackerCooldown != null) trackerCooldown.delete();
+        CooldownUtil.Cooldown enderpearlCooldown = CooldownUtil.getCooldown(player, "enderpearl");
+        if(enderpearlCooldown != null) enderpearlCooldown.delete();
+        CooldownUtil.Cooldown switcherballCooldown = CooldownUtil.getCooldown(player, "switcherball");
+        if(switcherballCooldown != null) switcherballCooldown.delete();
+
         if (player.hasMetadata("vanished")) return;
         if (player.hasMetadata("build"))
             player.removeMetadata("build", Main.getInstance());
-        if(Duel.isIngame(player))
+        if (Duel.isIngame(player))
             Duel.getDuel(player).leave(player);
 
-        if(Duel.isSpectator(player))
+        if (Duel.isSpectator(player))
             Duel.stopSpectating(player);
 
         if (playerMove.inZone.containsKey(player.getUniqueId()))

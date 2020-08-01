@@ -19,10 +19,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.Arrays;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 import static org.bukkit.Bukkit.getServer;
@@ -35,7 +32,7 @@ public class playerDeath implements Listener {
         Player player = event.getPlayer();
         User user = event.getUser();
 
-        if(Duel.isIngame(player)) return;
+        if (Duel.getDuel(player) == null && Duel.isIngame(player)) return;
 
         //Get the damage profile
         playerDamageRegister.DamageProfile profile = event.getProfile();
@@ -61,6 +58,15 @@ public class playerDeath implements Listener {
             User damager = Data.getUser(Bukkit.getOfflinePlayer(profile.getLastDamager()));
             damager.setKills(damager.getKills() + 1);
             damager.setKillstreak(damager.getKillstreak() + 1);
+
+            HashMap<UUID, Integer>
+                    kills = damager.getbKills(),
+                    deaths = user.getbDeaths();
+
+            kills.put(player.getUniqueId(), kills.containsKey(player.getUniqueId()) ? kills.get(player.getUniqueId()) + 1 : 1);
+            deaths.put(Bukkit.getOfflinePlayer(profile.getLastDamager()).getUniqueId(), deaths.containsKey(Bukkit.getOfflinePlayer(profile.getLastDamager()).getUniqueId()) ? deaths.get(Bukkit.getOfflinePlayer(profile.getLastDamager()).getUniqueId()) + 1 : 1);
+            damager.setbKills(kills);
+            user.setbDeaths(deaths);
 
             //If last damager is online
             if (Bukkit.getOfflinePlayer(profile.getLastDamager()).isOnline()) {
@@ -111,7 +117,7 @@ public class playerDeath implements Listener {
                 int percentage = (int) ((100 / totalDamage) * damageDealt);
                 int coins = (int) (((double) (int) 10 / (double) 100) * percentage);
                 if (getServer().getOnlinePlayers().stream().filter(pl -> !pl.hasMetadata("vanished")).filter(pl -> !pl.hasMetadata("build")).count() < 10)
-                    coins =  (int) (((double) (int) 15 / (double) 100) * percentage);
+                    coins = (int) (((double) (int) 15 / (double) 100) * percentage);
                 int experience = (int) (((double) (int) 10 / (double) 100) * percentage);
 
                 duser.setCoins(duser.getCoins() + coins, true);
@@ -121,6 +127,11 @@ public class playerDeath implements Listener {
                 if (profile.getLastDamager() == null || !uuid.equals(profile.getLastDamager())) {
                     if (coins > 0 && experience > 0) {
                         duser.setAssists(duser.getAssists() + 1);
+
+                        HashMap<UUID, Integer> assists = duser.getbAssists();
+                        assists.put(player.getUniqueId(), assists.containsKey(player.getUniqueId()) ? assists.get(player.getUniqueId()) + 1 : 1);
+                        duser.setbAssists(assists);
+
                         if (damager.isOnline())
                             Bukkit.getPlayer(damager.getUniqueId()).sendMessage(color("&aYou have a assist on " + player.getName() + " and received " + coins + " coins and " + experience + " experience."));
                     }
@@ -129,42 +140,43 @@ public class playerDeath implements Listener {
                 //Als het een kill is
                 if (uuid.equals(profile.getLastDamager())) {
                     if (duser.isKillBroadcast())
-                        Bukkit.broadcastMessage(color("&a" + damager.getName() + " brutally murdered " + player.getName() + (oldKillstreak > 1 ? " and ruined his killstreak of " + oldKillstreak : "") + "!"));
+                        Bukkit.broadcastMessage(color("&d" + damager.getName() + " brutally murdered " + player.getName() + (oldKillstreak > 2 ? " and ruined his killstreak of " + oldKillstreak : "") + "!"));
                     if (damager.isOnline())
                         Bukkit.getPlayer(damager.getUniqueId()).sendMessage(color("&aYou killed " + player.getName() + " and received " + coins + " coins and " + experience + " experience."));
 
                     if (!damager.isOnline() || (damager.isOnline() && Bukkit.getPlayer(damager.getUniqueId()).hasMetadata("kit"))) {
                         HashMap<Abilities.AbilityType, Integer> abilities = duser.getAbilities();
+                        List<Abilities.AbilityType> activeAbilities = duser.getActiveAbilities();
 
-                        if (abilities.get(Abilities.AbilityType.MORE_COINS) != null &&
+                        if (activeAbilities.contains(Abilities.AbilityType.MORE_COINS) && abilities.get(Abilities.AbilityType.MORE_COINS) != null &&
                                 Abilities.chance(Abilities.AbilityType.MORE_COINS.getLvl(abilities.get(Abilities.AbilityType.MORE_COINS))))
                             duser.setCoins(duser.getCoins() + 5, false);
 
-                        if (abilities.get(Abilities.AbilityType.MORE_EXP) != null &&
+                        if (activeAbilities.contains(Abilities.AbilityType.MORE_EXP) && abilities.get(Abilities.AbilityType.MORE_EXP) != null &&
                                 Abilities.chance(Abilities.AbilityType.MORE_EXP.getLvl(abilities.get(Abilities.AbilityType.MORE_EXP))))
                             duser.setExperience(duser.getExperience() + 5, false);
 
-                        if (abilities.get(Abilities.AbilityType.GOLDEN_APPLE) != null &&
+                        if (activeAbilities.contains(Abilities.AbilityType.GOLDEN_APPLE) && abilities.get(Abilities.AbilityType.GOLDEN_APPLE) != null &&
                                 Abilities.chance(Abilities.AbilityType.GOLDEN_APPLE.getLvl(abilities.get(Abilities.AbilityType.GOLDEN_APPLE))))
                             if (damager.isOnline())
                                 Bukkit.getPlayer(damager.getUniqueId()).getInventory().addItem(new ItemstackFactory(Material.GOLDEN_APPLE));
 
-                        if (abilities.get(Abilities.AbilityType.ENDERPEARL) != null &&
+                        if (activeAbilities.contains(Abilities.AbilityType.ENDERPEARL) && abilities.get(Abilities.AbilityType.ENDERPEARL) != null &&
                                 Abilities.chance(Abilities.AbilityType.ENDERPEARL.getLvl(abilities.get(Abilities.AbilityType.ENDERPEARL))))
                             if (damager.isOnline())
                                 Bukkit.getPlayer(damager.getUniqueId()).getInventory().addItem(new ItemstackFactory(Material.ENDER_PEARL));
 
-                        if(damager.getPlayer() == null) return;
+                        if (damager.getPlayer() == null) return;
 
-                        if(damager.getPlayer().hasPotionEffect(PotionEffectType.INCREASE_DAMAGE))
+                        if (damager.getPlayer().hasPotionEffect(PotionEffectType.INCREASE_DAMAGE))
                             damager.getPlayer().getActivePotionEffects().remove(damager.getPlayer().getActivePotionEffects().stream().filter(potionEffect -> potionEffect.getType().equals(PotionEffectType.INCREASE_DAMAGE)));
-                        if (abilities.get(Abilities.AbilityType.STRENGTH) != null)
+                        if (activeAbilities.contains(Abilities.AbilityType.STRENGTH) && abilities.get(Abilities.AbilityType.STRENGTH) != null)
                             if (damager.isOnline())
                                 Bukkit.getPlayer(damager.getUniqueId()).addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Abilities.AbilityType.STRENGTH.getLvl(abilities.get(Abilities.AbilityType.STRENGTH)) * 20, 0));
 
-                        if(damager.getPlayer().hasPotionEffect(PotionEffectType.REGENERATION))
+                        if (damager.getPlayer().hasPotionEffect(PotionEffectType.REGENERATION))
                             damager.getPlayer().getActivePotionEffects().remove(damager.getPlayer().getActivePotionEffects().stream().filter(potionEffect -> potionEffect.getType().equals(PotionEffectType.REGENERATION)));
-                        if (abilities.get(Abilities.AbilityType.REGENERATION) != null)
+                        if (activeAbilities.contains(Abilities.AbilityType.REGENERATION) && abilities.get(Abilities.AbilityType.REGENERATION) != null)
                             if (damager.isOnline())
                                 Bukkit.getPlayer(damager.getUniqueId()).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Abilities.AbilityType.REGENERATION.getLvl(abilities.get(Abilities.AbilityType.REGENERATION)) * 20, 0));
                     }

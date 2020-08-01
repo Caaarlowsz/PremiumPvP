@@ -182,7 +182,7 @@ public class NMSNickManager extends Reflections {
     public static void sendPacketExceptSelf(Player p, Object packet) {
         for (Player all : Bukkit.getOnlinePlayers())
             if (!(all.getUniqueId().equals(p.getUniqueId())))
-                    sendPacketNMS(all, packet);
+                sendPacketNMS(all, packet);
     }
 
     public static void sendPacketNMS(Player p, Object packet) {

@@ -9,8 +9,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +34,16 @@ public class AbilityListener implements Listener {
         if(event.getCurrentItem().getItemMeta().getLore() == null) return;
         String[] words = ChatColor.stripColor(event.getCurrentItem().getItemMeta().getLore().get(0)).split(" ");
         Abilities.AbilityType type = Abilities.AbilityType.valueOf(words[0].toUpperCase());
-        event.getWhoClicked().openInventory(AbilityGUI.getTypeInventory(((Player) event.getWhoClicked()), type));
+        if(event.getClick().equals(ClickType.LEFT)){
+            List<Abilities.AbilityType> activeAbilities = Data.getUser(((Player) event.getWhoClicked())).getActiveAbilities();
+            if(activeAbilities.contains(type))
+                activeAbilities.remove(type);
+            else if(activeAbilities.size() < 3)
+                activeAbilities.add(type);
+            else
+                event.getWhoClicked().sendMessage(color("&cYou can only activate 3 abilities at the same time!"));
+            event.getWhoClicked().openInventory(AbilityGUI.getMainInventory(((Player) event.getWhoClicked())));
+        } else event.getWhoClicked().openInventory(AbilityGUI.getTypeInventory(((Player) event.getWhoClicked()), type));
     }
 
     @EventHandler
@@ -45,7 +57,7 @@ public class AbilityListener implements Listener {
         if(event.getCurrentItem().getItemMeta() == null) return;
         if(event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         if(event.getSlot() == 26) {
-            event.getWhoClicked().openInventory(AbilityGUI.getMainInventory());
+            event.getWhoClicked().openInventory(AbilityGUI.getMainInventory(((Player) event.getWhoClicked())));
             return;
         }
         String[] words = ChatColor.stripColor(event.getInventory().getItem(10).getItemMeta().getLore().get(0)).split(" ");

@@ -9,13 +9,15 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public class AbilityGUI {
 
-    public static Inventory getMainInventory(){
+    public static Inventory getMainInventory(Player player){
         Inventory inv = Bukkit.createInventory(null, 4*9, color("&8Abilities"));
 
         for (int i = 0; i < inv.getSize(); i++)
@@ -36,7 +38,14 @@ public class AbilityGUI {
                 Abilities.AbilityType.REGEN_SPAWN
         };
 
-        Arrays.stream(types).forEach(type -> inv.addItem(new ItemstackFactory(type.getIcon()).setDisplayName("&5" + type.getName()).addLoreLine("&7" + type.toString() + " - " + type.getDescription())));
+        List<Abilities.AbilityType> activeAbilities = Data.getUser(player).getActiveAbilities();
+
+        Arrays.stream(types).forEach(type -> inv.addItem(new ItemstackFactory(type.getIcon())
+                .setDisplayName((activeAbilities.contains(type) ? "&a" : "&c") + type.getName())
+                .addLoreLine("&7" + type.toString() + " - " + type.getDescription())
+                .addLoreLine(" ")
+                .addLoreLine("&7Left Click to toggle")
+                .addLoreLine("&7Right Click to upgrade")));
 
         return inv;
     }

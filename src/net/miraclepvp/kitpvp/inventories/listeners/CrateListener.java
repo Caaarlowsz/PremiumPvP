@@ -13,7 +13,7 @@ public class CrateListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player)) return;
         if (event.getClickedInventory() == null) return;
         if (event.getClickedInventory().getName() == null) return;
-        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).contains(" Crate - "))) return;
+        if (!(ChatColor.stripColor(event.getClickedInventory().getName()).contains(" - Crate"))) return;
         event.setCancelled(true);
     }
 }

@@ -10,6 +10,7 @@ import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
 import net.miraclepvp.kitpvp.data.user.Abilities;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Crate;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -31,14 +32,13 @@ public class CrateGUI {
     private static Random random = new Random();
 
     private static HashMap<UUID, Integer> coins = new HashMap<>();
-    private static HashMap<UUID, Integer> tokens = new HashMap<>();
     private static HashMap<UUID, Abilities.AbilityType> abilities = new HashMap<>();
 
-    public static Inventory getInventory(Player player, Boolean common, Boolean gear){
-        Inventory inv = Bukkit.createInventory(null, 3 * 9, color("&8 " + (gear ? "Gear" : "Comsetic") + " Crate - " + (common ? "Common" : "Miracle")));
+    public static Inventory getInventory(Player player, Crate crate){
+        Inventory inv = Bukkit.createInventory(null, 3 * 9, color("&8 " + crate.toString() + " - Crate"));
 
         //Get list of items
-        List<UUID> items = getList(gear, common);
+        List<UUID> items = getList(crate);
 
         //Get the count of the items
         final Integer[] currentCount = {0};
@@ -205,11 +205,11 @@ public class CrateGUI {
         return inv;
     }
 
-    private static ArrayList<UUID> getList(Boolean gear, Boolean common) {
+    private static ArrayList<UUID> getList(Crate crate){
         ArrayList<UUID> items = new ArrayList<>();
 
-        if(gear) {
-            Data.kits.stream().filter(kit -> kit.getPrice()>0).forEach(kit -> items.add(kit.getUuid()));
+        if(crate.equals(Crate.GEAR)) {
+            Data.kits.stream().filter(kit -> kit.getPrice() > 0).forEach(kit -> items.add(kit.getUuid()));
             Abilities.AbilityType[] types = {
                     Abilities.AbilityType.ENDERPEARL,
                     Abilities.AbilityType.MORE_EXP,
@@ -221,41 +221,52 @@ public class CrateGUI {
                     Abilities.AbilityType.REGENERATION,
                     Abilities.AbilityType.GOLDEN_APPLE,
             };
-            for(int i = 0; i<types.length; i++){
+            for (Abilities.AbilityType type : types) {
                 UUID uuid = UUID.randomUUID();
-                abilities.put(uuid, types[i]);
+                abilities.put(uuid, type);
                 items.add(uuid);
             }
-        }else{
-            Data.chatcolors.forEach(chatcolor -> items.add(chatcolor.getUuid()));
-            Data.namecolors.forEach(namecolor -> items.add(namecolor.getUuid()));
-            Data.suffixes.forEach(suffix -> items.add(suffix.getUuid()));
-            Data.trails.forEach(trail -> items.add(trail.getUuid()));
-        }
-
-        if(common){
             Double itemSize = (double)items.size();
             Double amount = (itemSize/100)*35;
             Integer round = Math.toIntExact(Math.round(amount));
 
             for(int i = 1; i<round; i++){
                 UUID uuid = UUID.randomUUID();
-                if(gear) {
-                    Integer ran = random.nextInt(90)+10;
-                    coins.put(uuid, ran);
-                }
-                if(!gear)
-                    tokens.put(uuid, random.nextInt(2)+1);
+                Integer ran = random.nextInt(90)+10;
+                coins.put(uuid, ran);
                 items.add(uuid);
             }
+        } else if(crate.equals(Crate.GEARMIRACLE)) {
+            Data.kits.stream().filter(kit -> kit.getPrice() > 0).forEach(kit -> items.add(kit.getUuid()));
+            Abilities.AbilityType[] types = {
+                    Abilities.AbilityType.ENDERPEARL,
+                    Abilities.AbilityType.MORE_EXP,
+                    Abilities.AbilityType.MORE_COINS,
+                    Abilities.AbilityType.REGEN_SPAWN,
+                    Abilities.AbilityType.ABSORTION,
+                    Abilities.AbilityType.ARROW_BACK,
+                    Abilities.AbilityType.STRENGTH,
+                    Abilities.AbilityType.REGENERATION,
+                    Abilities.AbilityType.GOLDEN_APPLE,
+            };
+            for (Abilities.AbilityType type : types) {
+                UUID uuid = UUID.randomUUID();
+                abilities.put(uuid, type);
+                items.add(uuid);
+            }
+        } else if(crate.equals(Crate.COLOR)) {
+            Data.chatcolors.forEach(chatcolor -> items.add(chatcolor.getUuid()));
+            Data.namecolors.forEach(namecolor -> items.add(namecolor.getUuid()));
+        } else if(crate.equals(Crate.SUFFIX)) {
+            Data.suffixes.forEach(suffix -> {
+                if (suffix.getBuyable())
+                    items.add(suffix.getUuid());
+            });
+        } else if (crate.equals(Crate.TRAIL)) {
+            Data.trails.forEach(trail -> items.add(trail.getUuid()));
         }
-
-        if(items.size()<25) {
-            List<UUID> dupe = new ArrayList<>();
-            items.forEach(item -> dupe.add(item));
-            dupe.forEach(item -> items.add(item));
-        }
-
+        while(items.size()<25)
+            items.addAll(new ArrayList<>(items));
         Collections.shuffle(items);
         return items;
     }
@@ -270,8 +281,6 @@ public class CrateGUI {
         count++;
         if(coins.containsKey(randomUUID))
             return new ItemstackFactory(Material.GOLD_NUGGET).setDisplayName("&6" + coins.get(randomUUID) + " Coins");
-        if(tokens.containsKey(randomUUID))
-            return new ItemstackFactory(Material.EMERALD).setDisplayName("&a" + tokens.get(randomUUID) + " Tokens");
         if(abilities.containsKey(randomUUID)) {
             Abilities.AbilityType type = abilities.get(randomUUID);
             return new ItemstackFactory(type.getIcon()).setDisplayName("&5" + type.getName()).addLoreLine("&7Ability - " + type.toString());
@@ -282,11 +291,11 @@ public class CrateGUI {
         } catch (NoSuchElementException ex) {
             try {
                 Namecolor object = Data.getNamecolor(randomUUID);
-                return createItemstack(object.getIcon(), object.getName(), randomUUID, object.getCost(), object.getSell());
+                return createItemstack(object.getIcon(), object.getName()+" Namecolor", randomUUID, object.getCost(), object.getSell());
             } catch (NoSuchElementException ex1) {
                 try {
                     Chatcolor object = Data.getChatcolor(randomUUID);
-                    return createItemstack(object.getIcon(), object.getName(), randomUUID, object.getCost(), object.getSell());
+                    return createItemstack(object.getIcon(), object.getName()+" Chatcolor", randomUUID, object.getCost(), object.getSell());
                 } catch (NoSuchElementException ex2) {
                     try {
                         Suffix object = Data.getSuffix(randomUUID);
