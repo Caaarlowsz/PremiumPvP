@@ -21,6 +21,7 @@ public class GuildCMD implements CommandExecutor {
     private InfoGuild infoGuild = new InfoGuild();
     private MuteGuild muteGuild = new MuteGuild();
     private RenameGuild renameGuild = new RenameGuild();
+    private TagGuild tagGuild = new TagGuild();
     private ChatGuild chatGuild = new ChatGuild();
     private MotdGuild motdGuild = new MotdGuild();
     private KickGuild kickGuild = new KickGuild();
@@ -30,6 +31,7 @@ public class GuildCMD implements CommandExecutor {
     private TransferGuild transferGuild = new TransferGuild();
     private SlowGuild slowGuild = new SlowGuild();
     private PermissionsGuild permissionsGuild = new PermissionsGuild();
+    private TagcolorGuild tagcolorGuild = new TagcolorGuild();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -97,6 +99,12 @@ public class GuildCMD implements CommandExecutor {
                 break;
             case "leave":
                 leaveGuild.onCommand(sender, cmd, label, args);
+                break;
+            case "tag":
+                tagGuild.onCommand(sender, cmd, label, args);
+                break;
+            case "tagcolor":
+                tagcolorGuild.onCommand(sender, cmd, label, args);
                 break;
             default:
                 sender.sendMessage(Text.color("&cPlease use /guild help for more information."));

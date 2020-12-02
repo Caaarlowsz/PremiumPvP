@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mojang.util.UUIDTypeAdapter;
 import net.miraclepvp.kitpvp.Main;
-import net.miraclepvp.kitpvp.objects.NickManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -48,11 +47,6 @@ public class UUIDFetcher {
 
             return data.id;
         } catch (Exception e) {
-            for(String nickName : NickManager.nickNames) {
-                if(name.equalsIgnoreCase(nickName))
-                    NickManager.nickNames.remove(nickName);
-            }
-
             List<String> list = FileManager.get("nicknames.yml").getStringList("nicknames");
 
             for(String nickName : list) {

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="WorldGuard">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../server/plugins/WorldGuard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Libraries/WorldGuard.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

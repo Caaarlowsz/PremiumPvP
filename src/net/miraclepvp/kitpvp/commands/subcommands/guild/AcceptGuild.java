@@ -2,6 +2,8 @@ package net.miraclepvp.kitpvp.commands.subcommands.guild;
 
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
+import net.miraclepvp.kitpvp.objects.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -38,6 +40,7 @@ public class AcceptGuild implements CommandExecutor {
                 guild.getMembers().add(((Player) sender).getUniqueId());
                 Data.getUser(((Player) sender)).setGuild(guild.getUuid());
                 guild.sendBroadcast(sender.getName() + " joined the guild.");
+                Board.updatePlayerListName(((Player) sender));
                 return true;
             }
         } catch(NoSuchElementException ex){

@@ -2,26 +2,30 @@ package net.miraclepvp.kitpvp.data;
 
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.bukkit.FileManager;
-import net.miraclepvp.kitpvp.bukkit.WorldManager;
-import net.miraclepvp.kitpvp.objects.NickManager;
+import net.miraclepvp.kitpvp.objects.Board;
+import net.miraclepvp.kitpvp.objects.Tablist;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 
 public class Config {
 
-    private static String serverName = "KitPvP";
-    private static String discordLink = "";
-    private static String licenseKey = "";
-    private static Integer broadcastDelay = 300;
-    private static Integer signReloadDelay = 900;
-    private static ArrayList<String> curseWords = new ArrayList<>();
-    private static ArrayList<String> broadcastMessages = new ArrayList<>();
-    private static ArrayList<String> anvils = new ArrayList<>();
+    private static String
+            serverName = "KitPvP",
+            discordLink = "";
+    private static Integer
+            broadcastDelay = 300,
+            signReloadDelay = 900;
+    private static Boolean
+            useMySQL = false,
+            chatNameHover = true,
+            toggleFriendlyFire = false;
+    private static ArrayList<String>
+            curseWords = new ArrayList<>(),
+            broadcastMessages = new ArrayList<>(),
+            anvils = new ArrayList<>();
     private static Location lobbyLoc = new Location(Bukkit.getWorlds().get(0), 0,0,0,0,0);
 
     private static ArrayList<Location> spawnpoints = new ArrayList<>();
@@ -34,13 +38,17 @@ public class Config {
 
         FileManager.load(Main.getInstance(), "config.yml");
         FileConfiguration config = FileManager.get("config.yml");
-        licenseKey = config.getString("license");
         serverName = config.getString("broadcast.servername");
         discordLink = config.getString("discord.link");
         broadcastDelay = config.getInt("broadcast.delay");
         signReloadDelay = config.getInt("sign.reloaddelay");
 
+        useMySQL = config.getBoolean("use-mysql");
+        toggleFriendlyFire = config.getBoolean("pvp.toggle-guild-friendlyfire");
+
         curseWords.addAll(config.getStringList("chat.curseWords"));
+        chatNameHover = config.getBoolean("chat.name-hover");
+
         broadcastMessages.addAll(config.getStringList("broadcast.messages"));
         anvils.addAll(config.getStringList("anvils"));
 
@@ -51,9 +59,8 @@ public class Config {
         spawnpoints.clear();
         spawnfile.getStringList("locations").forEach(string -> spawnpoints.add(FileManager.deSerialize(string)));
 
-        FileManager.load(Main.getInstance(), "nicknames.yml");
-        FileConfiguration names = FileManager.get("nicknames.yml");
-        NickManager.nickNames = names.getStringList("nicknames");
+        Board.load();
+        Tablist.load();
     }
 
     public static void save(){
@@ -89,6 +96,10 @@ public class Config {
         return broadcastDelay;
     }
 
+    public static Boolean getToggleFriendlyFire() {
+        return toggleFriendlyFire;
+    }
+
     public static Integer getSignReloadDelay() {
         return signReloadDelay;
     }
@@ -105,15 +116,19 @@ public class Config {
         Config.lobbyLoc = lobbyLoc;
     }
 
-    public static String getLicenseKey() {
-        return licenseKey;
-    }
-
     public static ArrayList<Location> getSpawnpoints() {
         return spawnpoints;
     }
 
     public static ArrayList<String> getAnvils() {
         return anvils;
+    }
+
+    public static Boolean getChatNameHover() {
+        return chatNameHover;
+    }
+
+    public static Boolean UseMySQL() {
+        return useMySQL;
     }
 }

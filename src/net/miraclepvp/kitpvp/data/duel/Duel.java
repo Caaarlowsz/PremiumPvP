@@ -2,13 +2,12 @@ package net.miraclepvp.kitpvp.data.duel;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
 import net.miraclepvp.kitpvp.objects.hasKit;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -128,6 +127,8 @@ public class Duel {
     public Status status;
 
     public Duel(UUID host) {
+        Bukkit.broadcastMessage("new duel created for " + host);
+
         this.host = host;
         this.joined = null;
         this.bid = 0;
@@ -168,6 +169,7 @@ public class Duel {
                     inviter.sendMessage(color("&cYour invite for " + invited.getName() + " has expired."));
                     invited.sendMessage(color("&cThe invite from " + inviter.getName() + " has expired."));
                     invites.remove(inviter.getUniqueId());
+                    Data.getMap(map).getArena(arena).enabled = true;
                 }
             }
         }.runTaskLater(Main.getInstance(), 200L);
@@ -270,12 +272,12 @@ public class Duel {
             winner = this.joined;
         else
             winner = this.host;
-        end(Bukkit.getPlayer(winner));
+        end(Bukkit.getOfflinePlayer(winner));
     }
 
-    public void end(Player winner) {
+    public void end(OfflinePlayer winner) {
         status = Status.DONE;
-
+        
         sendMessage("&cThe game ended, " + (winner == null ? "nobody" : winner.getName()) + " has won the game!");
 
         spectators.forEach((uuid, uuid2) -> {
@@ -283,8 +285,8 @@ public class Duel {
                 Bukkit.getPlayer(uuid).sendMessage(color("&cThe game ended, " + (winner == null ? "nobody" : winner.getName()) + " has won the game!"));
         });
 
-        OfflinePlayer pOne = Bukkit.getOfflinePlayer(host);
-        OfflinePlayer pTwo = Bukkit.getOfflinePlayer(joined);
+        OfflinePlayer pOne = Bukkit.getOfflinePlayer(this.host);
+        OfflinePlayer pTwo = Bukkit.getOfflinePlayer(this.joined);
 
         User uOne = Data.getUser(pOne);
         User uTwo = Data.getUser(pTwo);
@@ -302,7 +304,7 @@ public class Duel {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            playerJoin.handleSpawn(Bukkit.getPlayer(uuid));
+                            Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(Bukkit.getPlayer(uuid)));
                         }
                     }.runTaskLater(Main.getInstance(), 5L);
                 }
@@ -314,11 +316,11 @@ public class Duel {
 
         if (winner == null) {
             if (pOne.isOnline())
-                playerJoin.handleSpawn(pOne.getPlayer());
+                Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(pOne.getPlayer()));
             if (pTwo.isOnline())
-                playerJoin.handleSpawn(pTwo.getPlayer());
-        } else
-            playerJoin.handleSpawn(winner);
+                Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(pTwo.getPlayer()));
+        } else if(winner.isOnline())
+            Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(Bukkit.getPlayer(winner.getUniqueId())));
     }
 
     private void preparePlayer(Player player) {

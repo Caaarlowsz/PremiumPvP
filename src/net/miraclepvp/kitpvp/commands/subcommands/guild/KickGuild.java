@@ -5,6 +5,7 @@ import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.objects.PermissionType;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -68,9 +69,12 @@ public class KickGuild implements CommandExecutor {
                 guild.getOfficers().remove(target.getUniqueId());
             Data.getUser(target).setGuild(null);
 
-            if(target.isOnline())
+            if(target.isOnline()){
                 Bukkit.getPlayer(target.getName()).sendMessage(color("&cYou've been kicked from the guild."));
+                Board.updatePlayerListName(target.getPlayer());
+            }
             guild.sendBroadcast(sender.getName() + " kicked " + target.getName() + " from the guild.");
+
             return true;
         } catch (Exception ex){
             sender.sendMessage(color("&cThis player doesn't exist."));

@@ -4,6 +4,8 @@ import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.data.zone.Zone;
+import net.miraclepvp.kitpvp.objects.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,10 +44,16 @@ public class CreateGuild implements CommandExecutor {
                 return true;
             }
 
+            if(args[1].contains("&")){
+                sender.sendMessage(color("&cThe guild name can not contain the & symbol."));
+                return true;
+            }
+
             Guild guild = new Guild(args[1], ((Player) sender).getUniqueId());
             Data.guilds.add(guild);
             user.setGuild(guild.getUuid());
             sender.sendMessage(color("&aThe guild " + guild.getName() + " has been created."));
+            Board.updatePlayerListName(((Player) sender));
             return true;
         }
         return true;

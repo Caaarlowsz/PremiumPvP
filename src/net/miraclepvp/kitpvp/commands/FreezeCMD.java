@@ -1,7 +1,8 @@
 package net.miraclepvp.kitpvp.commands;
 
 import net.miraclepvp.kitpvp.Main;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
+import net.miraclepvp.kitpvp.listeners.player.movement.playerJoin;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -71,7 +72,7 @@ public class FreezeCMD implements CommandExecutor {
                 }
             }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 600L);
 
-            playerJoin.handleSpawn(target);
+            Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(target));
             return true;
         }catch (Exception ex){
             sender.sendMessage(color("&cThe given player is not online."));

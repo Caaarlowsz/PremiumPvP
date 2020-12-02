@@ -11,7 +11,7 @@ import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.kit.Editting;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.KitEditGUI;
-import net.miraclepvp.kitpvp.objects.NickManager;
+import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.utils.CooldownUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,7 +23,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
@@ -37,64 +36,58 @@ public class playerChat implements Listener {
         Player player = event.getPlayer();
         User user = Data.getUser(player);
 
-        if(FreezeCMD.frozenList.contains(player.getUniqueId())){
-            event.setCancelled(true);
-            player.sendMessage(color("&4[&cFROZEN&4] &f" + event.getPlayer().getName() + "&8: &7" + event.getMessage()));
-            for(Player staff : Bukkit.getOnlinePlayers())
-                if(staff.hasPermission("miraclepvp.freeze.readchat"))
-                    staff.sendMessage(color("&4[&cFROZEN&4] &f" + event.getPlayer().getName() + "&8: &7" + event.getMessage()));
-                return;
-        }
+        Board.updatePlayerListName(player);
 
-        if(event.getMessage().equals("1045ynbgrvfnu4b6tr875vnh78gbv434giytb687tb78v436vb5t874ybv98vtv3b7vvnj5678hvno76itvb47vbv56o4iv564i3uv53iub4v6758i4v6b3587v3i4b65v7843v534v6tb487v5684bv563485vib8675v43v534")){
-            event.setCancelled(true);
+        if(FreezeCMD.frozenList.contains(player.getUniqueId())){ //If the player is frozen
+            event.setCancelled(true); //Cancel the message
+            player.sendMessage(color("&4[&cFROZEN&4] &f" + event.getPlayer().getName() + "&8: &7" + event.getMessage())); //Send the message to this player
+            for(Player staff : Bukkit.getOnlinePlayers()) {
+                if (staff.hasPermission("miraclepvp.freeze.readchat"))
+                    staff.sendMessage(color("&4[&cFROZEN&4] &f" + event.getPlayer().getName() + "&8: &7" + event.getMessage())); //Send the message to all staff with the needed permissions
+            }
             return;
         }
 
-        if (KitEditGUI.editting.containsKey(player)) { //Als degene een kit aan het bewerken is
-            event.setCancelled(true);
+        if (KitEditGUI.editting.containsKey(player)) { //If the player is editing a kit
+            event.setCancelled(true); //Cancel the message
 
-            if (event.getMessage().equalsIgnoreCase("cancel")) {
-                KitEditGUI.editting.remove(player);
-                KitEditGUI.k_editting.remove(player);
-                player.sendMessage(color("&aYou've cancelled the editting."));
+            if (event.getMessage().equalsIgnoreCase("cancel")) { //If the player cancels the edit
+                KitEditGUI.editting.remove(player); //Remove the player from the list
+                KitEditGUI.k_editting.remove(player); //Remove the player from the list
+                player.sendMessage(color("&aYou've cancelled the editting.")); //Send a confirmation
                 return;
             }
 
-            if (KitEditGUI.k_editting.get(player) == null) return;
-            if (KitEditGUI.editting.get(player).equals(Editting.NAME))
-                KitEditGUI.k_editting.get(player).setName(event.getMessage());
-            if (KitEditGUI.editting.get(player).equals(Editting.DESCRIPTION))
-                KitEditGUI.k_editting.get(player).setDescription(event.getMessage());
-            if (KitEditGUI.editting.get(player).equals(Editting.PRICE)) {
+            if (KitEditGUI.k_editting.get(player) == null) return; //Return if there is no kit known
+            if (KitEditGUI.editting.get(player).equals(Editting.NAME)) //If the player is editing the name
+                KitEditGUI.k_editting.get(player).setName(event.getMessage()); //Change the name
+            if (KitEditGUI.editting.get(player).equals(Editting.DESCRIPTION)) //If the player is editing the description
+                KitEditGUI.k_editting.get(player).setDescription(event.getMessage()); //Change the description
+            if (KitEditGUI.editting.get(player).equals(Editting.PRICE)) { //If the player is editing the price
                 try {
-                    Integer.parseInt(event.getMessage());
-                    KitEditGUI.k_editting.get(player).setPrice(Integer.valueOf(event.getMessage()));
+                    KitEditGUI.k_editting.get(player).setPrice(Integer.valueOf(event.getMessage())); //Set the price
                 } catch (Exception ex) {
-                    player.sendMessage(color("&aThe given amount is not a number"));
+                    player.sendMessage(color("&aThe given amount is not a number")); //Send feedback if the message is not a number
                     return;
                 }
             }
-            if (KitEditGUI.editting.get(player).equals(Editting.ICON)) {
-                Material material = Material.getMaterial(event.getMessage());
-                if (material == null || material.equals(Material.AIR)) {
-                    player.sendMessage(color("&aThe given item is not valid"));
+            if (KitEditGUI.editting.get(player).equals(Editting.ICON)) { //If the player is editing the icon
+                Material material = Material.getMaterial(event.getMessage()); //Get the material
+                if (material == null || material.equals(Material.AIR)) { //If the material is air or not existing
+                    player.sendMessage(color("&aThe given item is not valid")); //Send feedback
                     return;
                 }
-                KitEditGUI.k_editting.get(player).setIcon(material);
+                KitEditGUI.k_editting.get(player).setIcon(material); //Change the icon
             }
-            player.sendMessage(color("&aYou've changed the " + KitEditGUI.editting.get(player).getName() + " to " + event.getMessage() + "."));
-            player.openInventory(KitEditGUI.getMainInventory(KitEditGUI.k_editting.get(player).getName()));
-            KitEditGUI.editting.remove(player);
-            KitEditGUI.k_editting.remove(player);
-            event.setCancelled(true);
+            player.sendMessage(color("&aYou've changed the " + KitEditGUI.editting.get(player).getName() + " to " + event.getMessage() + ".")); //Send feedback
+            player.openInventory(KitEditGUI.getMainInventory(KitEditGUI.k_editting.get(player).getName())); //Open the edit GUI
+            KitEditGUI.editting.remove(player); //Remove the player from the list
+            KitEditGUI.k_editting.remove(player); //Remove the player from the list
             return;
-        } //Als degene een kit aan het editten is
+        }
 
-        event.setMessage(user.getActiveChatcolor() == null ? event.getMessage() : Data.getChatcolor(user.getActiveChatcolor()).getColor() + event.getMessage());
-
-        Integer level = NickManager.nickedPlayers.contains(player.getUniqueId()) ? user.getFkLevel() : user.getLevel();
-        net.md_5.bungee.api.ChatColor levelColor = net.md_5.bungee.api.ChatColor.getByChar(
+        Integer level = user.getLevel(); //Get the players level
+        net.md_5.bungee.api.ChatColor levelColor = net.md_5.bungee.api.ChatColor.getByChar( //Get the color for the level
                 level >= 5 ?
                         level >= 10 ?
                                 level >= 15 ?
@@ -113,33 +106,32 @@ public class playerChat implements Listener {
                                                                                                                                         '5' : 'd' : '1' : '3' : '9' : 'a' : '4' : 'c' : '6' : 'e' : '2' : 'a' : '0' : 'f' : '8' : '7'
         );
 
-        AtomicReference<Boolean> contain = new AtomicReference<>(false);
-        AtomicReference<Boolean> end = new AtomicReference<>(false);
+        final String[] words = ChatColor.stripColor(event.getMessage()).split(" "); //Get all words in a array
 
-        final String[] words = ChatColor.stripColor(event.getMessage()).split(" ");
+        ArrayList<String> antiAds = new ArrayList();
+        antiAds.addAll(domainContains);
+        antiAds.addAll(domainEnds);
+        antiAds.forEach(word -> {
+            if(event.getMessage().toLowerCase().contains(word)) { //If the message contains the forbidden word
+                Integer start=event.getMessage().toLowerCase().indexOf(word), finale=start+word.length(); //Get the first and last characters position (needed for replace)
+                String found=(String)event.getMessage().subSequence(start,finale); //Get the message which we need to replace
+                StringBuilder replacement=new StringBuilder(); //Make a string builder
+                for(int i=1;i<found.length();i++)replacement.append("*"); //Place a * for every character in the text
+                event.setMessage(event.getMessage().replaceFirst(found, "."+replacement.toString())); //Set the word to the modified version
+            }
+        });
 
         Arrays.stream(words).forEach(word -> {
-            if (Config.getCurseWords().contains(word)) {
+            if (Config.getCurseWords().contains(word.toLowerCase())) {
                 StringBuilder replacement = new StringBuilder();
                 for (int i = 0; i < word.length(); i++) replacement.append("*");
                 event.setMessage(event.getMessage().replaceFirst(word, replacement.toString()));
             }
         });
-        ArrayList<String> stoppedWords = new ArrayList<>();
-        domainContains.stream().filter(word -> !contain.get()).filter(words[0]::contains).forEach(word -> {
-            words[0] = words[0].replaceFirst(word, "");
-            stoppedWords.add(word);
-            contain.set(true);
-        });
-        domainEnds.stream().filter(word -> !end.get()).filter(words[0]::contains).forEach(word -> {
-            words[0] = words[0].replaceFirst(word, "");
-            stoppedWords.add(word);
-            end.set(true);
-        });
 
         switch (user.getChatmode()) {
             case ALL:
-                if (!player.hasPermission("miraclepvp.donator.spambypass")) {
+                if (!player.hasPermission("premiumpvp.donator.spambypass")) {
                     CooldownUtil.Cooldown chatCooldown = CooldownUtil.getCooldown(player, "chat");
                     if (chatCooldown == null || !chatCooldown.hasTimeLeft()) {
                         CooldownUtil.Cooldown newCooldown = CooldownUtil.prepare(player, "chat", 3);
@@ -184,9 +176,9 @@ public class playerChat implements Listener {
                         "&8] " + (user.getPrefix() == null ? "" : Data.getPrefix(user.getPrefix()).getName().equalsIgnoreCase("default") ? "" : Data.getPrefix(user.getPrefix()).getPrefix() + " "))
                 ); //[x] Prefix
                 TextComponent playerName = new TextComponent(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',
-                        user.getActiveNamecolor() == null || NickManager.nickedPlayers.contains(player.getUniqueId()) ? net.md_5.bungee.api.ChatColor.GRAY + player.getName() : "" + Data.getNamecolor(user.getActiveNamecolor()).getColor().toString() + player.getName()
+                        user.getActiveNamecolor() == null ? net.md_5.bungee.api.ChatColor.GRAY + player.getName() : "" + Data.getNamecolor(user.getActiveNamecolor()).getColor().toString() + player.getName()
                 ));
-                if (!target.getUniqueId().equals(player.getUniqueId()))
+                if (!target.getUniqueId().equals(player.getUniqueId()) && Config.getChatNameHover())
                     playerName.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',
                             "&5" + player.getName() + " VS " + target.getName() + "\n" +
                                     "&5> &7You have:\n" +
@@ -201,30 +193,34 @@ public class playerChat implements Listener {
                     ).replaceAll("null", "0")).create()));
                 mainComponent.addExtra(playerName); //[x] Prefix Name
                 mainComponent.addExtra(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',
-                        (user.getActiveSuffix() == null || NickManager.nickedPlayers.contains(player.getUniqueId()) ? "" : " " + Data.getSuffix(user.getActiveSuffix()).getSuffix())
+                        (user.getActiveSuffix() == null ? "" : " " + Data.getSuffix(user.getActiveSuffix()).getSuffix())
                                 + "&8:&7 ")); //[x] Prefix Name Suffix:
-                mainComponent.addExtra(
-                        user.getActiveChatcolor() == null || NickManager.nickedPlayers.contains(player.getUniqueId()) ? net.md_5.bungee.api.ChatColor.GRAY + event.getMessage() :
-                                ChatColor.translateAlternateColorCodes('&', "&" + Data.getChatcolor(user.getActiveChatcolor()).getColor().getChar()) + event.getMessage()
-                ); //[x] Prefix Name: Message
+                mainComponent.addExtra(event.getMessage()); //[x] Prefix Name: Message
+
+                char chatcolor = '7';
+                if(user.getActiveChatcolor() != null)
+                    chatcolor = Data.getChatcolor(user.getActiveChatcolor()).getColor().getChar();
+
+                mainComponent.setColor(net.md_5.bungee.api.ChatColor.getByChar(chatcolor));
                 target.spigot().sendMessage(mainComponent);
             }
+
         event.setCancelled(true);
         return;
     }
 
     public static void loadChatfilter() {
-        domainContains.add(".1337srv.");
-        domainContains.add(".g-s.");
-        domainContains.add(".mcnetwork.");
-        domainContains.add(".mcpro.");
-        domainContains.add(".mcserv.");
-        domainContains.add(".my-serv.");
-        domainContains.add(".mygs.");
-        domainContains.add(".mymcserver.");
-        domainContains.add(".myserver.");
-        domainContains.add(".serv.");
-        domainContains.add(".aternos.");
+        domainContains.add(".1337srv");
+        domainContains.add(".g-s");
+        domainContains.add(".mcnetwork");
+        domainContains.add(".mcpro");
+        domainContains.add(".mcserv");
+        domainContains.add(".my-serv");
+        domainContains.add(".mygs");
+        domainContains.add(".mymcserver");
+        domainContains.add(".myserver");
+        domainContains.add(".serv");
+        domainContains.add(".aternos");
 
         domainEnds.add(".net");
         domainEnds.add(".eu");

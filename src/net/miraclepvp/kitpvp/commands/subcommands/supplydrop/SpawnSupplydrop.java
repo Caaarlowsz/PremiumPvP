@@ -15,22 +15,11 @@ public class SpawnSupplydrop implements CommandExecutor {
             sender.sendMessage(color("&4You don't have enough permissions to do this."));
             return true;
         }
-        if(args.length != 2){
-            sender.sendMessage(color("&cPlease use /supplydrop spawn <normal/vote>"));
+        if(args.length != 1){
+            sender.sendMessage(color("&cPlease use /supplydrop spawn"));
             return true;
         }
-
-        switch(args[1].toLowerCase()){
-            case "normal":
-                new Supplydrop.Crate(Supplydrop.DropType.NORMAL).spawn();
-                break;
-            case "vote":
-                new Supplydrop.Crate(Supplydrop.DropType.VOTE).spawn();
-                break;
-            default:
-                sender.sendMessage(color("&cPlease use /supplydrop spawn <normal/vote>"));
-                break;
-        }
+        new Supplydrop.Crate(Supplydrop.DropType.NORMAL).spawn();
         return true;
     }
 }

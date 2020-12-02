@@ -20,7 +20,7 @@ public class SignListener implements Listener {
 
     @EventHandler
     public void onSignChange(SignChangeEvent event){
-        if(event.getLine(0).equalsIgnoreCase("[MiraclePvP]")){
+        if(event.getLine(0).equalsIgnoreCase("[KitPvP]")){
             try{
                 StatType statType = StatType.valueOf(event.getLine(1).toUpperCase());
                 try {

@@ -18,6 +18,7 @@ public class HelpGuildTwo implements CommandExecutor {
         player.sendMessage(color("&7Get help with our guild system."));
         player.sendMessage(color(""));
         player.sendMessage(color("&f/guild slow"));
+        player.sendMessage(color("&f/guild friendlyfire"));
         player.sendMessage(color("&f/guild invite <player>"));
         player.sendMessage(color("&f/guild motd <motd>"));
         player.sendMessage(color("&f/guild tranfer <player>"));

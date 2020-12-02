@@ -26,6 +26,8 @@ public class HelpGuildOne implements CommandExecutor {
         player.sendMessage(color("&f/guild info"));
         player.sendMessage(color("&f/guild mute <player/everyone> <time>"));
         player.sendMessage(color("&f/guild rename <new name>"));
+        player.sendMessage(color("&f/guild tag <TAG>"));
+        player.sendMessage(color("&f/guild tagcolor <color>"));
         player.sendMessage(color("&5&m-----------------------------------------------------"));
         return true;
     }

@@ -3,6 +3,7 @@ package net.miraclepvp.kitpvp.commands.subcommands.guild;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.objects.PermissionType;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -48,6 +49,8 @@ public class LeaveGuild implements CommandExecutor {
 
         sender.sendMessage(color("&aYou left the guild!"));
         guild.sendBroadcast(sender.getName() + " left the guild.");
+
+        Board.updatePlayerListName(((Player) sender));
         return true;
     }
 }

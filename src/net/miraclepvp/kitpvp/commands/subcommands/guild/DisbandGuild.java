@@ -3,12 +3,15 @@ package net.miraclepvp.kitpvp.commands.subcommands.guild;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Board;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
@@ -28,8 +31,10 @@ public class DisbandGuild implements CommandExecutor {
         }
         guild.getPlayers().forEach(player -> {
             OfflinePlayer offline = Bukkit.getOfflinePlayer(player);
-            if(offline.isOnline())
+            if(offline.isOnline()) {
                 Bukkit.getPlayer(player).sendMessage(color("&cYou have been removed from the guild because the master disbanded the guild."));
+                Board.updatePlayerListName(Bukkit.getPlayer(player));
+            }
             User target = Data.getUser(offline);
             target.setGuild(null);
         });

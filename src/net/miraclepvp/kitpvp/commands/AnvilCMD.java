@@ -4,13 +4,10 @@ import net.miraclepvp.kitpvp.commands.subcommands.anvil.AddAnvil;
 import net.miraclepvp.kitpvp.commands.subcommands.anvil.HelpAnvil;
 import net.miraclepvp.kitpvp.commands.subcommands.anvil.ListAnvil;
 import net.miraclepvp.kitpvp.commands.subcommands.anvil.RemoveAnvil;
-import net.miraclepvp.kitpvp.commands.subcommands.arena.ListArena;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import javax.swing.*;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 

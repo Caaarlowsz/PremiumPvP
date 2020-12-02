@@ -1,6 +1,5 @@
 package net.miraclepvp.kitpvp.commands;
 
-import com.sk89q.worldedit.util.command.binding.Switch;
 import net.miraclepvp.kitpvp.commands.subcommands.kitpvp.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +18,6 @@ public class KitpvpCMD implements CommandExecutor {
     private TrackerKitpvp trackerKitpvp = new TrackerKitpvp();
     private SaveKitpvp saveKitpvp = new SaveKitpvp();
     private MapKitpvp mapKitpvp = new MapKitpvp();
-    private RealnameKitpvp realnameKitpvp = new RealnameKitpvp();
     private SwitcherballKitpvp switcherballKitpvp = new SwitcherballKitpvp();
 
     @Override
@@ -55,9 +53,6 @@ public class KitpvpCMD implements CommandExecutor {
                 break;
             case "map":
                 mapKitpvp.onCommand(sender, cmd, label, args);
-                break;
-            case "realname":
-                realnameKitpvp.onCommand(sender, cmd, label, args);
                 break;
             case "getswitcherball":
                 switcherballKitpvp.onCommand(sender, cmd, label, args);

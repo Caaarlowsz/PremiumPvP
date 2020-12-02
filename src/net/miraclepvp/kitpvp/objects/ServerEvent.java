@@ -1,16 +1,15 @@
 package net.miraclepvp.kitpvp.objects;
 
 import net.miraclepvp.kitpvp.Main;
-import net.miraclepvp.kitpvp.commands.subcommands.serverevent.LeaveServerevent;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.kit.Kit;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
+import net.miraclepvp.kitpvp.listeners.player.movement.playerJoin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -52,7 +51,7 @@ public class ServerEvent {
         sendBroadcast("&6" + player.getName() + " left the event.");
         players.remove(player.getUniqueId());
 
-        playerJoin.handleSpawn(player);
+        Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(player));
 
         player.removeMetadata("event", Main.getInstance());
     }

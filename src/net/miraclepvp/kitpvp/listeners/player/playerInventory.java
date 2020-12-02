@@ -4,6 +4,9 @@ import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.kit.Kit;
 import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.*;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerDeployEvent;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
+import net.miraclepvp.kitpvp.listeners.player.movement.playerJoin;
 import net.miraclepvp.kitpvp.objects.CosmeticType;
 import net.miraclepvp.kitpvp.objects.hasKit;
 import net.miraclepvp.kitpvp.utils.CooldownUtil;
@@ -11,7 +14,6 @@ import net.miraclepvp.kitpvp.utils.TeleportUtil;
 import net.miraclepvp.kitpvp.bukkit.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -20,12 +22,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -52,18 +51,7 @@ public class playerInventory implements Listener {
                     }
                     Kit kit = Data.getKit(user.getPreviousKit());
                     player.sendMessage(color("&aYou've selected the " + kit.getName() + " kit."));
-                    if (user.isAutoDeploy()) {
-                        TeleportUtil.getTeleport(player);
-                        if(user.giveKit(user.getPreviousKit(), true, true)){
-                            player.setMetadata("kit", new hasKit());
-                            player.setAllowFlight(false);
-                            player.setFlying(false);
-                        }else {
-                            player.sendMessage(color("&cCouldn't set your kit, something went wrong."));
-                            playerJoin.handleSpawn(player);
-                        }
-                        player.setMetadata("kit", new hasKit());
-                    }
+                    if (user.isAutoDeploy()) Bukkit.getPluginManager().callEvent(new PlayerDeployEvent(player, true, true));
                     break;
                 }
                 player.openInventory(KitGUI.getInventory(player, false, 1));
@@ -135,6 +123,12 @@ public class playerInventory implements Listener {
                     }
                     return;
                 }
+            }
+            if (event.getItem().getType() == Material.MUSHROOM_SOUP) {
+                if(player.getHealth()>=player.getMaxHealth()) return;
+                player.setHealth(player.getHealth() + 7 > player.getMaxHealth() ? player.getMaxHealth() : player.getHealth() + 7);
+                player.getItemInHand().setType(Material.BOWL);
+                return;
             }
             if(
                     event.getItem().getType().equals(Material.SNOW_BALL) &&

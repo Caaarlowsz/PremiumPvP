@@ -20,7 +20,6 @@ public class HelpKitpvp implements CommandExecutor {
         player.sendMessage(color("&f/kitpvp info"));
         player.sendMessage(color("&f/kitpvp lobby <player>"));
         player.sendMessage(color("&f/kitpvp map <player>"));
-        player.sendMessage(color("&f/kitpvp realname <player>"));
         player.sendMessage(color("&f/kitpvp setlobby"));
         player.sendMessage(color("&f/kitpvp buildmode"));
         player.sendMessage(color("&f/kitpvp gettracker"));

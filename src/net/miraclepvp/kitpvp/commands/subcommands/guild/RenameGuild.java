@@ -1,16 +1,14 @@
 package net.miraclepvp.kitpvp.commands.subcommands.guild;
 
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.user.User;
+import net.miraclepvp.kitpvp.objects.Board;
 import net.miraclepvp.kitpvp.objects.PermissionType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -55,6 +53,11 @@ public class RenameGuild implements CommandExecutor {
 
         guild.setName(args[1]);
         guild.sendBroadcast(sender.getName() + " changed the guildname to " + guild.getName() + ".");
+
+        guild.getPlayers().forEach(player -> {
+            if(Bukkit.getOfflinePlayer(player).isOnline())
+                Board.updatePlayerListName(Bukkit.getPlayer(player));
+        });
         return true;
     }
 }

@@ -1,8 +1,6 @@
 package net.miraclepvp.kitpvp;
 
-import com.mojang.authlib.GameProfile;
 import net.miraclepvp.kitpvp.bukkit.WorldManager;
-import net.miraclepvp.kitpvp.bukkit.reflection.Reflections;
 import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.SQL;
@@ -12,12 +10,16 @@ import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.listeners.*;
 import net.miraclepvp.kitpvp.listeners.SignListener;
 import net.miraclepvp.kitpvp.listeners.entity.projectileHit;
+import net.miraclepvp.kitpvp.listeners.player.movement.*;
+import net.miraclepvp.kitpvp.listeners.player.pvp.playerDamage;
+import net.miraclepvp.kitpvp.listeners.player.pvp.playerDamageRegister;
+import net.miraclepvp.kitpvp.listeners.player.pvp.playerDeath;
+import net.miraclepvp.kitpvp.listeners.player.pvp.playerShoot;
 import net.miraclepvp.kitpvp.listeners.weatherChange;
 import net.miraclepvp.kitpvp.objects.*;
 import net.miraclepvp.kitpvp.commands.*;
 import net.miraclepvp.kitpvp.listeners.player.*;
 import net.miraclepvp.kitpvp.utils.ActionbarUtil;
-import net.miraclepvp.kitpvp.utils.LicenseHandler;
 import net.miraclepvp.kitpvp.utils.Trails;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -33,6 +35,29 @@ import java.util.*;
 import static net.miraclepvp.kitpvp.bukkit.Text.color;
 
 public final class Main extends JavaPlugin {
+
+    /* TODO
+        1. Cooldown to respawn after you get killed
+        2. Rewards for KillStreaks or rewards for leveling up
+        3. Option to modify store items (of the npc)
+        4. Duel scoreboard, such as showing the opponent's ping, life, soups or potions.
+        5. Guild duels
+        6. More special items (https://www.youtube.com/watch?v=NZWXbDjjHrs&feature=emb_err_woyt&ab_channel=Wazup92)
+    */
+
+    /* TODO working on
+        1. Scoreboard 100% customizable
+        2. Custom chat format
+    */
+
+    /* ADDED
+        1. Toggle the possibility to hover on peoples names in chat
+        2. Guild friendly fire toggle
+        3. Update Notifier
+        4. Title support
+        5. Allow your players to drop soups
+        6. Removed unused code
+    */
 
     public String version = getDescription().getVersion();
     public Boolean isDevmode = false;
@@ -59,9 +84,6 @@ public final class Main extends JavaPlugin {
         Config.load();
         getLogger().info("Config has been loaded");
 
-        if (!new LicenseHandler(Config.getLicenseKey(), "https://www.sanchyro.nl/license/verify.php", this).setSecurityKey("H52IJL4KVfgk93Cyfhkbns0h34b4dfH3KFQF").register())
-            return;
-
         StatType.load();
         getLogger().info("Stats Types have been loaded");
 
@@ -71,16 +93,16 @@ public final class Main extends JavaPlugin {
         Data.load();
         getLogger().info("Data has been loaded");
 
-        NickManager.field = Reflections.getField(GameProfile.class, "name");
-
-        try {
-            mysqlSetup();
-            SQL.ReportSQL.createTabel();
-            getLogger().info("Connected to the MySQL Database.");
-        } catch (Exception e) {
-            getLogger().warning("MySQL failed to connect");
-            if (!isDevmode)
-                getPluginLoader().disablePlugin(this);
+        if(Config.UseMySQL()) {
+            try {
+                mysqlSetup();
+                SQL.ReportSQL.createTabel();
+                getLogger().info("Connected to the MySQL Database.");
+            } catch (Exception e) {
+                getLogger().warning("MySQL failed to connect");
+                if (!isDevmode)
+                    getPluginLoader().disablePlugin(this);
+            }
         }
 
         Bukkit.getServer().getWorlds().forEach(world -> {
@@ -115,8 +137,6 @@ public final class Main extends JavaPlugin {
                 new BountyListener(),
                 new weatherChange(),
                 new ReportListener(),
-                new playerNick(),
-                new playerUnnick(),
                 new KitEditListener(),
                 new AbilityListener(),
                 new LeaderboardListener(),
@@ -126,15 +146,17 @@ public final class Main extends JavaPlugin {
                 new ShopListener(),
                 new playerConsume(),
                 new AnvilListener(),
-                new DuelListener()
+                new DuelListener(),
+                new playerSpawn(),
+                new playerDeploy()
         );
         getLogger().info("There are " + eventSize + " events loaded!");
 
         registerCommands(
                 new String[]{
                         "unbreakable", "rename", "cosmotokens", "trail", "suffix", "chatcolor", "namecolor", "stats", "kitpvp", "prefix", "kit",
-                        "coins", "guild", "spawnpoints", "chat", "staffchat", "sc", "supplydrop", "zone", "booster", "fly", "nick", "report", "crate",
-                        "spawn", "npc", "freeze", "discord", "top", "duel", "map", "arena", "serverevent", "resetstats", "anvil", "hidechat"
+                        "coins", "guild", "spawnpoints", "chat", "staffchat", "sc", "supplydrop", "zone", "booster", "fly", "report", "crate",
+                        "spawn", "freeze", "discord", "top", "duel", "map", "arena", "resetstats", "anvil", "hidechat"
                 },
                 new UnbreakableCMD(),
                 new RenameCMD(),
@@ -157,18 +179,15 @@ public final class Main extends JavaPlugin {
                 new ZoneCMD(),
                 new BoosterCMD(),
                 new FlyCMD(),
-                new NickCMD(),
                 new ReportCMD(),
                 new CrateCMD(),
                 new SpawnCMD(),
-                new NPCCMD(),
                 new FreezeCMD(),
                 new DiscordCMD(),
                 new TopCMD(),
                 new DuelCMD(),
                 new MapCMD(),
                 new ArenaCMD(),
-                new ServereventCMD(),
                 new ResetstatsCMD(),
                 new AnvilCMD(),
                 new HidechatCMD()
@@ -268,29 +287,31 @@ public final class Main extends JavaPlugin {
         }.runTaskTimer(this, 36000L, 72000L);
         getLogger().info("Supplydrop system is loaded");
 
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                try {
-                    Statement statement = getConnection().createStatement();
-                    ResultSet res = statement.executeQuery("SELECT * FROM faketable;");
-                    res.next();
-                } catch (SQLException e) {
-                } catch (Exception e) {
-                    if (!isDevmode)
-                        e.printStackTrace();
+        if(Config.UseMySQL()) {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    try {
+                        Statement statement = getConnection().createStatement();
+                        ResultSet res = statement.executeQuery("SELECT * FROM faketable;");
+                        res.next();
+                    } catch (SQLException e) {
+                    } catch (Exception e) {
+                        if (!isDevmode)
+                            e.printStackTrace();
+                    }
                 }
-            }
-        }.runTaskTimerAsynchronously(this, 0, 12000);
+            }.runTaskTimerAsynchronously(this, 0, 12000);
 
-        try {
-            Statement statement = getConnection().createStatement();
-            statement.execute("CREATE TABLE IF NOT EXISTS `reports` (`id` INT NOT NULL AUTO_INCREMENT, `uid` VARCHAR(36) NOT NULL, `tid` VARCHAR(36) NOT NULL, `message` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`));");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (Exception ex){
-            if(!isDevmode)
-                ex.printStackTrace();
+            try {
+                Statement statement = getConnection().createStatement();
+                statement.execute("CREATE TABLE IF NOT EXISTS `reports` (`id` INT NOT NULL AUTO_INCREMENT, `uid` VARCHAR(36) NOT NULL, `tid` VARCHAR(36) NOT NULL, `message` VARCHAR(255) NOT NULL, PRIMARY KEY (`id`));");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (Exception ex) {
+                if (!isDevmode)
+                    ex.printStackTrace();
+            }
         }
     }
 
@@ -335,8 +356,7 @@ public final class Main extends JavaPlugin {
             synchronized (this) {
                 if (getConnection() != null && !getConnection().isClosed()) return;
                 Class.forName("com.mysql.jdbc.Driver");
-                setConnection(DriverManager.getConnection("jdbc:mysql://" + this.host + ":"
-                        + this.port + "/" + this.database, this.username, this.password));
+                setConnection(DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database, this.username, this.password));
             }
         } catch (SQLException e) {
             e.printStackTrace();

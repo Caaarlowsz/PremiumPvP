@@ -9,6 +9,6 @@ public class playerStatusChange implements Listener {
 
     @EventHandler
     public void onChange(PlayerStatusChangeEvent event){
-        Board.showScoreboard(event.getPlayer());
+        Board.updateScoreboard(event.getPlayer());
     }
 }

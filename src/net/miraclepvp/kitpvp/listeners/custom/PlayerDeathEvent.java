@@ -2,7 +2,7 @@ package net.miraclepvp.kitpvp.listeners.custom;
 
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.listeners.player.playerDamageRegister;
+import net.miraclepvp.kitpvp.listeners.player.pvp.playerDamageRegister;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;

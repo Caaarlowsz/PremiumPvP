@@ -2,7 +2,6 @@ package net.miraclepvp.kitpvp.commands;
 
 import net.miraclepvp.kitpvp.commands.subcommands.duel.*;
 import net.miraclepvp.kitpvp.data.duel.Duel;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

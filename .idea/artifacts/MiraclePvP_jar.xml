@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="MiraclePvP:jar">
-    <output-path>$PROJECT_DIR$/../../server/plugins</output-path>
-    <root id="archive" name="MiraclePvP.jar">
-      <element id="module-output" name="MiraclePvP" />
-    </root>
-  </artifact>
-</component>

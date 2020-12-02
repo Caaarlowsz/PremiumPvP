@@ -1,6 +1,5 @@
 package net.miraclepvp.kitpvp.inventories;
 
-import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.bukkit.ItemstackFactory;
 import net.miraclepvp.kitpvp.data.Data;
 import net.miraclepvp.kitpvp.data.kit.ArmorSlot;

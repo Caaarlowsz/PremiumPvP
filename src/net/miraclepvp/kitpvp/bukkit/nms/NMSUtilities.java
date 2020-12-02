@@ -1,5 +1,6 @@
 package net.miraclepvp.kitpvp.bukkit.nms;
 
+import net.miraclepvp.kitpvp.bukkit.Text;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Constructor;
@@ -19,7 +20,7 @@ public class NMSUtilities {
         }
     }
 
-    /*public static void sendTitle(Player player, String title, String subtitle, int fadein, int stay, int fadeout) {
+    public static void sendTitle(Player player, String title, String subtitle, int fadein, int stay, int fadeout) {
         title = Text.color(title);
         subtitle = Text.color(subtitle);
 
@@ -42,7 +43,7 @@ public class NMSUtilities {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }*/
+    }
 
     public static void sendActionBar(Player player, String message) {
         message = color(message);

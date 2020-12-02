@@ -1,6 +1,7 @@
 package net.miraclepvp.kitpvp.commands;
 
 import net.miraclepvp.kitpvp.bukkit.Text;
+import net.miraclepvp.kitpvp.data.Config;
 import net.miraclepvp.kitpvp.data.report.Reports;
 import net.miraclepvp.kitpvp.inventories.ReportGUI;
 import org.bukkit.Bukkit;
@@ -27,6 +28,11 @@ public class ReportCMD implements CommandExecutor {
         }
         if (args.length == 0) {
             sender.sendMessage(color("&cPlease use /report <player>."));
+            return true;
+        }
+
+        if(!Config.UseMySQL()) {
+            sender.sendMessage(color("&4The report system is currently disabled."));
             return true;
         }
 

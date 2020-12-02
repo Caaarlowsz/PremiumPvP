@@ -1,6 +1,5 @@
 package net.miraclepvp.kitpvp.commands.subcommands.kitpvp;
 
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;

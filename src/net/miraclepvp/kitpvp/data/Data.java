@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import net.miraclepvp.kitpvp.Main;
 import net.miraclepvp.kitpvp.bukkit.WorldManager;
 import net.miraclepvp.kitpvp.data.chatcolor.Chatcolor;
-import net.miraclepvp.kitpvp.data.duel.Arena;
 import net.miraclepvp.kitpvp.data.duel.Map;
 import net.miraclepvp.kitpvp.data.guild.Guild;
 import net.miraclepvp.kitpvp.data.kit.Kit;
@@ -16,7 +15,6 @@ import net.miraclepvp.kitpvp.data.sign.Sign;
 import net.miraclepvp.kitpvp.data.suffix.Suffix;
 import net.miraclepvp.kitpvp.data.trail.Trail;
 import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.utils.LicenseHandler;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -191,6 +189,11 @@ public class Data {
                     e.printStackTrace();
                 }
             });
+        }
+        try{
+            getPrefix("Default");
+        }catch (Exception ex){
+            Data.prefixes.add(new Prefix("Default", "&7"));
         }
         chatcolors.clear();
         if (chatcolorsDataFolder.listFiles().length > 0) {

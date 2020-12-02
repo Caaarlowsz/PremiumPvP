@@ -17,7 +17,7 @@ public class InfoKitpvp implements CommandExecutor {
         player.sendMessage(color("&fKitPvP"));
         player.sendMessage(color("&7Version " + Main.getInstance().version));
         player.sendMessage(color(""));
-        player.sendMessage(color("&fAuthor: &7AlmostSomeone"));
+        player.sendMessage(color("&fAuthor: &7" + Main.getInstance().getDescription().getAuthors().get(0)));
         player.sendMessage(color("&5&m-----------------------------------------------------"));
         return true;
     }

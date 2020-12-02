@@ -1,7 +1,9 @@
 package net.miraclepvp.kitpvp.commands;
 
 import net.miraclepvp.kitpvp.Main;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
+import net.miraclepvp.kitpvp.listeners.player.movement.playerJoin;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -39,7 +41,7 @@ public class SpawnCMD implements CommandExecutor {
                         player.sendMessage(color("&cTeleportation cancelled because you are in combat."));
                         return;
                     }
-                    playerJoin.handleSpawn(player);
+                    Bukkit.getPluginManager().callEvent(new PlayerSpawnEvent(player));
                 }
             }
         }.runTaskLater(Main.getInstance(), 100L);

@@ -7,7 +7,9 @@ import net.miraclepvp.kitpvp.data.user.User;
 import net.miraclepvp.kitpvp.inventories.KitEditGUI;
 import net.miraclepvp.kitpvp.inventories.KitGUI;
 import net.miraclepvp.kitpvp.inventories.KitLayoutGUI;
-import net.miraclepvp.kitpvp.listeners.player.playerJoin;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerDeployEvent;
+import net.miraclepvp.kitpvp.listeners.custom.PlayerSpawnEvent;
+import net.miraclepvp.kitpvp.listeners.player.movement.playerJoin;
 import net.miraclepvp.kitpvp.objects.hasKit;
 import net.miraclepvp.kitpvp.utils.TeleportUtil;
 import org.bukkit.Bukkit;
@@ -133,21 +135,7 @@ public class KitListener implements Listener {
                     player.sendMessage(color("&aYou've selected the " + kit.getName() + " kit."));
                     user.setPreviousKit(kit.getUuid());
 
-                    if(user.isAutoDeploy()) {
-                        if(Duel.invites.containsKey(player.getUniqueId())){
-                            player.sendMessage(color("&cYou can't deploy while your invite is still open."));
-                            return;
-                        }
-                        TeleportUtil.getTeleport(player);
-                        if(user.giveKit(user.getPreviousKit(), true, true)){
-                            player.setMetadata("kit", new hasKit());
-                            player.setAllowFlight(false);
-                            player.setFlying(false);
-                        }else {
-                            player.sendMessage(color("&cCouldn't set your kit, something went wrong."));
-                            playerJoin.handleSpawn(player);
-                        }
-                    }
+                    if(user.isAutoDeploy()) Bukkit.getPluginManager().callEvent(new PlayerDeployEvent(player, true, true));
 
                 } else if (event.getClick().equals(ClickType.RIGHT)) {
                     if(kit.getPrice() == 0){

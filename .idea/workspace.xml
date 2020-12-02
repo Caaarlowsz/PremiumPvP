@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="MiraclePvP:jar" />
+      <artifact name="PremiumPvP:jar" />
     </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="BuildServerSettings">
     <option name="LOGIN" value="sanchyro@live.nl" />
@@ -29,23 +47,496 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154b3d5b-c682-4884-a482-d239a5e84b4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/BuyableSuffix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RemoveSuffix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SetSuffix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_1_8_8_R0_1_SNAPSHOT_latest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Placeholders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/UpdateChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/FriendlyFireGuild.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/TagGuild.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/TagcolorGuild.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerDeployEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerSpawnEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerDeploy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerJoin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerSpawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerTeleport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/pvp/playerDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboard.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MiraclePvP_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/WorldGuard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/WorldGuard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/spigot1_8_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/worldedit_bukkit_6_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/worldedit_bukkit_6_1_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/META-INF/MiraclePvP.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SuffixCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SuffixCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiraclePvP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MiraclePvP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/GameProfileBuilder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/GameProfileBuilder$CachedProfile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/GameProfileBuilder$GameProfileSerializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/GameProfileBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/NMSNickManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/NMSNickManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/UUIDFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/UUIDFetcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/nms/NMSUtilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/bukkit/nms/NMSUtilities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/CrateCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/CrateCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/DuelCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/DuelCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/FreezeCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/FreezeCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/GuildCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/GuildCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/KitpvpCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/KitpvpCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/LevelCMD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/NPCCMD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/NickCMD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/ReportCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/ReportCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/ResetstatsCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/ResetstatsCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SpawnCMD$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SpawnCMD$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SpawnCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/SpawnCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/StaffchatCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/StaffchatCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/StatsCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/StatsCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/TopCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/TopCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/arena/HelpArena.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/arena/HelpArena.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/arena/ListArena.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/arena/ListArena.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/HelpChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/HelpChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/ListChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/ListChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/coins/HelpCoins.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/coins/HelpCoins.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/duel/HelpDuel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/duel/HelpDuel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/AcceptGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/AcceptGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/CreateGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/CreateGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/DisbandGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/DisbandGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/DiscordGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/DiscordGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/HelpGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/HelpGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/InfoGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/InfoGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/InviteGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/InviteGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/KickGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/KickGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/LeaveGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/LeaveGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/MembersGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/MembersGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/MotdGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/MotdGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/OnlineGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/OnlineGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/PermissionsGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/PermissionsGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/RenameGuild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/RenameGuild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildOne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildOne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildTwo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildTwo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kit/HelpKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kit/HelpKit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kit/ListKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kit/ListKit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/InfoKitpvp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/InfoKitpvp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/LobbyKitpvp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/LobbyKitpvp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SaveKitpvp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SaveKitpvp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/map/HelpMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/map/HelpMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/map/ListMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/map/ListMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/namecolor/HelpName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/namecolor/HelpName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/namecolor/ListName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/namecolor/ListName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/HelpPrefix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/HelpPrefix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/InfoPrefix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/InfoPrefix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/ListPrefix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/prefix/ListPrefix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/HelpSpawnpoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/HelpSpawnpoints.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/ListSpawnpoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/ListSpawnpoints.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/suffix/Suffix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/suffix/Suffix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/BountyGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/ListSuffix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/suffix/ListSuffix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/HelpSupplydrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/HelpSupplydrop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/LocationlistSupplydrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/LocationlistSupplydrop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/SpawnSupplydrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/SpawnSupplydrop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/tokens/HelpTokens.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/tokens/HelpTokens.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/trail/HelpTrail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/trail/HelpTrail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/trail/ListTrail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/trail/ListTrail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/zone/HelpZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/zone/HelpZone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/zone/ListZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/commands/subcommands/zone/ListZone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/Data.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/SQL$ReportSQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/SQL$ReportSQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/SQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/SQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel$Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/duel/Duel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/guild/Guild.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/guild/Guild.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/sign/Sign.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/sign/Sign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/data/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/AbilityGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/AbilityGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CrateGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CrateGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CrateGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/CrateGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/KitEditGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/KitEditGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/LeaderboardGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/LeaderboardGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/ProfileGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/ProfileGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/AbilityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/AbilityListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BoosterListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/BoosterListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CrateListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/CrateListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/DuelListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/DuelListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/inventories/listeners/KitListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/SignListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/SignListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/custom/PlayerDeathEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/custom/PlayerDeathEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/custom/PlayerNickEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/custom/PlayerUnnickEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/inventoryClose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/inventoryClose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerBlockChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerBlockChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerChat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerChat$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerChat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister$DamageProfile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDeath.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerDrop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInteract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerInventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerJoin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerJoin$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerJoin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerLeave.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerMove.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerNick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerShoot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerStatusChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerStatusChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerTeleport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/listeners/player/playerUnnick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/CosmeticType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/CosmeticType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/NickManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/NickManager$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/NickManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/PermissionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/PermissionType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop$Crate$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop$Crate$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop$Crate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop$Crate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Supplydrop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Tablist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Tablist$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Tablist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/Tablist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/miracleAnvil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/npc/NPCManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/objects/npc/NPCManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/HologramUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/HologramUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$LogType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler$ValidationType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/net/miraclepvp/kitpvp/utils/LicenseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/nicknames.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiraclePvP/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Crate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Crate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/GameProfileBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/ItemstackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/ItemstackFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/NMSNickManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/SkullBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/SkullBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/Text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/UUIDFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/UUIDFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/WorldManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/WorldManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/nms/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/nms/NMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/nms/NMSUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/nms/NMSUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/reflection/Reflections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/bukkit/reflection/Reflections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/AnvilCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/AnvilCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ArenaCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ArenaCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/BoosterCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/BoosterCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ChatCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ChatCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ChatColorCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ChatColorCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CoinsCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CoinsCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CosmoTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CosmoTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CrateCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/CrateCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DiscordCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DiscordCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DuelCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/DuelCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/FlyCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/FlyCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/FreezeCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/FreezeCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/GuildCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/GuildCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/HidechatCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/HidechatCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitpvpCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/KitpvpCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/LevelCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/MapCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/MapCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/NPCCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/NameColorCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/NameColorCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/NickCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/PrefixCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/PrefixCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/RenameCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/RenameCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ReportCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ReportCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ResetstatsCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ResetstatsCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ServereventCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SpawnCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SpawnCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SpawnpointsCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SpawnpointsCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/StaffchatCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/StaffchatCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/StatsCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/StatsCMD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SuffixCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SuffixCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SupplydropCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/SupplydropCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/TopCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/TopCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/TrailCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/TrailCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/UnbreakableCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/UnbreakableCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ZoneCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/ZoneCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/ResetStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/ResetStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/AddAnvil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/AddAnvil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/HelpAnvil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/HelpAnvil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/ListAnvil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/ListAnvil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/RemoveAnvil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/anvil/RemoveAnvil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/CreateArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/CreateArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/HelpArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/HelpArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/ListArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/ListArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/Pos1Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/Pos1Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/Pos2Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/Pos2Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/RemoveArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/RemoveArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/ToggleArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/arena/ToggleArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/booster/GiveBooster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/booster/GiveBooster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/AddChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/AddChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/DeleteChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/DeleteChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/GiveChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/GiveChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/HelpChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/HelpChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/IconChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/IconChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/ListChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/ListChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/PriceChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/PriceChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/RenameChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/RenameChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/SellpriceChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/chatcolor/SellpriceChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/AddCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/AddCoins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/BalanceCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/BalanceCoins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/HelpCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/HelpCoins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/RemoveCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/RemoveCoins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/SetCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/coins/SetCoins.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/AddCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/AddCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/HelpCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/HelpCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/RemoveCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/RemoveCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/SetCrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/crate/SetCrate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/AcceptDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/AcceptDuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/DeclineDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/DeclineDuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/HelpDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/HelpDuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/InviteDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/InviteDuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/SpectateDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/duel/SpectateDuel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/AcceptGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/AcceptGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/ChatGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/ChatGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/CreateGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/CreateGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DemoteGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DemoteGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DisbandGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DisbandGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DiscordGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/DiscordGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/HelpGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/HelpGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/InfoGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/InfoGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/InviteGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/InviteGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/KickGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/KickGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/LeaveGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/LeaveGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MembersGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MembersGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MotdGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MotdGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MuteGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/MuteGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/OnlineGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/OnlineGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/PermissionsGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/PermissionsGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/PromoteGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/PromoteGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/RenameGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/RenameGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/SlowGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/SlowGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/TransferGuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/TransferGuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/guild/helpPages/HelpGuildTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/AddEffectKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/AddEffectKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/CreateKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/CreateKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/DeleteKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/DeleteKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/EditKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/EditKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/GiveKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/GiveKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/HelpKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/HelpKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ListKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ListKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/PriceKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/PriceKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RemoveEffectKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RemoveEffectKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RenameKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/RenameKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/SellpriceKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/SellpriceKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ToggleKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kit/ToggleKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/BuildmodeKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/BuildmodeKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/HelpKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/InfoKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/InfoKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/LobbyKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/LobbyKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/MapKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/MapKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/RealnameKitpvp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/ReloadKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/ReloadKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SaveKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SaveKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SetlobbyKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SetlobbyKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SwitcherballKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/SwitcherballKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/TrackerKitpvp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/kitpvp/TrackerKitpvp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/CreateMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/DescriptionMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/DescriptionMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/HelpMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/HelpMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/IconMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/IconMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/ListMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/ListMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/NameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/NameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/RemoveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/RemoveMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/TeleportMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/map/TeleportMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/AddName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/AddName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/DeleteName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/DeleteName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/GiveName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/GiveName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/HelpName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/HelpName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/IconName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/IconName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/ListName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/ListName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/PriceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/PriceName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/RenameName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/RenameName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/SellpriceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/namecolor/SellpriceName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/AddPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/AddPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ClearPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ClearPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/DeletePrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/DeletePrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/HelpPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/HelpPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/InfoPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/InfoPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ListPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/ListPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/RenamePrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/RenamePrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetprefixPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetprefixPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetweightPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/prefix/SetweightPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/BroadcastServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/CloseServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/HelpServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/JoinServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/LeaveServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/OpenServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/SetkitServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/SetlocationServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/StartServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/serverevent/StopServerevent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/AddSpawnpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/AddSpawnpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/DeleteSpawnpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/DeleteSpawnpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/HelpSpawnpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/HelpSpawnpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/ListSpawnpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/spawnpoint/ListSpawnpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/AddSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/AddSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/BuyableSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/BuyableSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/DeleteSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/DeleteSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/GiveSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/GiveSuffix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/HelpSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/IconSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/IconSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/ListSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/ListSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/PriceSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/PriceSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RemoveSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RemoveSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RenameSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/RenameSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SellpriceSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SellpriceSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SetSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/suffix/SetSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/AddlocSupplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/AddlocSupplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/HelpSupplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/HelpSupplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/LocationlistSupplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/LocationlistSupplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/RemovelocSupplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/RemovelocSupplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/SpawnSupplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/supplydrop/SpawnSupplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/AddTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/AddTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/BalanceTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/BalanceTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/HelpTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/HelpTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/RemoveTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/RemoveTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/SetTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/tokens/SetTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/AddTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/AddTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/DeleteTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/DeleteTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/GiveTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/GiveTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/HelpTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/HelpTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/IconTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/IconTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/ListTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/ListTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/PriceTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/PriceTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/RenameTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/RenameTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/SellpriceTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/trail/SellpriceTrail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/CreateZoneCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/CreateZoneCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/HelpZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/HelpZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/ListZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/ListZone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/RemoveZoneCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/commands/subcommands/zone/RemoveZoneCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Top.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/Top.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/chatcolor/Chatcolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/chatcolor/Chatcolor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Duel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/duel/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/guild/Guild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/guild/Guild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/ArmorSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/ArmorSlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/Editting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/Editting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/Kit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/Kit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitEffects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitEffects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/kit/KitItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/namecolor/Namecolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/namecolor/Namecolor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/prefix/Prefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/prefix/Prefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/report/Reports.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/report/Reports.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/sign/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/sign/Sign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/suffix/Suffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/suffix/Suffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/trail/Trail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/trail/Trail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Abilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Abilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/Booster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/StatType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/StatType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/zone/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/data/zone/Zone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/AbilityGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/AbilityGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/AnvilGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/AnvilGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BankerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BankerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BoosterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BoosterGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BountyGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/BountyGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CosmeticsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CrateGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/CrateGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/DuelGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/DuelGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitEditGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitEditGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/KitLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/LeaderboardGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/LeaderboardGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/PermissionsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/PermissionsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ProfileGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ProfileGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ReportGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ReportGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/ShopGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/AbilityListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/AbilityListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/AnvilListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/AnvilListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BankerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BankerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BoosterListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BoosterListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/BountyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CosmeticsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CrateListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/CrateListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/DuelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/DuelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitEditListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitLayoutListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitLayoutListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/KitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/LeaderboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/LeaderboardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/PermissionsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/PermissionsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ProfileListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ProfileListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ReportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ReportListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ShopListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/ShopListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/SupplydropListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/inventories/listeners/SupplydropListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/SignListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/SignListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerDeathEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerDeathEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerNickEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerStatusChangeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerStatusChangeEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/custom/PlayerUnnickEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/entity/projectileHit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/entity/projectileHit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/inventoryClose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/inventoryClose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerBlockChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerBlockChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerConsume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerConsume.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDamageRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/pvp/playerDamageRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/pvp/playerDeath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerHunger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerHunger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInteract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerJoin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerLeave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerLeave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/movement/playerMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerNick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/pvp/playerShoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerStatusChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerStatusChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerTeleport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/player/playerUnnick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/weatherChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/listeners/weatherChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Chatmode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Chatmode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/CosmeticType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/CosmeticType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Crate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Crate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/NickManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/PermissionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/PermissionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/ServerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/ServerEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Supplydrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Supplydrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Tablist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/Tablist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/hasKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/hasKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/inEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/inEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/isBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/isBuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/miracleAnvil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/objects/npc/NPCManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/ActionbarUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/ActionbarUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/CooldownUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/CooldownUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/HologramUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/HologramUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/LicenseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/PingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/PingUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/TeleportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/TeleportUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/Trails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/miraclepvp/kitpvp/utils/Trails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nicknames.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,10 +606,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/Oude projecten/Spigot/Intellij/StaffPanel" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Libraries/WorldGuard.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.097751714" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.1875" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -126,24 +618,26 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/BadlionNetwork/BadlionClientModAPI" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
-      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.suffix" />
-      <recent name="net.miraclepvp.kitpvp.objects" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.arena" />
-      <recent name="net.miraclepvp.kitpvp.commands.subcommands.duel" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\bukkit" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\net\miraclepvp\kitpvp\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog\commands\subcommands" />
       <recent name="F:\Games\MC\libaries\AntiCombatLog\src\me\sahustei\anticombatlog" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.guild" />
+      <recent name="net.miraclepvp.kitpvp.listeners.custom" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.suffix" />
+      <recent name="net.miraclepvp.kitpvp.objects" />
+      <recent name="net.miraclepvp.kitpvp.commands.subcommands.map" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Development\Jetbrains\IntelliJ\MiraclePvP\src" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog" />
+      <recent name="F:\Games\MC\libaries\AntiCombatLog\src" />
+    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -387,6 +881,53 @@
       <workItem from="1589472535598" duration="3110000" />
       <workItem from="1589561640814" duration="118000" />
       <workItem from="1589618945334" duration="1412000" />
+      <workItem from="1596456096729" duration="11430000" />
+      <workItem from="1596470892630" duration="2000" />
+      <workItem from="1596471262427" duration="3775000" />
+      <workItem from="1596534393671" duration="9421000" />
+      <workItem from="1596553373660" duration="12441000" />
+      <workItem from="1596585828067" duration="337000" />
+      <workItem from="1596621528646" duration="8254000" />
+      <workItem from="1596636095690" duration="2934000" />
+      <workItem from="1596640088876" duration="2171000" />
+      <workItem from="1596645492777" duration="2026000" />
+      <workItem from="1596650501486" duration="4145000" />
+      <workItem from="1596656684774" duration="111000" />
+      <workItem from="1596720170557" duration="2148000" />
+      <workItem from="1597923979524" duration="635000" />
+      <workItem from="1597925783463" duration="328000" />
+      <workItem from="1597926661264" duration="642000" />
+      <workItem from="1597928249389" duration="3717000" />
+      <workItem from="1597953491693" duration="1045000" />
+      <workItem from="1598191126105" duration="977000" />
+      <workItem from="1598192165764" duration="2071000" />
+      <workItem from="1598211025612" duration="72000" />
+      <workItem from="1598361843264" duration="877000" />
+      <workItem from="1598368854196" duration="5793000" />
+      <workItem from="1598526811269" duration="1571000" />
+      <workItem from="1598686199761" duration="42000" />
+      <workItem from="1598688873976" duration="7000" />
+      <workItem from="1598810465414" duration="2153000" />
+      <workItem from="1598874765192" duration="368000" />
+      <workItem from="1598878172229" duration="325000" />
+      <workItem from="1598879547716" duration="620000" />
+      <workItem from="1599035949437" duration="305000" />
+      <workItem from="1599043472862" duration="898000" />
+      <workItem from="1599052173055" duration="3751000" />
+      <workItem from="1599291567360" duration="96000" />
+      <workItem from="1599299371312" duration="3632000" />
+      <workItem from="1599420747115" duration="2000" />
+      <workItem from="1600015756133" duration="2117000" />
+      <workItem from="1600111627883" duration="995000" />
+      <workItem from="1601725525831" duration="373000" />
+      <workItem from="1601725935129" duration="807000" />
+      <workItem from="1601727672810" duration="711000" />
+      <workItem from="1601795619901" duration="1356000" />
+      <workItem from="1601918346099" duration="4061000" />
+      <workItem from="1601922612280" duration="607000" />
+      <workItem from="1602696958669" duration="37000" />
+      <workItem from="1602697033945" duration="6063000" />
+      <workItem from="1603303716140" duration="1306000" />
     </task>
     <task id="LOCAL-00001" summary="Paar changes">
       <created>1570024761085</created>
@@ -497,7 +1038,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -526,90 +1067,61 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed the Bounty Hunter GUI and updated the freeze gui" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2472" y="179" key="#Notifications" timestamp="1582290235595">
+    <state x="2590" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1601725538662">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2590" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601725538662" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602702713379">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596637139251" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1602702713379" />
+    <state x="690" y="278" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1599057039257" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597925818987">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597925818987" />
+    <state x="2660" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596543011235" />
+    <state x="2360" y="98" key="SettingsEditor" timestamp="1601727703344">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597937943551" />
+    <state x="2360" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596539232589" />
+    <state x="2360" y="98" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601727703344" />
+    <state x="440" y="98" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1599044370888" />
+    <state x="2360" y="98" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599052644700" />
+    <state x="2486" y="33" width="1541" height="1027" key="dock-window-1" timestamp="1601923060240">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2486" y="33" width="1541" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1601918927882" />
+    <state x="2486" y="33" width="1541" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601923060240" />
+    <state x="1918" y="57" width="1541" height="1027" key="dock-window-2" timestamp="1601923227701">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1918" y="57" width="1541" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1601920588319" />
+    <state x="1918" y="57" width="1541" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601923227701" />
+    <state x="2610" y="281" key="extract.method.dialog" timestamp="1596540660425">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Notifications/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580923232611" />
-    <state x="2472" y="179" key="#Notifications/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1582290235595" />
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1588080653206">
+    <state x="690" y="281" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596463451084" />
+    <state x="2610" y="281" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596540660425" />
+    <state x="342" y="176" key="new project wizard" timestamp="1598686239533">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="342" y="169" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597927286015" />
+    <state x="2262" y="169" key="new project wizard/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596470581942" />
+    <state x="342" y="176" key="new project wizard/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1598686239533" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1596621693089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588080653206" />
-    <state x="611" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588859621753">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596621693089" />
+    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup" timestamp="1596637386919">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="611" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588859621753" />
-    <state x="2531" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586850572606" />
-    <state x="723" y="405" width="475" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1589104806201">
+    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596637386919" />
+    <state x="682" y="432" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1597928488423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="723" y="405" width="475" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589104806201" />
-    <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1582135322591">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2596" y="239" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1582135322591" />
-    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589096097632">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="578" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589096097632" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589096024592">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589096024592" />
-    <state x="2505" y="1" key="CommitChangelistDialog2" timestamp="1589476617956">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589442992745" />
-    <state x="2505" y="1" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589476617956" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1588162621404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588162621404" />
-    <state x="2660" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586430007673" />
-    <state x="706" y="230" key="RollbackChangesDialog" timestamp="1585070470899">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="706" y="230" key="RollbackChangesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585070470899" />
-    <state x="2360" y="94" key="SettingsEditor" timestamp="1588777273801">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="684" y="189" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588071325578" />
-    <state x="2360" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588777273801" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1582392027266">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582392027266" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2" timestamp="1589476623697">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589442996464" />
-    <state x="2472" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1589476623697" />
-    <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1586850488051">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="350" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1586693238770" />
-    <state x="656" y="350" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1586850488051" />
-    <state x="2687" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588845139625">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2687" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588845139625" />
-    <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1589095662837">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589095662837" />
-    <state x="342" y="169" key="new project wizard" timestamp="1588078040662">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="169" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588078040662" />
-    <state x="2019" y="115" key="new project wizard/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1585823528091" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1589097475827">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589097475827" />
-    <state x="2536" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1581784627950" />
-    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup" timestamp="1589440803155">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="226" width="672" height="160" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1589440803155" />
+    <state x="682" y="432" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597928488423" />
   </component>
 </project>

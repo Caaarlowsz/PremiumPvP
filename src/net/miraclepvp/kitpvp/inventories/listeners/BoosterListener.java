@@ -63,7 +63,7 @@ public class BoosterListener implements Listener {
             }
 
             //Creating the booster
-            Booster.ActiveBooster activeBooster = new Booster.ActiveBooster(event.getWhoClicked().getUniqueId(), type, personal, value, 1800);
+            Booster.ActiveBooster activeBooster = new Booster.ActiveBooster(event.getWhoClicked().getUniqueId(), type, personal, value, 3600);
 
             //Sending a comformation mesesage
             if(personal)

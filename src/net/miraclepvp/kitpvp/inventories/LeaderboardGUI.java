@@ -1,13 +1,9 @@
 package net.miraclepvp.kitpvp.inventories;
 
-import com.sun.prism.shader.Solid_TextureRGB_AlphaTest_Loader;
 import net.miraclepvp.kitpvp.bukkit.ItemstackFactory;
-import net.miraclepvp.kitpvp.bukkit.NMSNickManager;
 import net.miraclepvp.kitpvp.bukkit.SkullBuilder;
-import net.miraclepvp.kitpvp.data.Top;
 import net.miraclepvp.kitpvp.data.user.StatType;
 import net.miraclepvp.kitpvp.data.user.User;
-import net.miraclepvp.kitpvp.objects.NickManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.inventory.Inventory;
@@ -31,7 +27,7 @@ public class LeaderboardGUI {
                     inv.addItem(new ItemstackFactory(
                             SkullBuilder.QUESTION.getSkull())
                             .setDisplayName("&5#" + i)
-                            .addLoreLine("&7Name: " + (NickManager.getRealName(target.getUuid()) == null ? "NaN" : NickManager.getRealName(target.getUuid())))
+                            .addLoreLine("&7Name: " + Bukkit.getOfflinePlayer(target.getUuid()).getName())
                             .addLoreLine("&7" + target.getStat(statType, compact) + " " + statType.getName())
                     );
                 } else {
@@ -47,7 +43,7 @@ public class LeaderboardGUI {
                 inv.addItem(new ItemstackFactory(
                         SkullBuilder.QUESTION.getSkull())
                         .setDisplayName("&5#" + i)
-                        .addLoreLine("&7Name: " + (NickManager.getRealName(target.getUuid()) == null ? "NaN" : NickManager.getRealName(target.getUuid())))
+                        .addLoreLine("&7Name: " + Bukkit.getOfflinePlayer(target.getUuid()).getName())
                         .addLoreLine("&7" + target.getStat(statType, compact) + " " + statType.getName())
                 );
             }

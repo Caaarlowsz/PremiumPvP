@@ -62,6 +62,11 @@ public class DiscordGuild implements CommandExecutor {
             return true;
         }
 
+        if(args[1].contains("&")){
+            sender.sendMessage(color("&cThe discord link can not contain the & symbol."));
+            return true;
+        }
+
         guild.setDiscord(args[1]);
         guild.sendBroadcast(player.getName() + " changed the Guild Discord invite link.");
         return true;

@@ -1,12 +1,24 @@
-license: xxxx-xxxx-xxxx-xxxx
+use-mysql: false
 mysql:
   host: localhost
   port: 3306
-  database: miraclepvp
+  database: kitpvp
   username: username
   password: password
 discord:
-  link: 'https://discord.gg/TPXdxJK'
+  link: 'https://discord.gg/aBcDeFg'
+pvp:
+  allow-soup-drop: true
+  toggle-guild-friendlyfire: false
+title:
+  toggles:
+    kill: true
+    death: false
+    assist: false
+  messages:
+    kill: "&5KILL\n&7You killed %player_name%"
+    death: "&cDEATH\n&7You got killed by %player_name%"
+    assist: "&6ASSIST\n&7You got an assist on %player_name%"
 lobby:
   location: new;0.0;0.0;0.0;0.0;0.0;
 sign:
@@ -15,9 +27,12 @@ broadcast:
   servername: KitPvP
   delay: 900
   messages:
-    - 'Set endless messages <3 in the config'
-    - '&d&m-----------------------------------------------------<br>&f%server_name%<br> <br>&7Test message<br>&d&m-----------------------------------------------------'
+    - '&5%arrow% &7Make sure to join our discord server! /discord'
+    - '&5%arrow% &7Dont forget to vote for daily rewards! /vote'
+    - '&5%arrow% &7Make sure to check out our website! &nhttps://www.ExampleServer.net'
 chat:
+  format: '&8[&7%player_level%&8] %player_prefix% &7%player_name% &8%player_suffix%&8: &7'
+  name-hover: true
   curseWords:
     - cancer
     - aids

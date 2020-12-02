@@ -1,0 +1,22 @@
+tablist:
+  enabled: true
+  top: "\n&5&lExampleServer\n&7     1.8.9 is recommended\n"
+  bottom: "\n&7  Players: &5%online_players% &7 - TPS: &5%server_tps% &7 - Ping: &5%player_ping% ms&7  \n\n&7play.ExampleServer.net\n"
+scoreboard:
+  enabled: true
+  title: "&5&lExampleServer"
+  lines:
+    - "&5Level &d>"
+    - "  &fLevel:&7 %player_level%"
+    - "  &fProgress:&7 %player_experience%&8/&7%player_experience_needed%"
+    - "   %player_progressbar%"
+    - "%empty%"
+    - "&5Stats &d>"
+    - "  &fKills:&7 %player_kills%"
+    - "  &fAssists:&7 %player_assists%"
+    - "  &fDeaths:&7 %player_deaths%"
+    - "  &fK/D Ratio:&7 %player_kd%"
+    - "%empty"
+    - "&5Streaks &d>"
+    - "  &fKillstreak:&7 %player_killstreak%"
+    - "  &fHighest Killstreak:&7 %player_highest_killstreak%"

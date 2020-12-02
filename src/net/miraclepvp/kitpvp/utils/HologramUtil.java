@@ -1,17 +1,13 @@
 package net.miraclepvp.kitpvp.utils;
 
-import com.google.common.reflect.Reflection;
-import net.miraclepvp.kitpvp.bukkit.NMSNickManager;
 import net.miraclepvp.kitpvp.bukkit.nms.NMS;
 import net.miraclepvp.kitpvp.bukkit.nms.NMSUtilities;
-import net.miraclepvp.kitpvp.bukkit.reflection.Reflections;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static net.miraclepvp.kitpvp.bukkit.Text.color;

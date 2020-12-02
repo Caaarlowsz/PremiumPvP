@@ -50,6 +50,11 @@ public class MotdGuild implements CommandExecutor {
             message = message + args[i] + " ";
         }
 
+        if(message.contains("&")){
+            sender.sendMessage(color("&cThe motd can not contain the & symbol."));
+            return true;
+        }
+
         guild.sendBroadcast(sender.getName() + " updated the guild motd.");
         guild.setMotd(message);
         return true;

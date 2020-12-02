@@ -49,7 +49,7 @@ public class InviteGuild implements CommandExecutor {
             return true;
         }
 
-        if(guild.getMembers().size() >= 8){
+        if(guild.getPlayers().size() >= guild.getMaxPlayers()){
             sender.sendMessage(color("&cYour guild is full."));
         }
 
