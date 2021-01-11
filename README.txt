@@ -1,3 +1,6 @@
-This project is an old Minecraft Spigot 1.8.8 KitPvP plugin.
+This is a KitPvP plugin for Minecraft 1.8.8.
+The developement is not continued and the plugin has some bugs in it.
 
-Dependency: WorldGuard (Minecraft Plugin)
+Dependencies for full functionality:
+ - WorldEdit
+ - WorldGuard
